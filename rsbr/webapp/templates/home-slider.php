@@ -2,7 +2,7 @@
 .carousel-control.left, .carousel-control.right { background-image:none; }
 </style>
 <div class="container-fluid" style="padding:0px;height:auto;">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="z-index:-1;">
 	<ol class="carousel-indicators">
 	  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 	  <li data-target="#myCarousel" data-slide-to="1"></li>

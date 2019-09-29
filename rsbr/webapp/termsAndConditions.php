@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="styles/api/simple-sidebar.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <?php include_once 'templates/api-params.php'; ?>
 </head>
 <body>
 <style>
@@ -18,6 +20,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 .heading { font-family:longdoosi-regular;font-size:36px;color:#fff; }
 .subheading,.centerUpperheading { font-family:longdoosi-regular;font-size:28px;color:dodgerBlue; }
 .centerUpperheading { text-transform:uppercase; }
+
+.img-header-titleView { width:300px;height:230px;border:2px solid #fff; }
 </style>
 <div id="wrapper" class="toggled">
 	<!-- Core Skeleton : Side and Top Menu -->
@@ -41,7 +45,7 @@ html { overflow-x:hidden;overflow-y:scroll; }
 		<div class="row mtop50p mbot50p">
 		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
 		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
+		   class="img-header-titleView"/>
 		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
 		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;">We are</div>
@@ -53,52 +57,60 @@ html { overflow-x:hidden;overflow-y:scroll; }
 		</div>
 	   </div>
 		
-	   <div class="container-fluid mtop50p mbot50p">
+	   <div class="container-fluid" style="margin-top:75px;margin-bottom:100px;">
 	    <div class="row">
-		 <div class="col-md-12 col-sm-12 col-xs-12 mtop15p mbot15p subheading">
-		   Invite a Royal Success Book of Record Judge
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		 <div class="col-md-12 col-sm-12 col-xs-12 fs22p">
-		   If you wish to get your record verified on spot you can Invite a Judge from "Royal Success
-		   Book of Records" to recognize your record breaking/making attempt. It includes some cost
-		   which will be factored according to the distance of the record making location and the
-		   duration of record making activity.
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div><!--/.row -->
-		<div class="row">
-		 <div class="col-md-12 col-sm-12 col-xs-12  mtop50p mbot15p subheading">
-		   Salient features, will be at your disposal after you receive this service
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		 <div class="col-md-12 col-sm-12 col-xs-12  mtop15p mbot15p fs22p">
-		   <ul>
-			<li>
-			  Advice will be offered on types of record that can be attempted.PR (public relation)
-			  support with coverage in National/State print or electronic media (Facility is available
-			  without adjudication on package).
-			</li>
-			<li>Internal Application Process.
+		  <div class="col-md-12 col-sm-12 col-xs-12 mtop15p mbot15p">
+		  <!-- -->
+		   <div align="center" class="subheading">Invite a Royal Success Book of Record Judge</div>
+		   
+		   <div class="mtop15p fs22p">
+		    If you wish to get your record verified on spot you can Invite a Judge from "Royal Success
+		    Book of Records" to recognize your record breaking/making attempt. It includes some cost
+		    which will be factored according to the distance of the record making location and the
+		    duration of record making activity.
+		   </div>
+		  <!-- -->
+		  </div>
+		</div>
+	    <div class="row">
+		 <div class="col-md-6 col-sm-6 col-xs-12 mtop15p mbot15p">
+
+		   <div class="mtop50p mbot15p subheading">
+		    Salient features, will be at your disposal after you receive this service
+		   </div>
+		   
+		   <div class="mtop15p mbot15p fs22p">
+		    <ul>
+			  <li>
+			    Advice will be offered on types of record that can be attempted.PR (public relation)
+				support with coverage in National/State print or electronic media (Facility is available
+				without adjudication on package).
+			  </li>
+			  <li>Internal Application Process.
 				<ol>
-					<li>Application form to be filled</li>
-				    <li>Verification will be done</li>
-					<li>We approve if the a record is genuine you will be sent an approval letter.</li>
+				  <li>Application form to be filled</li>
+				  <li>Verification will be done</li>
+				  <li>We approve if the a record is genuine you will be sent an approval letter.</li>
 				</ol>
-			</li>
-			<li>License for the usage of Royal Success Book of Records logo for creating awareness
+			  </li>
+			  <li>License for the usage of Royal Success Book of Records logo for creating awareness
 				about your record attempt for up to 3 weeks on leaflets, pamphlets, your website,
 				newspaper and your record making event will be displayed in our latest updates of the
-				website.</li>
+				website.
+			  </li>
 			</ul>
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div><!--/.row -->
-		<div class="row">
-		 <div align="center" class="col-md-12 col-sm-12 col-xs-12  mtop50p mbot15p centerUpperheading">
-			Declaration of the successful record by the judge
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		 <div class="col-md-12 col-sm-12 col-xs-12  mtop15p mbot15p subheading">
-			Terms and Conditions
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		 <div class="col-md-12 col-sm-12 col-xs-12  mtop15p mbot15p fs22p">
-		    <ul>
+		   </div>
+		   
+		 </div>
+		 <div class="col-md-6 col-sm-6 col-xs-12 mtop15p mbot15p">
+		   
+		   <div align="center" class="mtop50p mbot15p centerUpperheading">
+		    Declaration of the successful record by the judge
+		   </div>
+		   
+		   <div class="mtop15p mbot15p subheading">Terms and Conditions</div>
+			<div class="mtop15p mbot15p fs22p">
+			  <ul>
 			  <li>To seek our renowned judge team, contacts us at least 15 days prior to your attempt.</li>
 			  <li>Details about the record must be submitted at least 2 weeks prior to the record attempt.</li>
 			  <li>In case of the group attempt Invite a Judge Form needs to be filled by the organizer</li>
@@ -109,9 +121,11 @@ html { overflow-x:hidden;overflow-y:scroll; }
 				 will be severe towards the people who do so.</li>
 			  <li>NO REFUND OF THE AMOUNT PAID</li>
 			  <li>Payment should be made within 24 hrs of approval letter dispatch.</li>
-			</ul>
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div><!--/.row -->
+			  </ul>
+			</div>
+		   
+		 </div>
+	   </div><!--/.row -->
 		<div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12 mtop50p">
 		  <!-- -->

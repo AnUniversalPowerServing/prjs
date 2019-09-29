@@ -53,7 +53,7 @@
  <!-- -->
  <div style="font-size:16px;">
   <div style="margin-top:5%;">Apply to set a Record</div>
-  <div style="margin-top:5%;">Invite a Judge</div>
+  <div style="margin-top:5%;">Marketing Solutions</div>
   <div style="margin-top:5%;">What makes a RSBR Title?</div>
   <div style="margin-top:5%;">How to set / Break a Record</div>
   <div style="margin-top:5%;">Reasons for Application Rejection</div>

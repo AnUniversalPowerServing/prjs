@@ -1,6 +1,5 @@
 <script type="text/javascript">
 $(document).ready(function(){
- // sideWrapperToggle();
  if($(window).width()<=768){
   sideWrapperToggle();
  }
@@ -75,20 +74,60 @@ style="position:sticky;border:0px;border-radius:0px;background-color:#fcfcfc;mar
 		
 			<div id="topMenu" style="margin-top:2%;">
 			<form class="navbar-form navbar-left">
-			  <!--
-              <div class="input-group">
-				<input type="text" class="form-control btn-purple2-o" placeholder="Search">
-				<div class="input-group-btn">
-				  <button class="btn btn-default btn-purple2" type="submit">
-					<i class="glyphicon glyphicon-search"></i>
-				  </button>
-				</div>
+			  <?php
+  			    if(isset($_SESSION["USER_ACCOUNT_ID"])) { 
+			    if($_SESSION["USER_ACCOUNT_ID"]=='ADMINISTRATOR') { 
+			  ?>
+			   <div class="form-group">
+			     <!-- -->
+<style>
+ul.dropdown-menu>li>a { color:#6d049e; }
+</style>
+			     <div class="dropdown">
+			      <button class="btn btn-default dropdown-toggle btn-purple3-o form-control" 
+				  data-toggle="dropdown">Admin Management 
+				    <span class="caret"></span></button>
+				  <ul class="dropdown-menu" style="width:325px;">
+					<li><a href="manage_admin_panelboard.php"><b>Manage Panel Board</b></a></li>
+					<li class="divider"></li>
+					<li><a href="manage_admin_gallery.php"><b>Manage Gallery</b></a></li>
+					<li class="divider"></li>
+					<li><a href="manage_admin_events.php"><b>Manage Events</b></a></li>
+					<li class="divider"></li>
+					<li><a href="manage_admin_categories.php"><b>Manage Categories</b></a></li>
+					<li class="divider"></li>
+					<li><a href="manage_admin_media.php"><b>Manage News</b></a></li>
+				  </ul>
+				 </div>
+				 <!-- -->
 			  </div>
-			  -->
+			  <div class="form-group">
+			    <!-- -->
+				<div class="dropdown">
+			      <button class="btn btn-default dropdown-toggle btn-purple3-o form-control" data-toggle="dropdown">
+				    Customer Management <span class="caret"></span></button>
+				  <ul class="dropdown-menu" style="width:325px;">
+					<li><a href="manage_customer_viewNewRequests.php"><b>View New Requests</b></a></li>
+					<li class="divider"></li>
+					<li><a href="manage_customer_viewRequestsHistory.php"><b>View Requests History</b></a></li>
+				  </ul>
+				</div>
+				<!-- -->
+			  </div>
+			  <div class="form-group">
+			    <a href="#" data-toggle="modal" data-target="#messageBalance">
+			      <button class="btn btn-default btn-purple3-o form-control">View Message Balance</button>
+				</a>
+			  </div>
+			  <?php } else if($_SESSION["USER_ACCOUNT_ID"]=='CUSTOMER') { ?>
+			  <div class="form-group">
+			    <button class="btn btn-default btn-purple3-o form-control"></button>
+			  </div>
+			  <?php } } else { ?>
 			  <div class="form-group">
 			    <button class="btn btn-default btn-purple3-o form-control">Login / Register</button>
 			  </div>
-			  
+			  <?php } ?>
               <div class="form-group">
 			    <button class="btn btn-default btn-purple3 form-control">Download App</button>
 			  </div>
@@ -97,3 +136,32 @@ style="position:sticky;border:0px;border-radius:0px;background-color:#fcfcfc;mar
 			
 		  </div>
 	  </nav>
+
+<!-- Modal ::: Start -->
+<div id="messageBalance" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#3da1f1;color:#fff;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><b>View Message Balance</b></h4>
+      </div>
+      <div class="modal-body">
+      <!-- -->
+	  <div class="container-fluid">
+	   <div class="row">
+	    <div align="center" class="col-md-12 col-sm-12 col-xs-12">
+	    <!-- -->
+		<h3>1000 Messages</h3>
+		<!-- -->
+	    </div><!--/.col-md-6 -->
+	   </div><!--/.row -->
+	  </div><!--/.container-fluid -->
+	  <!-- -->
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal :::End -->
