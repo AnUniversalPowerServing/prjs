@@ -1,5 +1,5 @@
 <style>
-.carousel-control.left, .carousel-control.right { background-image:none; }
+.carousel-control.left, .carousel-control.right { background-image:none;display:none; }
 </style>
 <div class="container-fluid" style="padding:0px;height:auto;">
   <div id="myCarousel" class="carousel slide" data-ride="carousel" style="z-index:-1;">

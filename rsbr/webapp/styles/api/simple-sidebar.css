@@ -82,18 +82,18 @@ ul.sidebar-nav>div>a, ul.sidebar-nav>div>a:focus, ul.sidebar-nav>div>a:hover { c
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 .sidebar-nav li a.active {
     text-decoration: none;
-	color:#000;
-	background-color:#fff;
+	color:#0e2551;
+	background-color:#fbc501;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
-    background: #a02cd6;
+    color:#0e2551;
+    background:#fbc501;
 }
 
 .sidebar-nav li a:focus {
