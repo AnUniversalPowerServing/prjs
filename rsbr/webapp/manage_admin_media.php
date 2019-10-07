@@ -100,7 +100,13 @@ function viewLatestNews(){
 		  <div class="row">
 		    <div id="add_latestNews_alert" class="col-xs-12 col-md-12 col-sm-12">
 			<!-- -->
-			
+<script type="text/javascript">
+function uploadMediaForm(){ 
+ pictureUpload('add_latestNews_pic',{ folderName: 'news' },
+ function(){ return true; },
+ function(){ });
+}
+</script> 			
 			<!-- -->
 			</div><!--/.col-xs-12 col-md-12 col-sm-12 -->
 		  </div><!--/.row -->
@@ -109,9 +115,9 @@ function viewLatestNews(){
 			  <!-- -->
 			  <form name="fileuploadForm" id="fileuploadForm" action="#" method="POST" enctype="multipart/form-data">
 				<input type="file" name="uploadpic" id="uploadpic" accept="image/*"  
-				onchange="javascript:pictureUpload('add_latestNews_pic','news',function(){});" style="visibility:hidden;"/>
+				onchange="javascript:uploadMediaForm();" style="visibility:hidden;"/>
 			    <img id="add_latestNews_pic" src="images/image-upload-icon.png" style="width:50%;height:auto;"
-			    onclick="javascript:document.getElementById('uploadpic').click();"/>
+			    onclick="javascript:pictureUploadClick();"/>
 			  </form>
 			  <!-- -->
 		    </div><!--/.col-xs-12 col-md-12 col-sm-12 -->

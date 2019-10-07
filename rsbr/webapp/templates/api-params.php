@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="styles/api/simple-sidebar.css">
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <!-- include summernote css/js -->
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
 <?php
 $_SESSION["PROJECT_MODE"]='DEBUG'; // DEBUG / PROD
 if($_SESSION["PROJECT_MODE"]=='DEBUG'){
@@ -25,6 +28,8 @@ var USR_LANG = 'english';
 var USER_ACCOUNT_ID='<?php if(isset($_SESSION["USER_ACCOUNT_ID"])) { echo $_SESSION["USER_ACCOUNT_ID"]; } ?>';
 var USER_ACCOUNT_TYPE='<?php if(isset($_SESSION["USER_ACCOUNT_TYPE"])) { echo $_SESSION["USER_ACCOUNT_TYPE"]; } ?>';
 var USER_MOBILE_NUMBER='<?php if(isset($_SESSION["USER_MOBILE_NUMBER"])) { echo $_SESSION["USER_MOBILE_NUMBER"]; } ?>';
+var USER_ACCOUNT_USERNAME='<?php if(isset($_SESSION["USER_ACCOUNT_USERNAME"])) { echo $_SESSION["USER_ACCOUNT_USERNAME"]; } ?>';
+var USER_ACCOUNT_NAME='<?php if(isset($_SESSION["USER_ACCOUNT_NAME"])) { echo $_SESSION["USER_ACCOUNT_NAME"]; } ?>';
 </script>
 <script type="text/javascript">
 function js_ajax(method,url,data,fn_output){
@@ -94,19 +99,29 @@ var modalDivision = document.createElement("div");
 </script>
 <script type="text/javascript">
 var FILENAME;
-function pictureUpload(img_Id,folderName,success_fn) {
-  var form = $('#fileuploadForm')[0];
-  var formData = new FormData(form);
-      formData.append("FOLDER_NAME",folderName);
-	  formData.append('uploadpic', $('input[type=file]')[0].files[0]); 
+function pictureUpload(img_Id,jsonData,uploadVal_fn,success_fn) {
+/*
+  JSONData: { folderName: '', renameFile:'' }
+ */
+  if(uploadVal_fn()){
+	var folderName = jsonData.folderName;
+	var renameFile = jsonData.renameFile;
+    var form = $('#fileuploadForm')[0];
+    var formData = new FormData(form);
+	    formData.append("JSON_DATA",JSON.stringify(jsonData));
+	    formData.append('uploadpic', $('input[type=file]')[0].files[0]); 
       console.log("data: "+JSON.stringify(formData));
-  $.ajax({type: "POST", enctype: 'multipart/form-data', url: "backend/php/dac/controller.module.pic.uploader.php",
-  data: formData, processData: false, contentType: false, cache: false, timeout: 600000, success: function (response) {  
-  console.log("SUCCESS : "+response);
-   FILENAME=PROJECT_URL+'uploads/'+folderName+'/'+response;
-   document.getElementById(img_Id).src=FILENAME;
-   success_fn();
-  },error: function (e) { console.log("ERROR : "+e); } });
+    $.ajax({type: "POST", enctype: 'multipart/form-data', url: PROJECT_URL+"api/upload/file",
+      data: formData, processData: false, contentType: false, cache: false, timeout: 600000, success: function (response) {  
+        console.log("SUCCESS : "+response);
+        FILENAME=PROJECT_URL+'uploads/'+folderName+'/'+response;
+        document.getElementById(img_Id).src=FILENAME;
+        success_fn();
+    },error: function (e) { console.log("ERROR : "+e); } });
+  }
+}
+function pictureUploadClick(){
+ event.preventDefault();document.getElementById('uploadpic').click();
 }
 </script>
 <script type="text/javascript">
@@ -128,5 +143,10 @@ var months=["January","February","March","April","May","June","July","August","S
  var minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
  var seconds = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
  return day+", "+date+" "+month+" "+year+" "+hours + ":"+minutes+" "+am_pm;
+}
+function logout(){
+ console.log("logout");
+ js_ajax("POST",PROJECT_URL+'backend/php/api/app.session.php',{action:'DestroySession'},function(response){
+  window.location.href=PROJECT_URL; });
 }
 </script>

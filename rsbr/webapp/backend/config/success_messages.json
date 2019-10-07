@@ -1,3 +1,4 @@
 { 
-  "S001": { "english":"Database Configuration is going on in backend by our System. Once, it is done. You can view your Complete Site." }
+  "S001": { "english":"Application uploaded Successfully" },
+  "S002": { "english":"Mobile Number Registered. Please Enter OTP Code." }
 }

@@ -15,9 +15,9 @@ else {
  // setTimeout(function(){ $("html").addClass("stop-vertificalScroll"); },400);
 }
 }
-function logout(){
- js_ajax("POST",PROJECT_URL+'backend/php/api/app.session.php',{action:'DestroySession'},function(response){
-  window.location.href=PROJECT_URL; });
+function downloadApplicationFile(event){
+  event.preventDefault();
+  window.open(PROJECT_URL+'doc/RSBR-Application-Form.pdf','_blank');
 }
 </script> 
 <style>
@@ -91,8 +91,8 @@ style="position:sticky;border:0px;border-radius:0px;background-color:#f7f7f7;mar
 			<div id="topMenu" style="margin-top:2%;">
 			<form class="navbar-form navbar-left">
 			  <?php
-  			    if(isset($_SESSION["USER_ACCOUNT_ID"])) { 
-			    if($_SESSION["USER_ACCOUNT_ID"]=='ADMINISTRATOR') { 
+  			    if(isset($_SESSION["USER_ACCOUNT_TYPE"])) { 
+			    if($_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') { 
 			  ?>
 			  <div class="form-group">
 			    <a href="#" data-toggle="modal" data-target="#messageBalance">
@@ -100,9 +100,13 @@ style="position:sticky;border:0px;border-radius:0px;background-color:#f7f7f7;mar
 				</a>
 			  </div>
 			  
-			  <?php } ?>
-			  
-			  <?php } else { ?> 
+			  <?php } else if($_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') {  ?>
+			  <div class="form-group">
+			    <a href="#" data-toggle="modal" data-target="#messageBalance">
+			      <button class="btn btn-rsbr3-o form-control">My Profile</button>
+				</a>
+			  </div>
+			  <?php } } else { ?> 
 			  <div class="form-group">
 			    <a href="#" data-toggle="modal" data-target="#customerLoginRegisterModal" 
 				onclick="javascript:init_loginFrgtPwdForm();">
@@ -111,10 +115,12 @@ style="position:sticky;border:0px;border-radius:0px;background-color:#f7f7f7;mar
 			  </div>
 			  <?php }  ?>
               <div class="form-group">
-			    <button class="btn btn-default btn-rsbr3 form-control">Download Application</button>
+			    <button class="btn btn-default btn-rsbr3 form-control" 
+				onclick="javascript:downloadApplicationFile(event);">
+				Download Application</button>
 			  </div>
 			  
-			  <?php if(isset($_SESSION["USER_ACCOUNT_ID"])) { ?>
+			  <?php if(isset($_SESSION["USER_ACCOUNT_TYPE"])) { ?>
 			   <div class="form-group">
 			    <button class="btn btn-default btn-rsbr3-o form-control" onclick="javascript:logout();">logout</button>
 			  </div>
@@ -374,7 +380,7 @@ function rsbr_customer_register(){
  var accPwd = document.getElementById("customer_register_accPwd").value;
  var confirmAccPwd = document.getElementById("customer_register_confirmAccPwd").value;
  console.log("REGISTER_OTPCODE: "+REGISTER_OTPCODE+"  otpcode: "+otpcode);
- if(otpcode.length>0){
+ if(otpcode.length>0){ 
  if(REGISTER_OTPCODE.toString()===otpcode.trim()){
    if(accPwd.length>=6){
    if(accPwd===confirmAccPwd){

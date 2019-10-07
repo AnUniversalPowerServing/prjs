@@ -19,5 +19,10 @@
   "W018": { "english":"Account Password and Confirm Account Password doesn't matched" },
   "W019": { "english":"Mobile Number already Registered. Please login." },
   "W020": { "english":"Account Password should be atleast 6 charcaters." },
-  "W021": { "english":"Mobile Number or Password is wrong." }
+  "W021": { "english":"Mobile Number or Password is wrong." },
+  "W022": { "english":"Missing Record Title" },
+  "W023": { "english":"Missing Record Description" },
+  "W024": { "english":"Missing Application File" },
+  "W025": { "english":"Missing Username" },
+  "W026": { "english":"Username and Password doesn't match." }
 }

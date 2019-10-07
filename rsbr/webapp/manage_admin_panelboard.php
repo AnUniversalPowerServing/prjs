@@ -218,15 +218,21 @@ $(document).ready(function(){
 				<div id="add_pb_alert" class="form-group">
 				
 				</div>
-				
+<script type="text/javascript">
+function uploadPanelBoardForm(){ 
+ pictureUpload('add_pb_profilepic',{ folderName: 'panelBoard' },
+ function(){ return true; },
+ function(){ });
+}
+</script> 					
 				<div class="form-group">
 				 <div align="center">
 
 				   <form name="fileuploadForm" id="fileuploadForm" action="#" method="POST" enctype="multipart/form-data">
 					  <input type="file" name="uploadpic" id="uploadpic" accept="image/*"  
-				      onchange="javascript:pictureUpload('add_pb_profilepic','panelBoard',function(){});" style="visibility:hidden;"/>
+				      onchange="javascript:uploadPanelBoardForm();" style="visibility:hidden;"/>
 					  <img id="add_pb_profilepic" src="images/profile-pic.jpg" class="panel-board-img" 
-					  onclick="javascript:document.getElementById('uploadpic').click();"/>
+					  onclick="javascript:pictureUploadClick();"/>
 					</form>
 				 
 				 </div>

@@ -194,3 +194,254 @@ Thursday 3rd October 2019 09:11:02 PM [INFO] ::: [app.database.php]  Query(Statu
 Thursday 3rd October 2019 09:11:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
 Thursday 3rd October 2019 09:20:17 PM [INFO] ::: [app.database.php]  Database connected Successfully 
 Thursday 3rd October 2019 10:34:52 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 5th October 2019 01:36:52 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 5th October 2019 01:36:53 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 04:33:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 04:33:03 PM [INFO] ::: [app.database.php]  Query(Status-ERROR) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570359781337.pdf','','','','','','','','','','2019-10-06 16:33:02',''); 
+Sunday 6th October 2019 04:35:12 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 04:35:12 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570359910941.pdf','','','','','','','','','','2019-10-06 16:35:11','UPLOADED'); 
+Sunday 6th October 2019 04:57:10 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 04:57:10 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570361229319.pdf','','','','','','','','','','2019-10-06 16:57:09','UPLOADED'); 
+Sunday 6th October 2019 05:08:33 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 05:08:33 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570361912194.pdf','sdsfrgre frer','rergergr Enter Record Description','','','','','','','','2019-10-06 17:08:32','UPLOADED'); 
+Sunday 6th October 2019 05:11:44 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 05:11:44 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570362103558.pdf','sfffer eferer','weferre Enter Record Description','','','','','','','','2019-10-06 17:11:43','UPLOADED'); 
+Sunday 6th October 2019 05:12:08 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 05:12:08 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570362127668.pdf','ergegv2','efwfr2','','','','','','','','2019-10-06 17:12:07','UPLOADED'); 
+Sunday 6th October 2019 05:12:34 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 05:12:34 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570362153454.pdf','ergegv2','efwfr2','','','','','','','','2019-10-06 17:12:33','UPLOADED'); 
+Sunday 6th October 2019 05:13:10 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 05:13:10 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570362189680.pdf','ergegv2','efwfr2','','','','','','','','2019-10-06 17:13:09','UPLOADED'); 
+Sunday 6th October 2019 05:37:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 05:37:37 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : SELECT * FROM cust_requests WHERE account_Id='1' ORDER BY ts ASC 
+Sunday 6th October 2019 05:38:07 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:27:35 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:28:41 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:29:28 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:29:48 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:31:47 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:32:07 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:33:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:34:27 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:35:38 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:37:34 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:38:59 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:40:17 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:44:51 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:45:25 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:46:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:47:05 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:51:26 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:51:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:51:38 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:51:57 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 06:51:58 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:30:08 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:31:16 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:33:23 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:34:36 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:35:08 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:39:14 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:40:48 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:41:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:43:50 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:47:01 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:47:54 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:47:54 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : UPDATE admin_accounts SET acc_pwd='e10adc3949ba59abbe56e057f20f883e' WHERE admin_Id=1 
+Sunday 6th October 2019 08:48:11 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 08:48:12 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : UPDATE admin_accounts SET acc_pwd='e10adc3949ba59abbe56e057f20f883e' WHERE admin_Id=1 
+Sunday 6th October 2019 09:15:45 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:16:59 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:17:01 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:18:51 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:18:57 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:23:53 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:24:44 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:24:50 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:24:53 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:24:59 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:25:40 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:26:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:37:09 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:39:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:39:32 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:39:43 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:44:47 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:46:53 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:47:58 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:48:06 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:50:23 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:50:56 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:51:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:51:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:52:08 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:52:47 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:53:54 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:53:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:56:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 09:58:32 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:00:18 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:00:54 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:02:20 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:02:36 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:04:01 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:04:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:05:12 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Sunday 6th October 2019 10:05:35 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:21:44 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:26:41 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:27:04 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:27:45 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:27:54 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:28:06 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:28:14 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:28:22 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:28:50 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:33:23 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:34:17 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:34:35 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:34:49 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:39:19 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:40:59 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:41:14 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:05:20 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:07:38 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:08:18 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:08:56 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:09:32 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:10:04 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:10:20 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:19:48 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:20:19 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:21:10 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:21:47 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:22:58 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:23:06 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:23:40 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:24:07 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:24:45 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:25:21 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:25:54 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:26:30 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:27:40 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:28:18 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:28:50 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:29:41 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:31:41 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:32:10 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:32:39 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:32:41 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:33:14 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:33:31 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:44:54 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:46:27 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:47:01 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 08:47:30 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 12:36:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 12:36:16 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 12:38:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 12:39:47 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 12:53:01 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 01:39:30 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 01:39:31 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 01:50:33 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 01:50:39 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 01:52:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 01:52:14 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:46:36 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:46:46 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:46:50 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:49:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:50:05 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:50:35 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:50:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:55:41 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:55:59 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:56:06 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:58:21 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:58:23 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:58:25 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 05:59:28 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:00:29 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:02:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:07:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:08:38 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:09:14 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:13:56 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:14:11 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:14:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:14:50 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:15:02 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:21:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:22:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:23:44 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:26:30 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:27:49 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:41:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:45:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:45:58 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:46:11 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:46:49 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:48:24 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:48:45 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:56:20 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:57:27 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:57:27 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=2 
+Monday 7th October 2019 06:57:28 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:58:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:58:18 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 06:58:18 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=3 
+Monday 7th October 2019 06:58:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:07:12 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:07:20 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:07:20 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=5 
+Monday 7th October 2019 07:07:22 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:02 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:02 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=4 
+Monday 7th October 2019 07:08:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:06 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:06 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=6 
+Monday 7th October 2019 07:08:07 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:09 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:09 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=6 
+Monday 7th October 2019 07:08:10 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:13 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=7 
+Monday 7th October 2019 07:08:14 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:18 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:08:18 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=8 
+Monday 7th October 2019 07:08:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:09:21 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:09:21 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570455559732.pdf','My New Record Title','My New Record Title Description','','','','','','','','2019-10-07 19:09:20','UPLOADED',''); 
+Monday 7th October 2019 07:13:29 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:13:43 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:13:43 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=9 
+Monday 7th October 2019 07:13:44 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:16:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:16:26 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:17:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:17:03 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570456022712.pdf','My New Record Title','My New Record Title Desc','','','','','','','','2019-10-07 19:17:02','UPLOADED',''); 
+Monday 7th October 2019 07:17:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:17:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:17:37 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=10 
+Monday 7th October 2019 07:17:38 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:29:45 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:29:45 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570456784222.pdf','My First Record Title','My First Record Title Description','','','','','','','','2019-10-07 19:29:44','UPLOADED',''); 
+Monday 7th October 2019 07:29:46 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:29:58 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:29:58 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=11 
+Monday 7th October 2019 07:29:59 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:31:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:31:24 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:31:48 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:31:49 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570456907554.pdf','My New F Record Titleist','Enter Record Description My New F Record Titleist','','','','','','','','2019-10-07 19:31:47','UPLOADED',''); 
+Monday 7th October 2019 07:31:50 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:32:15 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:32:15 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=12 
+Monday 7th October 2019 07:32:16 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:33:57 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:33:57 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (1,'http://localhost/prjs/rsbr/webapp/uploads/customers/1/1570457036415.pdf','dfrf eferger fergergv gerger','ewferfer eferer eerferger','','','','','','','','2019-10-07 19:33:56','UPLOADED',''); 
+Monday 7th October 2019 07:33:58 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:34:11 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Monday 7th October 2019 07:34:11 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : DELETE FROM cust_requests WHERE request_Id=13 
+Monday 7th October 2019 07:34:12 PM [INFO] ::: [app.database.php]  Database connected Successfully 

@@ -101,15 +101,21 @@ function deleteAlbumImage(albumName){
 		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		</div>
 	   </div>
-	   
+<script type="text/javascript">
+function uploadGalleryForm(){ 
+ pictureUpload('add_img_gallery',{ folderName: 'gallery' },
+ function(){ return true; },
+ function(){ viewListOfAlbums(); });
+}
+</script> 
 	   <div class="container-fluid mtop15p">
 	    <div class="row">
 		  <div align="right" class="col-xs-12 col-md-12 col-sm-12">
 		    <form name="fileuploadForm" id="fileuploadForm" action="#" method="POST" enctype="multipart/form-data">
 			  <input type="file" name="uploadpic" id="uploadpic" accept="image/*"  
-				      onchange="javascript:pictureUpload('add_img_gallery','gallery',function(){ viewListOfAlbums(); });" style="visibility:hidden;"/>
+				      onchange="javascript:uploadGalleryForm();" style="visibility:hidden;"/>
 			  <span id="add_img_gallery" class="label label-primary" style="padding:10px 15px;cursor:pointer;" 
-			  onclick="javascript:document.getElementById('uploadpic').click();"><b>Add New Images</b></span>
+			  onclick="javascript:pictureUploadClick();"><b>Add New Images</b></span>
 			</form>
 		    
 		  </div><!--/.row -->
