@@ -1,6 +1,5 @@
 <?php session_start(); 
-if(isset($_SESSION["USER_ACCOUNT_ID"]) && isset($_SESSION["USER_ACCOUNT_TYPE"]) && 
-$_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') {
+if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -338,7 +337,7 @@ function viewUploadedApplicationBack(event, url){
   </div><!--/.modal-dialog -->
 </div><!--/.modal -->
 <!-- Modal -->   
-	   <div class="container-fluid" style="background-color:dodgerBlue;">
+	   <div class="container-fluid" style="background-color:#7b7878;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
 		   <span class="heading">My Dashboard</span>
@@ -371,7 +370,7 @@ function viewUploadedApplicationBack(event, url){
 		 
 	     </div><!--/.container-fluid -->
 		 
-	   </div>
+	</div>
 	   <?php include_once 'templates/bottom-footer.php'; ?>
 	</div>
 	

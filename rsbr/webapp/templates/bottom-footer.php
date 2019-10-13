@@ -28,8 +28,11 @@ function adminPanel_formload_login(event){
 function rsbr_adminPanel_newOTPCode(){
  ADMINPANEL_OTPCODE=Math.floor(Math.random()*90000) + 10000;
  console.log("ADMINPANEL_OTPCODE: "+ADMINPANEL_OTPCODE);
+ var phoneNumber = document.getElementById("admin_frgtPwd_mobileNumber").value;
+ var msg="Your New OTP Code for changing Mobile Number is "+ADMINPANEL_OTPCODE;
  js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
- { action:'SEND_OTPCODE', otpcode:ADMINPANEL_OTPCODE},function(response){ console.log(response); });
+ { action:'SEND_OTPCODE', msg:encodeURI(msg), mobile:phoneNumber },function(response){ console.log(response); });
+ div_display_success('adminPanel_header_loginAlert','S007');
 }
 var ADMINPANEL_MOBILESTATUS;
 function adminPanelMobileNumberVerify(event){
@@ -45,12 +48,24 @@ function adminPanelMobileNumberVerify(event){
    if(response.length==0){
        div_display_warning('adminPanel_header_loginAlert','W011');
 	   ADMINPANEL_MOBILESTATUS = false;
+	   adminPanel_hide_OtpCodeForm();
    } else { 
       div_display_success('adminPanel_header_loginAlert','S002');
       ADMINPANEL_MOBILESTATUS = true;
 	  document.getElementById("admin_frgtPwd_mobileNumber").disabled=true;
+	 adminPanel_view_OtpCodeForm();
+	   // Send OTP Code to User
+	   otpCodeSendUp();
    }
  });
+}
+function otpCodeSendUp(){
+ console.log("ADMINPANEL_OTPCODE: "+ADMINPANEL_OTPCODE);
+ var phoneNumber = document.getElementById("admin_frgtPwd_mobileNumber").value;
+ var msg="Your New OTP Code for changing Mobile Number is "+ADMINPANEL_OTPCODE;
+ js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
+ { action:'SEND_OTPCODE', msg:encodeURI(msg), mobile:phoneNumber },function(response){ console.log(response); });
+ div_display_success('adminPanel_header_loginAlert','S006');
 }
 function changePwdAndLogin(event){
  event.preventDefault();
@@ -100,7 +115,14 @@ function adminPanelLogin(event){
    } else { div_display_warning('adminPanel_header_loginAlert','W015'); }
  } else { div_display_warning('adminPanel_header_loginAlert','W025');  }
 }
-</script>  
+
+function adminPanel_view_OtpCodeForm(){
+ if($('#admin_otpcode_form').hasClass('hide-block')){ $('#admin_otpcode_form').removeClass('hide-block'); }
+}
+function adminPanel_hide_OtpCodeForm(){
+ if(!$('#admin_otpcode_form').hasClass('hide-block')){ $('#admin_otpcode_form').addClass('hide-block'); }
+}
+</script>
       <div class="modal-body">
         <!-- -->
 		<div class="container-fluid">
@@ -121,13 +143,17 @@ function adminPanelLogin(event){
 			  </div>
 			</div>
 		  </div><!--/.form-group -->
+	  
+		  <div id="admin_otpcode_form" class="hide-block">
+		  
+		    <div class="form-group">
+			   <label>OTP Code</label>
+			   <input id="admin_frgtPwd_otpcode" type="text" class="form-control" placeholder="Enter OTP Code"/>
+		    </div><!--/.form-group -->
 		   
-		  <div class="form-group">
-			<label>OTP Code</label>
-			<input id="admin_frgtPwd_otpcode" type="text" class="form-control" placeholder="Enter OTP Code"/>
-		  </div><!--/.form-group -->
-		   
-		  <div align="right"><a href="#" onclick="javascript:rsbr_adminPanel_newOTPCode();">Send New OTPCode?</a></div>
+		    <div align="right"><a href="#" onclick="javascript:rsbr_adminPanel_newOTPCode();">Send New OTPCode?</a></div>
+			
+		  </div>
 		   
 		  <div class="form-group">
 			<label>Password</label>
@@ -191,12 +217,13 @@ function adminPanelLogin(event){
  <div align="center" class="col-md-6 col-sm-6 col-xs-12">
 	<div style="font-size:16px;">
 	  <div class="footer-opt">About us</div>
-	  <div class="footer-opt">What logo mean?</div>
 	  <div class="footer-opt">Our Panel Board</div>
 	  <div class="footer-opt">Our Events</div>
 	  <div class="footer-opt">Our Gallery</div>
-	  <div class="footer-opt">Careers</div>  
+	  <div class="footer-opt">Careers</div> 
+	  <?php if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]!='CUSTOMER') { ?>
 	  <div class="footer-opt" data-toggle="modal" data-target="#adminPanel" onclick="javascript:adminPanel_formload_login(event);">Admin Panel</div>  
+	  <?php } ?>
 	</div>
  </div>
  
@@ -207,7 +234,6 @@ function adminPanelLogin(event){
 	  <div class="footer-opt">Contact Us</div>
 	  <div class="footer-opt">Terms and Conditions</div>
 	  <div class="footer-opt">Privacy Policy</div>
-	  <div class="footer-opt">Licensing</div>
 	</div>
  </div>
  
@@ -252,7 +278,7 @@ function adminPanelLogin(event){
 <div class="container-fluid" style="background-color:#fff;">
 <div class="row" style="margin-top:30px;margin-bottom:30px;">
 <div align="center" class="col-md-12 col-sm-12 col-xs-12">
-<img src="images/anups-logo.jpg" style="width:250px;height:auto;"/>
+<div align="center">All Rights Reserved. Copyrights &copy; by Royal Success Book Of Records Private Limited</div>
 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
 </div><!--/.row -->
 </div><!--/.container-fluid -->

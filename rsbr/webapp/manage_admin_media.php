@@ -71,9 +71,9 @@ function viewLatestNews(){
 		
     content+='<div align="right">';
 	if(user==='Y'){
-	content+='<a href="'+PROJECT_URL+'app/media-brief/'+news_Id+'">';
+	content+='<a href="'+PROJECT_URL+'media-brief/'+news_Id+'">';
 	} else {
-	content+='<a href="'+PROJECT_URL+'app/manageadminmedia/'+news_Id+'">';
+	content+='<a href="'+PROJECT_URL+'manage-admin-media-desc/'+news_Id+'">';
 	}
 	content+='<button class="btn btn-xs btn-default btn-green-o"><b>Know more</b></button>';
 	content+='</a>';
@@ -168,27 +168,11 @@ function uploadMediaForm(){
 	<div id="page-content-wrapper">
 	   <?php include_once 'templates/top-header.php';?>
 	   
-	   <div class="container-fluid" style="background-color:#4caf50;">
+	   <div class="container-fluid" style="background-color:#555;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">Manage News</span>
+		   <h2 class="home-media-title" style="color:#fff;">What's happening at Royal Success Book of Records?</h2>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div>
-	   </div>
-	   
-	   <div class="container-fluid" style="background-color:#59c75e;">
-	    <!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;margin-top:15px;">
-			 It presents a continuous, customizable flow of articles organized from the publishers and magazines of
-			 Royal Success Book of Records. 
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		</div>
 	   </div>
 	   

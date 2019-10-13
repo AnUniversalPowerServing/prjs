@@ -116,14 +116,23 @@ function customerprofile_screen_changeName(){
  document.getElementById("customer_profile_name").disabled=false;
 }
 function customerprofile_screen_saveName(){
+ var accountType = document.getElementById("customer_profile_accountType").value;
  var name = document.getElementById("customer_profile_name").value;
  customerprofile_view_nameChangeBtn();
  document.getElementById("customer_profile_name").disabled=true;
+ if(accountType==='CUSTOMER'){
  js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.customer.php',
  { action: 'UPDATE_ACCOUNT_INFO', account_Id: USER_ACCOUNT_ID, name: name },
  function(response){ console.log(response); 
    div_display_success('customerprofile_general_alert','S003'); // S003 : Name updated Successfully.
  });
+ } else if(accountType==='ADMINISTRATOR'){ // Admin
+   js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.admin.php',
+   { action: 'UPDATE_ACCOUNT_INFO', admin_Id: USER_ACCOUNT_ID, name: name },
+   function(response){ console.log(response); 
+     div_display_success('customerprofile_general_alert','S003'); // S003 : Name updated Successfully.
+   });
+ }
 }
 function customerprofile_screen_changeMobile(){
   customerprofile_view_mobileSaveBtn();
@@ -134,42 +143,74 @@ function customerprofile_screen_saveMobile(){
   customerprofile_view_mobileOTPForm();
   document.getElementById("customer_profile_mobile").disabled=true;
 }
-function customerprofile_view_mobileOTPForm(){
- $("#customer_profile_mobileOTP_form").removeClass('hide-block');
-}
-function customerprofile_hide_mobileOTPForm(){
- $("#customer_profile_mobileOTP_form").addClass('hide-block');
-}
-
 var CHANGEMOBILE_OTPCODE = Math.floor(Math.random()*90000) + 10000;
+function customerprofile_screen_changeMobileOTPCode(){
+var phoneNumber = document.getElementById("customer_profile_mobile").value;
+var msg="Your Request for changing Mobile Number is accepted. Please Enter your OTP Code: "+CHANGEMOBILE_OTPCODE;
+ js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
+ { action:'SEND_OTPCODE', msg:encodeURI(msg), mobile:phoneNumber },function(response){ console.log(response); });
+  div_display_success('customerprofile_general_alert','S006');
+}
 function customerprofile_screen_newOTPCode(){
   CHANGEMOBILE_OTPCODE = Math.floor(Math.random()*90000) + 10000;
   console.log("CHANGEMOBILE_OTPCODE: "+CHANGEMOBILE_OTPCODE);
-  js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
-    { action:'SEND_OTPCODE', otpcode:CHANGEMOBILE_OTPCODE},function(response){ console.log(response); });
+  var phoneNumber = document.getElementById("customer_profile_mobile").value;
+  var msg="Your New OTP Code for changing Mobile Number is "+CHANGEMOBILE_OTPCODE;
+ js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
+ { action:'SEND_OTPCODE', msg:encodeURI(msg), mobile:phoneNumber },function(response){ console.log(response); });
+ div_display_success('customerprofile_general_alert','S007');
+}
+function customerprofile_view_mobileOTPForm(){
+ $("#customer_profile_mobileOTP_form").removeClass('hide-block');
+ customerprofile_screen_changeMobileOTPCode();
+}
+function customerprofile_hide_mobileOTPForm(){
+ $("#customer_profile_mobileOTP_form").addClass('hide-block');
+ document.getElementById("customer_profile_otpcode").innerHTML='';
 }
 function customerprofile_screen_verifyAndSaveMobile(){
+ var accountType = document.getElementById("customer_profile_accountType").value;
  var mobileNumber = document.getElementById("customer_profile_mobile").value;
  var otpcode = document.getElementById("customer_profile_otpcode").value;
  console.log("otpcode: "+otpcode+"  CHANGEMOBILE_OTPCODE: "+CHANGEMOBILE_OTPCODE);
  if(CHANGEMOBILE_OTPCODE.toString()===otpcode.trim()){
-   js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.customer.php',
-   { action:'UPDATE_ACCOUNT_INFO', account_Id:USER_ACCOUNT_ID, mobileNumber:mobileNumber },
-   function(response){ console.log(response); 
-     div_display_success('customerprofile_general_alert','S004'); // S004 : MobileNumber updated Successfully.
-   });
+   customerprofile_hide_mobileOTPForm();
+   if(accountType==='CUSTOMER'){
+     js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.customer.php',
+     { action:'UPDATE_ACCOUNT_INFO', account_Id:USER_ACCOUNT_ID, mobileNumber:mobileNumber },
+     function(response){ console.log(response); 
+       div_display_success('customerprofile_general_alert','S004'); // S004 : MobileNumber updated Successfully.
+     });
+   } else if(accountType==='ADMINISTRATOR'){ // Admin
+      js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.admin.php',
+      { action: 'UPDATE_ACCOUNT_INFO', admin_Id: USER_ACCOUNT_ID, mobileNumber: mobileNumber },
+      function(response){ console.log(response); 
+        div_display_success('customerprofile_general_alert','S004'); // S003 : MobileNumber updated Successfully.
+      });
+   }
  }
 }
 function customerprofile_screen_changePassword(){
+ var accountType = document.getElementById("customer_profile_accountType").value;
  var pwd = document.getElementById("customer_profile_pwd").value;
  var confirmpwd = document.getElementById("customer_profile_confirmpwd").value;
- if(pwd.length>6){
+ if(pwd.length>=6){
    if(pwd===confirmpwd){
+     document.getElementById("customer_profile_pwd").value='';
+	 document.getElementById("customer_profile_confirmpwd").value='';
+	 if(accountType==='CUSTOMER'){
      js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.customer.php',
 	  { action: 'UPDATE_ACCOUNT_INFO', account_Id: USER_ACCOUNT_ID, acc_pwd: pwd },
-	 function(response){ console.log(response); 
-	 div_display_success('customerprofile_changePwd_alert','S005'); // S005: Password changed Successfully.
-	 });
+	  function(response){ console.log(response); 
+	  div_display_success('customerprofile_changePwd_alert','S005'); // S005: Password changed Successfully.
+	  });
+	 } else if(accountType==='ADMINISTRATOR'){ // Admin
+      js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.admin.php',
+      { action: 'UPDATE_ACCOUNT_INFO', admin_Id: USER_ACCOUNT_ID, acc_pwd: pwd },
+      function(response){ console.log(response); 
+        div_display_success('customerprofile_general_alert','S005'); // S005 : Password changed Successfully.
+      });
+    }
    } else { div_display_warning('customerprofile_changePwd_alert','W018'); } // W018 : Account Password and Confirm Account Password doesn't matched
  } else { div_display_warning('customerprofile_changePwd_alert','W020'); } //  W020 : Account Password should be atleast 6 charcaters
 }
@@ -198,6 +239,7 @@ function customerprofile_screen_changePassword(){
 			 <div class="form-group">
 			   <label>Name</label>
 			   <div class="input-group">
+			      <input type="hidden" id="customer_profile_accountType" class="form-control" value="<?php echo $_SESSION["USER_ACCOUNT_TYPE"]; ?>"/>
 			      <input id="customer_profile_name" type="text" class="form-control" placeholder="Enter your Name" 
 				  value="<?php echo $_SESSION["USER_ACCOUNT_NAME"]; ?>" disabled/>
 				  <div class="input-group-btn">
@@ -270,12 +312,12 @@ function customerprofile_screen_changePassword(){
 </div>
 <!-- Customer Profile Info ::: End -->
 <style>
-.header-info-link,.header-info-link:hover { text-decoration:none;color:#ffc607; }
+.header-info-link,.header-info-link:hover,.header-info-link:focus,.header-info-link:active { text-decoration:none;color:#ffc607; }
 </style>
 <div class="container-fluid" style="background-color:#0e2551;color:#ffc607;width:100%;min-height:35px;">
  <div class="row">
    <div class="col-md-4 col-sm-4 col-xs-12">
-     <div align="left" style="margin-top:8px;">
+     <div align="center" style="margin-top:8px;">
         <i class="fa fa-envelope" aria-hidden="true" style="color:#ffc607;"></i>&nbsp;&nbsp;
 		<span style="font-size:12px;">admin@royalsuccessbookofrecords.com</span>
 	 </div>
@@ -287,11 +329,17 @@ function customerprofile_screen_changePassword(){
      </div>
    </div>
    <div class="col-md-4 col-sm-4 col-xs-12">
-     <div align="right" style="margin-top:8px;">
-        <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;
-		<i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;&nbsp;
-		<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;&nbsp;
-		<a href="whatsapp://send?abid=phonenumber&text=Hello%2C%20World!" class="header-info-link">
+     <div align="center" style="margin-top:8px;">
+	    <a href="https://www.facebook.com/Royalsuccessbookofrecords-114737719911651" target="_blank" class="header-info-link">
+          <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;
+		</a>
+		<a href="https://twitter.com/@royalsucces" target="_blank" class="header-info-link">
+		  <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;&nbsp;
+		</a>
+		<a href="https://www.instagram.com/royalsuccessbookofrecords/" target="_blank" class="header-info-link">
+		  <i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;&nbsp;
+		</a>
+		<a href="https://api.whatsapp.com/send?phone=919160111369" target="_blank" class="header-info-link">
 		  <i class="fa fa-whatsapp" aria-hidden="true"></i>
 		</a>
 	 </div>
@@ -312,23 +360,17 @@ function customerprofile_screen_changePassword(){
 			<div id="topMenu" style="margin-top:2%;" class="navbar-form navbar-left">
 
 			  <?php
-  			    if(isset($_SESSION["USER_ACCOUNT_TYPE"])) { 
 			    if($_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') { 
 			  ?>
-			  <div class="form-group">
-			    <a href="#" data-toggle="modal" data-target="#messageBalance">
-			      <button class="btn btn-default btn-rsbr3-o form-control">View Message Balance</button>
-				</a>
-			  </div>
-			  
-			  <?php } else if($_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') {  ?>
+			 
+			  <?php } if($_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER' || $_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') {  ?>
 			  <div class="form-group">
 			    <a href="#" data-toggle="modal" data-target="#customerProfileInfo" 
 				onclick="javascript:customerprofile_modal_init();">
 			      <button class="btn btn-rsbr3-o form-control">My Profile</button>
 				</a>
 			  </div>
-			  <?php } } else { ?> 
+			  <?php } else { ?> 
 			  <div class="form-group">
 			    <a href="#" data-toggle="modal" data-target="#customerLoginRegisterModal" 
 				onclick="javascript:init_loginFrgtPwdForm();">
@@ -342,7 +384,7 @@ function customerprofile_screen_changePassword(){
 				Download Application</button>
 			  </div>
 			  
-			  <?php if(isset($_SESSION["USER_ACCOUNT_TYPE"])) { ?>
+			  <?php if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && strlen($_SESSION["USER_ACCOUNT_TYPE"])>0) { ?>
 			   <div class="form-group">
 			    <button class="btn btn-default btn-rsbr3-o form-control" onclick="javascript:logout();">logout</button>
 			  </div>
@@ -356,22 +398,30 @@ function customerprofile_screen_changePassword(){
 <div class="container-fluid" 
 style="background-color:#0e2551;color:#ffc607;width:100%;min-height:35px;">
  <div class="row">
-   <div class="col-md-3 col-sm-3 col-xs-12" 
-   style="background-color:#e91e63;color:#fff;min-height:35px;font-weight:bold;">
-     <div align="center" style="margin-top:8px;">About us</div>
-   </div>
-   <div class="col-md-3 col-sm-3 col-xs-12" 
-   style="background-color:#2196f3;color:#fff;min-height:35px;font-weight:bold;">
-     <div align="center" style="margin-top:8px;">Our Gallery</div>
-   </div>
-   <div class="col-md-3 col-sm-3 col-xs-12" 
-   style="background-color:#4caf50;color:#fff;min-height:35px;font-weight:bold;">
-     <div align="center" style="margin-top:8px;">Our Panel Board</div>
-   </div>
-   <div class="col-md-3 col-sm-3 col-xs-12" 
-   style="background-color:#9c27b0;color:#fff;min-height:35px;font-weight:bold;">
-     <div align="center" style="margin-top:8px;">Our News</div>
-   </div>
+   <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/about-us">
+     <div class="col-md-3 col-sm-3 col-xs-12" 
+       style="background-color:#e91e63;color:#fff;min-height:35px;font-weight:bold;">
+         <div align="center" style="margin-top:8px;">About us</div>
+     </div>
+   </a>
+   <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/user/gallery">
+     <div class="col-md-3 col-sm-3 col-xs-12" 
+        style="background-color:#2196f3;color:#fff;min-height:35px;font-weight:bold;">
+         <div align="center" style="margin-top:8px;">Our Gallery</div>
+     </div>
+   </a>
+   <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/user/panelboard">
+     <div class="col-md-3 col-sm-3 col-xs-12" 
+      style="background-color:#4caf50;color:#fff;min-height:35px;font-weight:bold;">
+        <div align="center" style="margin-top:8px;">Our Panel Board</div>
+     </div>
+   </a>
+   <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/user/media">
+     <div class="col-md-3 col-sm-3 col-xs-12" 
+      style="background-color:#9c27b0;color:#fff;min-height:35px;font-weight:bold;">
+       <div align="center" style="margin-top:8px;">Our News</div>
+     </div>
+   </a>
  </div><!--/.row -->
 </div><!--/.container-fluid -->
 
@@ -549,18 +599,24 @@ function toggle_loginFrgtPwdForm(){
   document.getElementById("header_customer_loginOrUpdatePwd").innerHTML='<b>Login</b>';
   LOGIN_STATUS = 'LOGIN';
  } else { // Show Forgot Password
+   var mobileNumber = document.getElementById("customer_login_mobileNumber").value;
+   if(mobileNumber.length===10){
+   document.getElementById("customer_header_loginAlert").innerHTML='';
    if($('#header_customer_forgotPwdField').hasClass('hide-block')) { 
      $('#header_customer_forgotPwdField').removeClass('hide-block'); 
    }
    if(!$('#header_customer_loginField').hasClass('hide-block')) { 
      $('#header_customer_loginField').addClass('hide-block'); 
    }
+   div_display_success('customer_header_loginAlert','S006');
    rsbr_login_otpSend();
    FRGTPWD=false;
    document.getElementById("header_customer_frgtPasswordTxt").innerHTML='Back to Login';
    document.getElementById("header_customer_loginOrUpdatePwd").innerHTML='<b>Update and Login</b>';
    LOGIN_STATUS = 'UPDATE_AND_LOGIN';
+   } else { div_display_warning('customer_header_loginAlert','W010'); } // Missing Mobile Number
  }
+ 
 }
 </script>
 <script type="text/javascript">
@@ -571,25 +627,29 @@ var LOGIN_OTPCODE = Math.floor(Math.random()*90000) + 10000;
 function rsbr_register_newOTPCode(){
  REGISTER_OTPCODE=Math.floor(Math.random()*90000) + 10000;
  console.log("REGISTER_OTPCODE: "+REGISTER_OTPCODE);
+ div_display_success('customer_header_registerAlert','S007');
  rbsr_register_otpsend();
 }
 function rbsr_register_otpsend(){
-REGISTER_MOBILENUMBER = document.getElementById("customer_register_name").value;
+REGISTER_MOBILENUMBER = document.getElementById("customer_register_mobileNumber").value;
 console.log("REGISTER_MOBILENUMBER: "+REGISTER_MOBILENUMBER);
 var msg="Thanks for Registering RSBR. Your OTP Code is "+REGISTER_OTPCODE;
  js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
  { action:'SEND_OTPCODE', msg:encodeURI(msg), mobile:REGISTER_MOBILENUMBER },function(response){ console.log(response); });
+ 
 }
 function rsbr_login_newOTPCode(){
  LOGIN_OTPCODE=Math.floor(Math.random()*90000) + 10000;
  console.log("LOGIN_OTPCODE: "+LOGIN_OTPCODE);
  console.log("CUSTOMER_LOGIN: "+CUSTOMER_LOGIN_MOBILENUMBER);
+ div_display_success('customer_header_loginAlert','S007');
  rsbr_login_otpSend();
+ 
 }
 function rsbr_login_otpSend(){
  CUSTOMER_LOGIN_MOBILENUMBER = document.getElementById("customer_login_mobileNumber").value;
  console.log("CUSTOMER_LOGIN_MOBILENUMBER: "+CUSTOMER_LOGIN_MOBILENUMBER);
- var msg="Thanks for Registering RSBR. Your OTP Code is "+LOGIN_OTPCODE;
+ var msg="We can help you in login to your Account. Your OTP Code is "+LOGIN_OTPCODE;
  js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
  { action:'SEND_OTPCODE', msg:encodeURI(msg), mobile:CUSTOMER_LOGIN_MOBILENUMBER },function(response){ console.log(response); });
 }
@@ -618,12 +678,10 @@ function rsbr_customer_register_mobileVerify(event){
 	 response = JSON.parse(response);
 	 if(response.length==0){
 	   // Freeze Mobile Number
+	   div_display_success('customer_header_registerAlert','S006');
 	   document.getElementById("customer_register_mobileNumber").disabled=true;
 	   display_registerForm_afterVerify();
-       js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.otpcode.php',
-	   { action:'SEND_OTPCODE', otpcode:REGISTER_OTPCODE},function(response){
-	     console.log(response);
-	   });
+       rbsr_register_otpsend();
 	 } else { div_display_warning('customer_header_registerAlert','W019'); } // W012: Mobile Number Registered, Please Login
 	});
 	// 
@@ -646,7 +704,9 @@ function rsbr_customer_register(event){
    if(accPwd===confirmAccPwd){
      js_ajax('GET',PROJECT_URL+'backend/php/dac/controller.module.accounts.customer.php',
 	 { action:'ADD_ACCOUNT_INFO', name:REGISTER_NAME, mobileNumber:REGISTER_MOBILENUMBER, acc_pwd:accPwd },
-	 function(response){ console.log(response); });
+	 function(response){ console.log(response);
+       window.location.href=PROJECT_URL+'customer/dashboard';
+	 }); 
    } else { div_display_warning('customer_header_registerAlert','W018'); } //  W018 : Account Password =#= Confirm password
   } else { div_display_warning('customer_header_registerAlert','W020'); } // W020 : 6-characters Pwd
  } else { div_display_warning('customer_header_registerAlert','W014'); } // W014 : Invalid OTPCode

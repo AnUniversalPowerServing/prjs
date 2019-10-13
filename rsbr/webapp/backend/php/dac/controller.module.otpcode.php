@@ -6,7 +6,7 @@ if($_GET["action"]){
   $apiKey="ec4BZP39%2bI295oLjphqBLr0TN8LvFctJoQ25vqDlAac%3d";
   $user="santosh.ampani@gmail.com";
   $pwd="santhu$5";
-  $senderId="919491034468";
+  $senderId="DEMOOO";
   $url="http://apps.smslane.com/vendorsms/pushsms.aspx?";
   $url.="apikey=".$apiKey."&user=".$user."&password=".$pwd."&msisdn=".$mobile."&sid=".$senderId."&msg=".$msg."&fl=0";
   echo $url;

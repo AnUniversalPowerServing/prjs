@@ -15,7 +15,7 @@ html { overflow-x:hidden;overflow-y:scroll; }
 var user='<?php echo $_GET["user"]; ?>';
 console.log("user: "+user);
 $(document).ready(function(){
- var news_Id='<?php echo $_GET["news_Id"]; ?>';
+ var news_Id='<?php if(isset($_GET["news_Id"])){ echo $_GET["news_Id"]; } ?>';
  js_ajax('POST',PROJECT_URL+'backend/php/dac/controller.latest.news.php',
  { action:'VIEW_LATEST_NEWS_BY_ID', news_Id:news_Id },function(response){ 
     console.log(response);
@@ -53,7 +53,7 @@ $(document).ready(function(){
 	<div id="page-content-wrapper">
 	   <?php include_once 'templates/top-header.php';?>
 	   
-	   <div class="container-fluid" style="background-color:#4caf50;">
+	   <div class="container-fluid" style="background-color:#777;">
 		 <div class="row">
 	       <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
 		     <span id="news-title" class="heading"></span>

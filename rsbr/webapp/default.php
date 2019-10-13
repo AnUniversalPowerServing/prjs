@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$_SESSION["USER_ACCOUNT_TYPE"]='';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +44,7 @@ function transferToMainPage(){
 </style>
 </head>
 <body>
+
 <!-- -->
  <div class="container-fluid">
   <div class="row">
@@ -56,5 +59,6 @@ function transferToMainPage(){
   </div><!--/.row -->
  </div><!--/.container-fluid -->
 <!-- -->
+
 </body>
 </html>

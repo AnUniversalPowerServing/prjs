@@ -3,5 +3,7 @@
   "S002": { "english":"Mobile Number Registered. Please Enter OTP Code." },
   "S003": { "english":"Name updated Successfully." },
   "S004": { "english":"MobileNumber updated Successfully." },
-  "S005": { "english":"Password changed Successfully." }
+  "S005": { "english":"Password changed Successfully." },
+  "S006": { "english":"An OTPCode is sent to your Number. Please enter it to verify you." },
+  "S007": { "english":"New OTPCode is sent to your Number. Please enter it to verify you." }
 }

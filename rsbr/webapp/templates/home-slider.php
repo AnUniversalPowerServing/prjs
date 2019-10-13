@@ -10,13 +10,15 @@
 	</ol>
 	<div class="carousel-inner">
 	  <div class="item active">
-	    <img src="images/hero-bg.jpg" style="width:100%;height:auto;">
+	    <img src="images/hero-bg.jpg" style="width:100%;height:800px;">
 	  </div>
 	  <div class="item">
-		<img src="images/hero-bg.jpg" style="width:100%;height:auto;">
+		<img src="https://images.adventures.is/assets/uploads/2018/06/15145309/Glacier-hike-Falljokull-Iceland-33.jpg" 
+		style="width:100%;height:800px;">
 	  </div>
 	  <div class="item">
-		<img src="images/hero-bg.jpg" style="width:100%;height:auto;">
+		<img src="https://www.adventureactivitiesuk.com/wp-content/uploads/2018/11/Adventure-activities-kayaking.jpg" 
+		style="width:100%;height:auto;">
 	  </div>
 	</div>
 	<a class="left carousel-control" href="#myCarousel" data-slide="prev">

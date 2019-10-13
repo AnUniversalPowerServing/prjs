@@ -24,8 +24,6 @@ html { overflow-x:hidden;overflow-y:scroll; }
 	  
 	  <?php include_once 'templates/home-row2-media.php';?>
 	  
-	  <?php include_once 'templates/home-row3-headers.php';?>
-	  
 	  <?php include_once 'templates/home-row4-headers.php'; ?>
 	  
 	  <?php include_once 'templates/bottom-footer.php'; ?>

@@ -31,13 +31,15 @@ RewriteRule app/make-rsbr-title make-rsbr-title.php [NC,L]
 RewriteRule app/application-rejection application-rejection.php [NC,L]
 
 RewriteRule app/manage-admin-panelboard manage_admin_panelboard.php?user=N [NC,L]
-RewriteRule app/manage-admin-media/([^/]+)$ manage_admin_media.php?user=N&news_Id=$1 [NC,L]
-RewriteRule app/manage-admin-media-brief manage_admin_media_brief.php?user=N [NC,L]
+RewriteRule app/manage-admin-media manage_admin_media.php?user=N [NC,L]
+RewriteRule manage-admin-media-desc/([^/]+)$ manage_admin_media_brief.php?user=Y&news_Id=$1 [NC,L]
+RewriteRule media-brief/([^/]+)$ manage_admin_media_brief.php?user=N&news_Id=$1 [NC,L]
 RewriteRule app/manage-admin-gallery manage_admin_gallery.php?user=N [NC,L]
+RewriteRule manage-admin-gallery-desc/([^/]+)$ manage_admin_gallery_brief.php?user=Y&news_Id=$1 [NC,L]
+RewriteRule gallery-brief/([^/]+)$ manage_admin_gallery_brief.php?user=N&news_Id=$1 [NC,L]
 
 RewriteRule app/user/panelboard manage_admin_panelboard.php?user=Y [NC,L]
 RewriteRule app/user/media manage_admin_media.php?user=Y [NC,L]
-RewriteRule app/media-brief/([^/]+)$ manage_admin_media_brief.php?user=Y&news_Id=$1 [NC,L]
 RewriteRule app/user/gallery manage_admin_gallery.php?user=Y [NC,L]
 
 RewriteRule app/about-us about-us.php [NC,L]

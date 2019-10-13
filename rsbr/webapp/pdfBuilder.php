@@ -1,37 +1,44 @@
 <?php
-
+session_start();
 require('lib\fpdf\fpdf.php');
 include('lib/phpqrcode/qrlib.php');
-
-if(isset($_POST["rsbr_certificate_txt"]) && isset($_POST["rsbr_certificate_Id"]) && strlen($_POST["rsbr_certificate_Id"])>0){
+// print_r($_POST);
+if(isset($_POST["rsbr_certificate_txt"]) && isset($_POST["rsbr_certificate_desc"]) &&
+isset($_POST["rsbr_certificate_Id"]) && strlen($_POST["rsbr_certificate_Id"])>0){
 $certificateTxt = $_POST["rsbr_certificate_txt"];
+$certificateDesc = $_POST["rsbr_certificate_desc"];
 $certificateId = $_POST["rsbr_certificate_Id"];
-$qrCode = 'http://localhost/prjs/rsbr/web_bak/backend/qrcode.php?qrContent='.$certificateId;
+$qrCode = $_SESSION["PROJECT_URL"].'qrcode.php?qrContent='.$certificateId;
 $pdf=new FPDF();
 
 $pdf->SetTitle('Royal Success Book of Records');
 
-$pdf->AddFont('AgencyFB-Reg','','agencyr.php');
-$pdf->SetFont('AgencyFB-Reg');
+$pdf->AddFont('Times','','times.php');
+$pdf->AddFont('TimesB','','timesb.php');
+$pdf->SetFont('TimesB');
 
-$pdf->AddPage('L','A3');
+$pdf->AddPage('P','Letter');
 
-$pdf->SetTextColor(51,50,50);
+// $pdf->SetTextColor(51,50,50);
 
-$pdf->Image('http://localhost/prjs/rsbr/web_bak/images/certificate.jpg', 0, 0, 420, 297);
+$pdf->Image($_SESSION["PROJECT_URL"].'images/certificate.jpg', 0, 0, 215, 280);
 
-$pdf->SetXY(5,245);
-$pdf->Cell( 30, 30, 
-$pdf->Image($qrCode, $pdf->GetX(), $pdf->GetY(), 30,30,"png")
-, 1, 0, 'C', false );
+$pdf->SetXY(95,238);
+$pdf->Cell( 15, 15, $pdf->Image($qrCode, $pdf->GetX(), $pdf->GetY(), 15,15,"png"), 1, 0, 'C', false );
 
-$pdf->SetXY(30,50);
-$pdf->SetFontSize(40);
+$pdf->SetFontSize(16);
+$lines=$pdf->fitCell(40,13,$pdf,strtoupper($certificateTxt),103,85,10,10,10,10);
+$pdf->SetFontSize(16);
+$descStart=$lines*10;+
 
-$pdf->fitCell($pdf,$certificateTxt,30,173);
+$pdf->SetFont('Times');
+$pdf->SetFontSize(14);
+$pdf->fitCell(90,15,$pdf,$certificateDesc,103,(85+$descStart),10,10,10,10);
 
 $pdf->Output('RoyalSuccessBookOfRecords-Certificate.pdf','I');
 }
-else { header("Location:index.php"); }
+else { 
+ header("Location:".$_SESSION["PROJECT_URL"]."admin/dashboard"); 
+}
 
 ?>

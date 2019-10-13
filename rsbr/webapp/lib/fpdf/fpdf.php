@@ -1895,21 +1895,24 @@ protected function _enddoc()
 	$this->state = 3;
 }
 
-function fitCell($pdf,$t, $x,$y){
+function fitCell($size,$textCount,$pdf,$t,$x,$y,$s,$w,$a,$b){
  $txt = explode(" ",$t);
  $o = $y;
+ $lines=0;
  $printTxt = ''; $i=0;
  for($index=0;$index<count($txt);$index++){
   $printTxt.= $txt[$index].' ';
   $i++;
-   if($i==13 || strlen($printTxt)>50 || $index==count($txt)-1){
+   if($i==$textCount || strlen($printTxt)>$size || $index==count($txt)-1){
     $pdf->SetXY($x,$o);
-	$pdf->Cell(300,10,$printTxt,0,0,'C');
-     $printTxt = '';
-     $i=0;
-	 $o=$o+20;
+	$pdf->Cell($s,$w,$printTxt,$a,$b,'C');
+    $printTxt = '';
+    $i=0;
+    $o=$o+10;
+	$lines++;
    }
  }
+  return $lines;
  }
 
 }

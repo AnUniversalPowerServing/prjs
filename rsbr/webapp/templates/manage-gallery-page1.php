@@ -12,7 +12,7 @@
 
   <div align="right" class="col-xs-12 col-md-12 col-sm-12" style="margin-top:25px;">
      <button class="btn btn-rsbr3-o" data-toggle="modal" data-target="#addLatestNewsModal" 
-	 data-backdrop="static" onclick="event.preventDefault();"><b>Add Latest News</b></button>
+	 data-backdrop="static" onclick="event.preventDefault();"><b>Add Latest Gallery</b></button>
    </div><!--/.row -->
 	     
 </div><!--/.row -->
