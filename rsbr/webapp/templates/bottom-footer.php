@@ -216,24 +216,42 @@ function adminPanel_hide_OtpCodeForm(){
  
  <div align="center" class="col-md-6 col-sm-6 col-xs-12">
 	<div style="font-size:16px;">
-	  <div class="footer-opt">About us</div>
-	  <div class="footer-opt">Our Panel Board</div>
-	  <div class="footer-opt">Our Events</div>
-	  <div class="footer-opt">Our Gallery</div>
-	  <div class="footer-opt">Careers</div> 
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/about-us">About us</a>
+	  </div>
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/user/panelboard">Our Panel Board</a>
+	  </div>
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/user/gallery">Our Gallery</a>
+	  </div>
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/careers">Careers</a>
+	  </div> 
 	  <?php if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]!='CUSTOMER') { ?>
-	  <div class="footer-opt" data-toggle="modal" data-target="#adminPanel" onclick="javascript:adminPanel_formload_login(event);">Admin Panel</div>  
+	  <div class="footer-opt" data-toggle="modal" data-target="#adminPanel" 
+	   onclick="javascript:adminPanel_formload_login(event);"><a href="#">Admin Panel</a></div>  
 	  <?php } ?>
 	</div>
  </div>
  
  <div align="center" class="col-md-6 col-sm-6 col-xs-12">
     <div style="font-size:16px;">
-      <div class="footer-opt">Advertise /Be a Sponsor</div>
-	  <div class="footer-opt">Media</div>
-	  <div class="footer-opt">Contact Us</div>
-	  <div class="footer-opt">Terms and Conditions</div>
-	  <div class="footer-opt">Privacy Policy</div>
+      <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/advertise-sponsor">Advertise /Be a Sponsor</a>
+	  </div>
+	  <div class="footer-opt"> 
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/user/media">Our News</a>
+	  </div>
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/contact-us">Contact Us</a>
+	  </div>
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/termsAndConditions">Terms and Conditions</a>
+	  </div>
+	  <div class="footer-opt">
+	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/privacypolicy">Privacy Policy</a>
+	  </div>
 	</div>
  </div>
  
@@ -248,12 +266,18 @@ function adminPanel_hide_OtpCodeForm(){
  <div align="center" class="col-md-6 col-sm-6 col-xs-12">
  <!-- -->
  <div style="font-size:16px;">
-  <div class="footer-opt">Find Categories</div>
-  <div class="footer-opt">Record Policies</div>
-  <div class="footer-opt">Record Breaking types</div>
-  <div class="footer-opt">RSBR Store</div>
-  <div class="footer-opt">Frequently Asked Questions</div>
-  <div class="footer-opt">Buy Record Books</div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/find-categories">Find Categories</a>
+  </div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/apply-set-a-record">Apply to set a Record</a>
+  </div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/marketing-solutions">Record Breaking types</a>
+  </div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/rsbr-store">RSBR Store</a>
+  </div>
  </div>
  <!-- -->
  </div>
@@ -261,11 +285,20 @@ function adminPanel_hide_OtpCodeForm(){
  <div align="center" class="col-md-6 col-sm-6 col-xs-12">
  <!-- -->
  <div style="font-size:16px;">
-  <div class="footer-opt">Apply to set a Record</div>
-  <div class="footer-opt">Marketing Solutions</div>
-  <div class="footer-opt">What makes a RSBR Title?</div>
-  <div class="footer-opt">How to set / Break a Record</div>
-  <div class="footer-opt">Reasons for Application Rejection</div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/marketing-solutions">Marketing Solutions</a>
+  </div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/make-rsbr-title">What makes a RSBR Title?</a>
+  </div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/apply-set-a-record">
+	  How to set / Break a Record</a>
+  </div>
+  <div class="footer-opt">
+    <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/application-rejection">
+     Reasons for Application Rejection</a>
+  </div>
  </div>
  <!-- -->
  </div>

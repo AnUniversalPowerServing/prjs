@@ -27,7 +27,7 @@ RewriteRule app/our-panel-board our-panel-board.php [NC,L]
 
 RewriteRule app/apply-set-a-record apply-set-a-record.php [NC,L]
 RewriteRule app/marketing-solutions marketing-solutions.php [NC,L]
-RewriteRule app/make-rsbr-title make-rsbr-title.php [NC,L]
+RewriteRule app/make-rsbr-title record-formats.php [NC,L]
 RewriteRule app/application-rejection application-rejection.php [NC,L]
 
 RewriteRule app/manage-admin-panelboard manage_admin_panelboard.php?user=N [NC,L]
