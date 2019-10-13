@@ -22,28 +22,11 @@ html { overflow-x:hidden;overflow-y:scroll; }
 	<div id="page-content-wrapper">
 	   <?php include_once 'templates/top-header.php';?>
 	  
-	   <div class="container-fluid" style="background-color:#4caf50;">
+	   <div class="container-fluid" style="background-color:#555;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">Privacy Policy</span>
+		   <span style="font-family:longdoosi-regular;color:#fff;font-size:28px;">Privacy Policy</span>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div>
-	   </div>
-	   
-	   <div class="container-fluid" style="background-color:#59c75e;">
-	    <!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;">We are</div>
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;margin-top:15px;">
-			Here you can discover everything about our amazing brand, from our history to our new products, 
-			to what it is like to work here and how you can join us!
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		</div>
 	   </div>
 	  

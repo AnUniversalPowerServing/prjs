@@ -11,6 +11,9 @@ class LatestNews {
  function query_view_newsFeedById($news_Id){
   return "SELECT * FROM gallery WHERE news_Id=".$news_Id.";";
  }
+ function query_view_newsFeed3(){
+  return "SELECT * FROM gallery LIMIT 6;";
+ }
 }
 
 ?>

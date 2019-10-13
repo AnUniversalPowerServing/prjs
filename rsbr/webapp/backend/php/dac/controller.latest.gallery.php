@@ -23,6 +23,11 @@ if(isset($_POST["action"])){
 	$latestNews = new LatestNews();
     $query = $latestNews->query_view_newsFeedById($news_Id);
 	echo $database->getJSONData($query);
+ } else if($_POST["action"]=='VIEW_LATEST_NEWS3'){
+    $database = new Database($DB_BASIC_SERVERNAME,$DB_BASIC_NAME,$DB_BASIC_USER,$DB_BASIC_PASSWORD);
+	$latestNews = new LatestNews();
+    $query = $latestNews->query_view_newsFeed();
+	echo $database->getJSONData($query);
  }
 
    

@@ -22,32 +22,14 @@ html { overflow-x:hidden;overflow-y:scroll; }
 	   .heading { font-family:longdoosi-regular;font-size:36px;color:#fff; }
 	   </style>
 	   
-	   <div class="container-fluid" style="background-color:#E91E63;">
+	   <div class="container-fluid" style="background-color:#555;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">Contact Us</span>
+		   <span style="font-family:longdoosi-regular;color:#fff;font-size:28px;">Contact Us</span>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
 		</div>
 	   </div>
 	  
-	  
-	   <div class="container-fluid" style="background-color:#ea3572;">
-	    <!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;margin-top:15px;">
-			We are here to help you with all of your queries related to Intex products. 
-			Get support by Call, Chat, Email or submit your feedback/complaints regarding our products and 
-			services to our experts for instant support.
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		</div>
-	   </div>
-	   
 	   <div class="container-fluid" style="margin-top:100px;">
 	     <div class="row">
 		   <div class="col-md-1 col-sm-1 col-xs-12"></div>

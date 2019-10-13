@@ -8,6 +8,9 @@ class LatestNews {
  function query_view_newsFeed(){
   return "SELECT * FROM news";
  }
+ function query_view_newsFeed3(){
+  return "SELECT * FROM news LIMIT 0,3";
+ }
  function query_view_newsFeedById($news_Id){
   return "SELECT * FROM news WHERE news_Id=".$news_Id.";";
  }

@@ -24,11 +24,30 @@
 	  the Royal Success Book of Records applications process, as well for our website and other products.
 	 </div><!--/div -->
 	 <div align="center" class="col-md-12 col-sm-12 col-xs-12 mtop15p mbot20p">
-	   <button class="btn btn-default btn-green-o"><b>Watch Video</b></button>
+	   <button class="btn btn-default btn-green-o" data-toggle="modal" data-target="#howItWorksModal"><b>Watch Video</b></button>
 	 </div><!--/div -->
 
  
 </div><!--/.col-md-6 .col-sm-6 .col-xs-6 -->
+<div id="howItWorksModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><b>How It Works?</b></h4>
+      </div>
+      <div class="modal-body">
+        <!-- -->
+		 <iframe width="100%" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+		<!-- -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 <div class="col-md-6 col-sm-6 col-xs-12 home-item-bg2">
 
@@ -41,7 +60,9 @@
  Royal Success Book of Records crucially monitors the higher Achievements in the following categories
  </div><!--/div -->
  <div align="center" class="col-md-12 col-sm-12 col-xs-12 mtop15p mbot20p">
-   <button class="btn btn-default btn-blue-o"><b>Know Categories</b></button>
+   <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/find-categories">
+     <button class="btn btn-default btn-blue-o"><b>Know Categories</b></button>
+   </a>
  </div><!--/div -->
  
 </div><!--/.col-md-6 .col-sm-6 .col-xs-6 -->

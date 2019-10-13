@@ -21,25 +21,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 	   <div class="container-fluid" style="background-color:#4caf50;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">Advertise / Be a Sponsor</span>
+		   <span style="font-family:longdoosi-regular;color:#fff;font-size:28px;">Advertise / Be a Sponsor</span>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div>
-	   </div>
-	   
-	   <div class="container-fluid" style="background-color:#59c75e;">
-	    <!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;margin-top:15px;">
-			Advertising is a marketing communication that employs an openly sponsored, non-personal message to promote 
-			or sell a product, service or idea. Sponsors of advertising are typically businesses wishing to promote their 
-			products or services.
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		</div>
 	   </div>
 	   

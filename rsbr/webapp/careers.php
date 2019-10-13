@@ -21,25 +21,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 	   <div class="container-fluid" style="background-color:dodgerBlue;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">Careers</span>
+		   <span style="font-family:longdoosi-regular;color:#fff;font-size:28px;">Careers</span>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div>
-	   </div>
-	   
-	   <div class="container-fluid" style="background-color:#47a2fb;">
-	    <!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;margin-top:15px;">
-		    This is where you can do your best work. Before you apply, let's connect.<br/>
-			Find your Next Job at Royal Success Book of Records.<br/>
-			<h1>What do you want to do?</h1>
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		</div>
 	   </div>
 	   

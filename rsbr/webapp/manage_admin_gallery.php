@@ -171,7 +171,7 @@ function uploadMediaForm(){
 	   <div class="container-fluid" style="background-color:#555;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">Manage Gallery</span>
+		   <span style="font-family:longdoosi-regular;color:#fff;font-size:28px;">Manage Gallery</span>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
 		</div>
 	   </div>

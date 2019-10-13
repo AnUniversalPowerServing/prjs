@@ -21,25 +21,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 	   <div class="container-fluid" style="background-color:dodgerBlue;">
 	    <div class="row">
 		 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
-		   <span class="heading">RSBR Store</span>
+		   <span style="font-family:longdoosi-regular;color:#fff;font-size:28px;">RSBR Store</span>
 		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div>
-	   </div>
-	   
-	   <div class="container-fluid" style="background-color:#47a2fb;">
-	    <!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div style="font-family:longdoosi-regular;font-size:28px;color:#fff;margin-top:15px;">
-			RSBR (Royal Success Book of Records) Store is just the process of selling products of 
-			Royal Success Book of Records like T-Shirts, Record Books, etc. by electronic means such as 
-			by mobile applications and the Internet.
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
 		</div>
 	   </div>
 	   
