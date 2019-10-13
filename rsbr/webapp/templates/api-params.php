@@ -19,7 +19,11 @@ if($_SESSION["PROJECT_MODE"]=='DEBUG'){
  $_SESSION["PROJECT_URL"]="http://royalsuccessbookofrecords.com/";
 }
 ?>
-
+<style>
+@font-face { font-family:inedita;src:url('fonts/Inedita.otf'); }
+@font-face { font-family:glarious;src:url('fonts/glarious.otf'); }
+@font-face { font-family:longdoosi-regular;src:url('fonts/longdoosi-regular.ttf'); }
+</style>
 <script type="text/javascript">
 var PROJECT_MODE='<?php  if(isset($_SESSION["PROJECT_MODE"])) { echo $_SESSION["PROJECT_MODE"]; } ?>';
 var PROJECT_VERSION_NUMBER = '<?php  if(isset($_SESSION["PROJECT_VERSION_NUMBER"])) { echo $_SESSION["PROJECT_VERSION_NUMBER"]; } ?>';
@@ -114,7 +118,11 @@ function pictureUpload(img_Id,jsonData,uploadVal_fn,success_fn) {
     $.ajax({type: "POST", enctype: 'multipart/form-data', url: PROJECT_URL+"api/upload/file",
       data: formData, processData: false, contentType: false, cache: false, timeout: 600000, success: function (response) {  
         console.log("SUCCESS : "+response);
+        if(PROJECT_MODE==='DEBUG'){
         FILENAME=PROJECT_URL+'uploads/'+folderName+'/'+response;
+		} else {
+		FILENAME=PROJECT_URL+folderName+'/'+response;
+		}
         document.getElementById(img_Id).src=FILENAME;
         success_fn();
     },error: function (e) { console.log("ERROR : "+e); } });

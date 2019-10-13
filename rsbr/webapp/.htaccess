@@ -5,13 +5,15 @@ RewriteEngine on
 # RewriteCond %{REQUEST_FILENAME} !-d
 
 
-DirectoryIndex index.php
+DirectoryIndex default.php
 
 RewriteRule customer/dashboard customer-dashboard.php [NC,L] 
 RewriteRule customer/profile customer-profile.php [NC,L] 
 RewriteRule admin/dashboard admin-dashboard.php [NC,L] 
 RewriteRule admin/profile admin-profile.php [NC,L] 
 
+RewriteRule app/home index.php [NC,L] 
+RewriteRule app/standard-applications standard-applications.php [NC,L] 
 RewriteRule app/privacypolicy privacypolicy.php [NC,L] 
 RewriteRule app/termsAndConditions termsAndConditions.php [NC,L] 
 RewriteRule app/contact-us contact-us.php [NC,L] 
@@ -25,13 +27,18 @@ RewriteRule app/our-panel-board our-panel-board.php [NC,L]
 
 RewriteRule app/apply-set-a-record apply-set-a-record.php [NC,L]
 RewriteRule app/marketing-solutions marketing-solutions.php [NC,L]
-RewriteRule app/record-breaking-types record-breaking-types.php [NC,L]
-RewriteRule app/record-formats record-formats.php [NC,L]
+RewriteRule app/make-rsbr-title make-rsbr-title.php [NC,L]
 RewriteRule app/application-rejection application-rejection.php [NC,L]
 
-RewriteRule app/manage-admin-panelboard manage_admin_panelboard.php [NC,L]
-RewriteRule app/manage-admin-media manage_admin_media.php [NC,L]
-RewriteRule app/manage-admin-gallery manage_admin_gallery.php [NC,L]
+RewriteRule app/manage-admin-panelboard manage_admin_panelboard.php?user=N [NC,L]
+RewriteRule app/manage-admin-media/([^/]+)$ manage_admin_media.php?user=N&news_Id=$1 [NC,L]
+RewriteRule app/manage-admin-media-brief manage_admin_media_brief.php?user=N [NC,L]
+RewriteRule app/manage-admin-gallery manage_admin_gallery.php?user=N [NC,L]
+
+RewriteRule app/user/panelboard manage_admin_panelboard.php?user=Y [NC,L]
+RewriteRule app/user/media manage_admin_media.php?user=Y [NC,L]
+RewriteRule app/media-brief/([^/]+)$ manage_admin_media_brief.php?user=Y&news_Id=$1 [NC,L]
+RewriteRule app/user/gallery manage_admin_gallery.php?user=Y [NC,L]
 
 RewriteRule app/about-us about-us.php [NC,L]
 RewriteRule app/our-news our-news.php [NC,L]

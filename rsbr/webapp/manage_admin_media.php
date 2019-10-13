@@ -15,6 +15,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 </style>
 <!-- -->
 <script type="text/javascript">
+var user='<?php echo $_GET["user"]; ?>';
+console.log("user: "+user);
 $(document).ready(function() {
   $('.summernote').summernote({height: 300});
   viewLatestNews();
@@ -68,7 +70,11 @@ function viewLatestNews(){
 	content+='<div align="left" class="mtop15p"><span style="color:#aaa;">'+get_stdDateTimeFormat01(ts)+'</span></div>';
 		
     content+='<div align="right">';
-	content+='<a href="manage_admin_media_brief.php?news_Id='+news_Id+'">';
+	if(user==='Y'){
+	content+='<a href="'+PROJECT_URL+'app/media-brief/'+news_Id+'">';
+	} else {
+	content+='<a href="'+PROJECT_URL+'app/manageadminmedia/'+news_Id+'">';
+	}
 	content+='<button class="btn btn-xs btn-default btn-green-o"><b>Know more</b></button>';
 	content+='</a>';
 	content+='</div>';
@@ -110,6 +116,7 @@ function uploadMediaForm(){
 			<!-- -->
 			</div><!--/.col-xs-12 col-md-12 col-sm-12 -->
 		  </div><!--/.row -->
+		  
 		  <div class="row">
 		    <div align="center" class="col-xs-12 col-md-12 col-sm-12">
 			  <!-- -->
@@ -122,6 +129,7 @@ function uploadMediaForm(){
 			  <!-- -->
 		    </div><!--/.col-xs-12 col-md-12 col-sm-12 -->
 		  </div><!--/.row -->
+		  
 		  <div class="row">
 		    <div class="col-xs-12 col-md-12 col-sm-12">
 			  <!-- -->

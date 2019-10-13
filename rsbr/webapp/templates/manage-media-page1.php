@@ -16,14 +16,17 @@
  </div>
 
 </div><!--/.row -->
+<?php if(isset($_GET["user"]) && $_GET["user"]=='N') { ?>
 <div class="row">
 
   <div align="right" class="col-xs-12 col-md-12 col-sm-12">
      <button class="btn btn-danger" data-toggle="modal" data-target="#addLatestNewsModal" 
-	 data-backdrop="static"><b>Add Latest News</b></button>
+	 data-backdrop="static" onclick="event.preventDefault();"><b>Add Latest News</b></button>
    </div><!--/.row -->
 	     
 </div><!--/.row -->
+<?php } ?>
+
 <div id="view_latestNews_info" class="row mtop15p"></div>
 <!-- ### Pagination Code
 <div class="row">

@@ -4,16 +4,18 @@
 <div id="sidebar-wrapper" style="background-color:#0e2551;">
 	  <ul class="sidebar-nav">
         <li class="rsbr-menu"><!-- background-color:tomato; -->
-	       <a href="index.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<span><b>Home</b></span></a>
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]?>"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<span><b>Home</b></span></a>
         </li>
 		<?php
   		  if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') { 
 		?>
-		<li class="rsbr-menu"><!-- background-color:tomato; -->
+		<!--
+		<li class="rsbr-menu">
 	       <a href="<?php echo $_SESSION["PROJECT_URL"]?>admin/dashboard">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<span><b>My Dashboard</b></span>
 		   </a>
         </li>
+		-->
 		<?php } ?>
 		<?php
   		  if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') { 
@@ -30,7 +32,7 @@
 		   </a>
         </li>		
 		<li class="rsbr-menu"><!-- background-color:tomato; -->
-	       <a href="<?php echo $_SESSION["PROJECT_URL"]?>app/our-news">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]?>app/user/media">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Our News</b></span>
 		   </a>
@@ -80,35 +82,35 @@
 		<div id="sidebar-menu-records" class="collapse" style="background-color:#005eb8;">
 		
 		 <li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
-	       <a href="app/apply-set-a-record">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/apply-set-a-record">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Apply to Set a Record</b></span>
 		   </a>
          </li>
 		 
 		 <li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
-	       <a href="app/marketing-solutions">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/marketing-solutions">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Marketing Solutions</b></span>
 		   </a>
          </li>
 		 
 		 <li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
-	       <a href="app/record-breaking-types">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/standard-applications">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
-			 <span><b>Record-Breaking Types</b></span>
+			 <span><b>Standard Applications</b></span>
 		   </a>
          </li>
 		 
 		 <li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
-	       <a href="app/record-formats">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/make-rsbr-title">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
-			 <span><b>Record Formats</b></span>
+			 <span><b>Make RSBR Title</b></span>
 		   </a>
          </li>
 		 
 		 <li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
-	       <a href="app/application-rejection">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/application-rejection">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Application Rejection</b></span>
 		   </a>
@@ -116,61 +118,63 @@
 		 
 		</div>
 		<li class="rsbr-menu"><!-- background-color:#f73e7d; -->
-	       <a href="app/our-panel-board">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/user/panelboard">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Our Panel Board</b></span>
 		   </a>
         </li>	
 		<li class="rsbr-menu"><!-- background-color:#a02cd6; -->
-	       <a href="app/our-gallery">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/user/gallery">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Our Gallery</b></span>
 		   </a>
         </li>
 		<li class="rsbr-menu"><!-- background-color:tomato; -->
-	       <a href="app/find-categories">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/find-categories">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Find Categories</b></span>
 		   </a>
         </li>
-		<li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
+		<!-- 
+		<li class="rsbr-menu">
 	       <a href="app/faq">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Frequently Asked Questions</b></span>
 		   </a>
         </li>
+		-->
 		<li class="rsbr-menu"><!-- background-color:slateBlue; -->
-	       <a href="app/careers">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/careers">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Careers</b></span>
 		   </a>
         </li>
 		<li class="rsbr-menu"><!-- background-color:#f73e7d; -->
-	       <a href="app/rsbr-store">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/rsbr-store">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>RSBR Store</b></span>
 		   </a>
         </li>
 		<li class="rsbr-menu"><!-- background-color:mediumSeaGreen; -->
-	       <a href="app/advertise-sponsor">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/advertise-sponsor">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Advertise / Be a Sponsor</b></span>
 		   </a>
         </li>
 		<li class="rsbr-menu"><!-- background-color:slateBlue; -->
-	       <a href="app/contact-us">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/contact-us">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Contact Us</b></span>
 		   </a>
         </li>
 		<li class="rsbr-menu"><!-- background-color:dodgerBlue; -->
-	       <a href="termsAndConditions.php">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/termsAndConditions">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Terms and Conditions</b></span>
 		   </a>
         </li>
 		<li class="rsbr-menu"><!-- background-color:tomato; -->
-	       <a href="privacypolicy.php">
+	       <a href="<?php echo $_SESSION["PROJECT_URL"]; ?>app/privacypolicy">
 		     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
 			 <span><b>Privacy Policy</b></span>
 		   </a>

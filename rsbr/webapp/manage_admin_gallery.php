@@ -12,6 +12,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 .hide-block { display:none; }
 </style>
 <script type="text/javascript">
+var user='<?php echo $_GET["user"]; ?>';
+console.log("user: "+user);
 $(document).ready(function(){
    viewListOfAlbums();
 });
@@ -28,9 +30,11 @@ function viewListOfAlbums(){
        content+='<div class="col-xs-12 col-md-3 col-sm-3">';
        content+='<img src="'+GALLERY_PATH+imgs[index]+'" ';
 	   content+='style="width:100%;"/>';
+	   if(user==='N'){
 	   content+='<div align="center"><button class="btn btn-default form-control" ';
 	   content+='onclick="javascript:deleteAlbumImageConfirm(\''+imgs[index]+'\');"';
 	   content+='style="border-top-left-radius:0px;border-top-right-radius:0px;"><b>Delete</b></button></div>';
+	   }
 	   content+='</div>';
    }  
    document.getElementById("rsbr_img_gallerylist").innerHTML=content;
@@ -108,6 +112,7 @@ function uploadGalleryForm(){
  function(){ viewListOfAlbums(); });
 }
 </script> 
+     <?php if(isset($_GET["user"]) && $_GET["user"]=='N') { ?>
 	   <div class="container-fluid mtop15p">
 	    <div class="row">
 		  <div align="right" class="col-xs-12 col-md-12 col-sm-12">
@@ -121,7 +126,7 @@ function uploadGalleryForm(){
 		  </div><!--/.row -->
 		</div><!--/.row -->
 	   </div><!--/.container-fluid -->
-	   
+	  <?php } ?>
 	   <div class="container-fluid" style="margin-top:50px;min-height:600px;">
 	     <div id="rsbr_img_gallerylist" class="row">
 		  <div class="col-xs-12 col-md-3 col-sm-3">

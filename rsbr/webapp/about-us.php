@@ -10,10 +10,10 @@
 html { overflow-x:hidden;overflow-y:scroll; }
 @media (min-width: 768px){ #topMenu { float: right!important; } }
 /* Terms and Conditions */
-.about-heading { font-family:longdoosi-regular;font-size:28px;color:#fff; }
+.about-heading { font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:18px;color:#fff; }
 .about-heading-special { font-family: 'Saira Extra Condensed',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-font-size:28px;color:#fff; }
-.subheading,.centerUpperheading { font-family:longdoosi-regular;font-size:28px;color:tomato; }
+font-size:24px;color:#fff; }
+.subheading,.centerUpperheading { font-family:Arial;font-size:24px;color:tomato; }
 .centerUpperheading { text-transform:uppercase; }
 </style>
 <div id="wrapper" class="toggled">
@@ -23,55 +23,56 @@ font-size:28px;color:#fff; }
 	
 	<div id="page-content-wrapper">
 	   <?php include_once 'templates/top-header.php';?>
+	  
 	   <div class="container-fluid" style="background-color:#fb3c2f;">
 	    <div class="row "> 
-		  <div class="col-md-12 col-sm-12 col-xs-12 mbot15p">
-		   <h4 style="font-family:longdoosi-regular;color:#fff;font-size:38px;">About us</h4>
+		  <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
+		   <h4 style="font-family:longdoosi-regular;color:#fff;font-size:28px;">
+		   About Royal Success Book of Records</h4>
 		  </div>
 		</div>
 	   </div>
 	   
-	   <div class="container-fluid" style="background-color:tomato;">
-	    
-	   
-	
-		<!--/.row -->
-		<div class="row mtop50p mbot50p">
-		 <div align="center" class="col-md-4 col-sm-4 col-xs-12 mbot15p">
-		  <img src="http://www.safetytechnology.co.uk/wp-content/uploads/2019/01/o-SKYDIVER-facebook.jpg"
-		   style="width:300px;height:230px;border:2px solid #fff;"/>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-8 col-sm-8 col-xs-12 mtop15p">
-		   <div class="about-heading">We are</div>
-		   <div class="about-heading-special"><b>ROYAL SUCCESS BOOK OF RECORDS</b></div>
-		   <div class="about-heading mtop15p">
-			Here you can discover everything about our amazing brand, from our history to our new products, 
-			to what it is like to work here and how you can join us!
-		   </div>
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
+	   <div class="container-fluid" style="background-color:#fd6d2f;">
+	    <div class="row" style="margin-top:25px;margin-bottom:25px;"> 
+		  <img src="https://www.guinnessworldrecords.com/Images/largest-humanoid-robot_tcm25-589036.jpg" 
+		  class="col-md-4 col-sm-4 col-xs-12"/>
+		  <div class="col-md-8 col-sm-8 col-xs-12" style="padding:20px;">
+		     <div align="center"><h4 style="color:#fff;font-size:22px;">
+		        <span style="border-bottom:1px solid #fff;padding-bottom:10px;"><b>Our Purpose, Vision, Mission and Values</b></span></h4>
+			 </div>
+		     <div style="color:#fff;font-size:18px;">
+			   
+			   <div align="center">
+			     <br/>We believe it’s important to know who you are and what you stand for.<br/><br/>
+			   </div> 
+			   <div align="center">So our 
+			   purpose Vision, Mission and Values (known as the ‘PVMV’) were carefully 
+			   crafted in-house to define our place in the world, explain what we do, 
+			   what we aspire to, and the rules we live by.
+			   </div>
+			   <div align="center"><br/>
+			   <button class="btn btn-default"><b>Take a look</b></button></div>
+			 </div>
+		  </div>
 		</div>
 	   </div>
+		
+	   <img src="https://www.guinnessworldrecords.com/Images/Purpose-background_tcm25-473817.jpg" 
+	   style="width:100%;height:auto;"/>
 	  
-	   <div class="container-fluid mtop50p mbot50p">
-	    <div class="row">
-		 <div align="center" class="col-md-12 col-sm-12 col-xs-12 mtop15p mbot15p subheading">
-		   OUR PURPOSE, VISION, MISSION AND VALUES
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		 <div class="col-md-12 col-sm-12 col-xs-12 fs22p">
-		  <div class="mtop15p">
-		  We believe it’s important to know who you are and what you stand for. So our purpose Vision, 
-		  Mission and Values (known as the ‘PVMV’) were carefully crafted in-house to define our place in 
-		  the world, explain what we do, what we aspire to, and the rules we live by. Take a look.
-		  </div>
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		</div><!--/.row -->
+	  
+	   <div class="container-fluid" style="background-color:mediumSeaGreen;min-height:400px;">
 
 		 <div class="row">
-		 <div class="col-md-6 col-sm-6 col-xs-12  mtop15p mbot15p fs22p">
-		   <div class="mtop50p mbot15p subheading">
-		    Our Purpose
+		 <div class="col-md-2 col-sm-2 col-xs-12"></div>
+		 <div class="col-md-8 col-sm-8 col-xs-12  mtop15p mbot15p fs22p">
+		   <div class="mtop50p mbot15p subheading" style="color:#fff;">
+		      <span style="border-bottom:1px solid #fff;padding-bottom:10px;">
+		         <b>Our Purpose</b>
+			  </span>
 		   </div>
-		   <div>
+		   <div style="color:#fff;">
 			   <ul>
 				<li>we inspire people – individuals, families, schools, teams, groups, companies and communities
 				of any age, in any city or country.</li>
@@ -81,8 +82,25 @@ font-size:28px;color:#fff; }
 				entire range of superlatives to help people realise their potential and to re-examine the world.</li>
 				</ul>
 			</div>
+		 </div>
+		 <div class="col-md-2 col-sm-2 col-xs-12"></div>
+		 </div>
+		 </div>
+		 
+		  <img src="https://www.guinnessworldrecords.com/Images/Vision-background_tcm25-473818.jpg" 
+	   style="width:100%;height:auto;"/>
+		 
+		 
+		 
+		 <div class="container-fluid" style="background-color:dodgerBlue;min-height:400px;">
+
+		 <div class="row">
+		 <div class="col-md-2 col-sm-2 col-xs-12"></div>
+		 <div class="col-md-8 col-sm-8 col-xs-12  mtop15p mbot15p fs22p" style="color:#fff;">
 			<div class="mtop50p mbot15p subheading">
-			  Our Vision
+			  <span style="border-bottom:1px solid #fff;padding-bottom:10px;color:#fff;">
+			    <b>Our Vision</b>
+			  </span>
 			</div>
 			<div>
 			  <ul>
@@ -90,59 +108,63 @@ font-size:28px;color:#fff; }
 		      </ul>
 			</div>
 		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-6 col-sm-6 col-xs-12  mtop15p mbot15p fs22p">
-		 
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
+		 <div class="col-md-2 col-sm-2 col-xs-12"></div>
 		</div><!--/.row -->
-
+		</div><!--/.container-fluid -->
+		
+		<img src="https://www.guinnessworldrecords.com/Images/Mission-background_tcm25-473819.jpg" 
+	   style="width:100%;height:auto;"/>
+	   
+		<div class="container-fluid" style="background-color:#F1C40F;min-height:400px;">
 		 <div class="row">
-		   <div class="col-md-6 col-sm-6 col-xs-12 fs22p">
-		   
-		   </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		   
-		   <div class="col-md-6 col-sm-6 col-xs-12 fs22p">
-			   <div class="mtop50p mbot15p subheading">Our Mission</div>
-			   <div>
-			   
+           <div class="col-md-2 col-sm-2 col-xs-12"></div>
+		   <div class="col-md-8 col-sm-8 col-xs-12 fs22p">
+			   <div class="mtop50p mbot15p subheading" style="color:#fff;">
+			     <span style="border-bottom:1px solid #fff;padding-bottom:10px;">
+			      <b>Our Mission</b></span>
 			   </div>
-			   <div class="mtop50p mbot15p subheading">Our Values</div>
-			   <div>
 			   
+			   <div style="color:#fff;">
+			     <ul>
+			     <li>To be the ultimate global authority on record breaking.</li>
+				 <li>That means we research, measure, document and authorise the world’s superlatives, 
+				 from class products that entertain, inform and inspire people through our unique window on the world.</li>
+				 </ul>
 			   </div>
+			   
 		   </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		  
-		</div><!--/.row -->
-		
-		<div class="row">
-		 
-		 </div><!--/.row -->
+		   <div class="col-md-2 col-sm-2 col-xs-12"></div>
+		  </div><!--/.row -->
+	    </div><!--/.container-fluid -->
+	   
+	   <img src="https://www.kiplinger.com/kipimages/pages/14285.jpg" 
+	   style="width:100%;height:auto;"/>
+	   
+	    <div class="container-fluid" style="background-color:#F08080;min-height:540px;">
 		 <div class="row">
-		 <div class="col-md-6 col-sm-6 col-xs-12  mtop15p mbot15p fs22p">
-		   
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-6 col-sm-6 col-xs-12  mtop15p mbot15p fs22p">
-		 
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		</div><!--/.row -->
+		    <div class="col-md-2 col-sm-2 col-xs-12"></div>
+			<div class="col-md-8 col-sm-8 col-xs-12 fs22p" style="color:#fff;">
+	           <div class="mtop50p mbot15p subheading" style="color:#fff;">
+			     <span style="border-bottom:1px solid #fff;padding-bottom:10px;">
+			     <b>Our Values</b></span>
+			   </div>
+			   <div>
+			     <ul>
+					<li><b>Integrity:</b><br/> of our records, assessing claims with objectivity and enthusiasm and free from
+					prejudice or bias. This integrity extends to our people, the way we act, the way we do business
+					and the way we make decisions.</li>
+					<li><b>Respect:</b><br/> for our record holders and challengers, our brand, our people, our business partners
+					and our owner.</li>
+					<li><b>Inclusiveness:</b><br/> we believe in offering record breaking for everyone, everywhere.</li>
+					<li><b>Passion:</b><br/> in our enthusiasm about records and record holders, our brand and purpose, our
+					people, and how we demonstrate that our work and to our customers.</li>
+				 </ul>
+			   </div>
+			</div><!--/.col-md-12 col-sm-12 col-xs-12 -->
+			<div class="col-md-2 col-sm-2 col-xs-12"></div>
+		  </div><!--/.row -->
+	    </div><!--/.container-fluid -->
 		
-		<div class="row">
-		 <div class="col-md-12 col-sm-12 col-xs-12  mtop50p mbot15p subheading">
-		   
-		 </div><!--/.col-md-12 col-sm-12 col-xs-12 -->
-		 </div><!--/.row -->
-		 <div class="row">
-		 <div class="col-md-6 col-sm-6 col-xs-12  mtop15p mbot15p fs22p">
-		   
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		 <div class="col-md-6 col-sm-6 col-xs-12  mtop15p mbot15p fs22p">
-		 
-		 </div><!--/.col-md-6 col-sm-6 col-xs-12 -->
-		</div><!--/.row -->
-		
-	  </div><!--/.container-fluid -->
-	   
-	   
-	   
 	   <?php include_once 'templates/bottom-footer.php'; ?>
 	</div>
 	

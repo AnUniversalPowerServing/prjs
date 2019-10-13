@@ -12,6 +12,8 @@ html { overflow-x:hidden;overflow-y:scroll; }
 .home-media-title { font-family:longdoosi-regular;color:#000; }
 </style>
 <script type="text/javascript">
+var user='<?php echo $_GET["user"]; ?>';
+console.log("user: "+user);
 $(document).ready(function(){
  var news_Id='<?php echo $_GET["news_Id"]; ?>';
  js_ajax('POST',PROJECT_URL+'backend/php/dac/controller.latest.news.php',
@@ -21,15 +23,12 @@ $(document).ready(function(){
 	
 	document.getElementById("news-title").innerHTML=response[0].title;
 	
-	var content='<div class="container-fluid" style="margin-bottom:50px;">';
-		
-		content+='<div class="row">';
-	    content+='<div class="col-md-8 col-sm-8 col-xs-12" style="margin-top:15px;margin-bottom:15px;">';
-		
-		content+='<div align="right" class="mtop15p">';
-		content+='<button class="btn btn-danger"><b>Delete this Article</b></button>';
-		content+='</div>';
-		
+	var content='';
+		if(user==='N'){
+		  content+='<div align="right" class="mtop15p">';
+		  content+='<button class="btn btn-danger"><b>Delete this Article</b></button>';
+		  content+='</div>';
+		}
 		content+='<div class="mtop15p">';
 		content+='<img src="'+response[0].picture+'" style="width:100%;height:auto;"/>';
 		content+='</div>';
@@ -40,24 +39,6 @@ $(document).ready(function(){
 		
 		content+='<div class="mtop15p">'+response[0].newsDesc+'</div>';
 		
-		content+='</div>';
-		content+='<div class="col-md-4 col-sm-4 col-xs-12" style="margin-top:15px;margin-bottom:15px;">';
-		 
-		content+='<div>';
-		
-        content+='<h3 class="home-media-title">';
-        content+='Other Latest News<hr class="black"/>';
-        content+='</h3>';
-		
-		content+='</div>';
-		content+='<div id="view_other_latest_news">';
-		
-		content+='</div>';
-		
-		content+='</div>';
-		content+='</div>';
-		
-	    content+='</div>';
 	
 	document.getElementById("view_media_brief").innerHTML=content;
  });
@@ -80,10 +61,70 @@ $(document).ready(function(){
 	     </div>
 	   </div>
 		
-	   <div id="view_media_brief"></div>
+		
+		<div class="container-fluid" style="margin-bottom:50px;">
+		  <div class="row">
+	        <div id="view_media_brief" class="col-md-8 col-sm-8 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
+		
+		
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-12" style="margin-top:15px;margin-bottom:15px;">
+		    <!-- -->
+			  <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/apply-set-a-record" style="text-decoration:none;">
+			  <div class="list-group">
+			    <div class="list-group-item" style="background-color:dodgerBlue;color:#fff;">
+				  <div align="center"><h5 style="line-height:30px;"><b>See How to Apply to set a Record?</b></h5></div>
+				</div>
+			  </div><!--/.list-group -->
+			  </a>
+			  
+			  <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/marketing-solutions" style="text-decoration:none;">
+			  <div class="list-group">
+			    <div class="list-group-item" style="background-color:tomato;color:#fff;">
+				  <div align="center"><h5 style="line-height:30px;"><b>Know our Marketing Solutions</b></h5></div>
+				</div>
+			  </div><!--/.list-group -->
+			  </a>
+			  
+			  <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/standard-applications" style="text-decoration:none;">
+			  <div class="list-group">
+			    <div class="list-group-item" style="background-color:mediumSeaGreen;color:#fff;">
+				  <div align="center"><h5 style="line-height:30px;"><b>Know our Application Process</b></h5></div>
+				</div>
+			  </div><!--/.list-group -->
+			  </a>
+			  
+			  <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/make-rsbr-title" style="text-decoration:none;">
+			  <div class="list-group">
+			    <div class="list-group-item" style="background-color:#f55b8f;color:#fff;">
+				  <div align="center"><h5 style="line-height:26px;"><b>You can find the information about 
+				  How to make Royal Success Book of Records Title at here.</b></h5></div>
+				</div>
+			  </div><!--/.list-group -->
+			  </a>
+			  
+			  <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/find-categories" style="text-decoration:none;">
+			  <div class="list-group">
+			    <div class="list-group-item" style="background-color:#fdac35;color:#fff;">
+				  <div align="center"><h5 style="line-height:26px;">
+				  <b>Find our Categories where you can make your Records</b></h5></div>
+				</div>
+			  </div><!--/.list-group -->
+			  </a>
+			  
+			  <a href="<?php echo $_SESSION["PROJECT_URL"];?>app/our-panel-board" style="text-decoration:none;">
+			  <div class="list-group">
+			    <div class="list-group-item" style="background-color:#d453ea;color:#fff;">
+				  <div align="center"><h5 style="line-height:26px;">
+				  <b>See Our Panel Board Members</b></h5></div>
+				</div>
+			  </div><!--/.list-group -->
+			  </a>
+			<!-- -->
+			</div>
+		  </div>
+		</div>
 	   
-	   
-	      
 	   
 	   <?php include_once 'templates/bottom-footer.php'; ?>
 	</div>

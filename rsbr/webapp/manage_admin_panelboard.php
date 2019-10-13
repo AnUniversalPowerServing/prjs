@@ -9,7 +9,7 @@
 <body>
 <style>
 html { overflow-x:hidden;overflow-y:scroll; }
-.heading { font-family:longdoosi-regular;font-size:36px;color:#fff; }
+.heading { font-family:longdoosi-regular;font-size:28px;color:#fff; }
 </style>
 <div id="wrapper" class="toggled">
 	<!-- Core Skeleton : Side and Top Menu -->
@@ -41,6 +41,7 @@ html { overflow-x:hidden;overflow-y:scroll; }
 
 </style>
 <script type="text/javascript">
+var user = '<?php echo $_GET["user"]; ?>';
 var ADD_PB_CSS;
 function sel_panel_bgcolor(sel_Id,css){
  var ids=["add_pb_bgred","add_pb_bgpink","add_pb_bgdodgerblue","add_pb_bgtomato","add_pb_bgorange",
@@ -116,10 +117,12 @@ function view_panel_members(){
 		content+='</div>';
 		content+='<div class="list-group-item '+bgcss+'">';
 		content+='<div align="justify" class="font-white">'+description+'</div>';
+		if(user==='N'){
 		content+='<div align="center" class="mtop15p">';
 		content+='<button class="btn btn-default" ';
 		content+='onclick="javascript:delete_panel_member_confirm(\''+member_Id+'\');"><b>Delete</b></button>';
 		content+='</div>';
+		}
 		content+='</div>';
 		
 		
@@ -340,13 +343,13 @@ function uploadPanelBoardForm(){
 		  <!-- Panel Board List ::: Start -->
 		  <div align="center" class="col-xs-12 col-md-12 col-sm-12">
 		   <div>
-		     <h4 style="font-family:longdoosi-regular;font-size:30px;">Our Panel Board List</h4>
+		     <h4 style="font-family:longdoosi-regular;font-size:28px;">Our Panel Board List</h4>
 		   </div>
-		   
+		   <?php if(isset($_GET["user"]) && $_GET["user"]=='N'){ ?>
 		   <div align="right">
 		     <button class="btn btn-default" data-toggle="modal" data-target="#addNewPanelMembersModal" data-backdrop="static"><b>Add New Panel Member</b></button>
 		   </div>
-		   
+		   <?php } ?>
 		   <div id="rsbr_view_panelMemberslist">
 		       
 		   

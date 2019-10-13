@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 require_once '../api/app.initiator.php';
 require_once '../api/app.database.php';
 require_once '../dal/data.accounts.customer.php';
@@ -29,12 +29,12 @@ if(isset($_GET["action"])){
 	 $deJsonData = json_decode($jsonData);
 	 if(count($deJsonData)>0){
 	   $_SESSION["USER_ACCOUNT_ID"]=$deJsonData[0]->{'account_Id'};
+	   $_SESSION["USER_ACCOUNT_NAME"]=$deJsonData[0]->{'name'};
 	   $_SESSION["USER_ACCOUNT_TYPE"]='CUSTOMER';
 	   $_SESSION["USER_MOBILE_NUMBER"]=$deJsonData[0]->{'mobileNumber'};
 	 }
-	 
   } else if($_GET["action"]=='UPDATE_ACCOUNT_INFO'){
-     $account_Id = ''; if(isset($_GET["account_Id"])){ $account_Id = $_GET["account_Id"]; }
+     $account_Id = $_GET["account_Id"]; 
 	 $name = ''; if(isset($_GET["name"])){ $name = $_GET["name"]; }
 	 $mobileNumber = ''; if(isset($_GET["mobileNumber"])){ $mobileNumber = $_GET["mobileNumber"]; }
 	 $acc_pwd = ''; if(isset($_GET["acc_pwd"])){ $acc_pwd = md5($_GET["acc_pwd"]); }
@@ -42,6 +42,8 @@ if(isset($_GET["action"])){
      $customerAccounts = new CustomerAccounts();
      $query = $customerAccounts->query_update_customerAccounts($account_Id,$name,$mobileNumber,$acc_pwd);
 	 echo $database->addupdateData($query); 
+	 if(strlen($name)>0){ $_SESSION["USER_ACCOUNT_NAME"]=$name; }
+	 if(strlen($mobileNumber)>0){ $_SESSION["USER_MOBILE_NUMBER"]=$mobileNumber; }
   } else if($_GET["action"]=='UPDATE_ACCOUNT_AND_LOGIN'){
 	 $name = ''; if(isset($_GET["name"])){ $name = $_GET["name"]; }
 	 $mobileNumber = ''; if(isset($_GET["mobileNumber"])){ $mobileNumber = $_GET["mobileNumber"]; }
@@ -56,6 +58,7 @@ if(isset($_GET["action"])){
 	 $deJsonData = json_decode($jsonData);
 	 if(count($deJsonData)>0){
 	   $_SESSION["USER_ACCOUNT_ID"]=$deJsonData[0]->{'account_Id'};
+	   $_SESSION["USER_ACCOUNT_NAME"]=$deJsonData[0]->{'name'};
 	   $_SESSION["USER_ACCOUNT_TYPE"]='CUSTOMER';
 	   $_SESSION["USER_MOBILE_NUMBER"]=$deJsonData[0]->{'mobileNumber'};
 	 }

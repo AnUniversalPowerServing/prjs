@@ -1,4 +1,7 @@
 { 
-  "S001": { "english":"Application uploaded Successfully" },
-  "S002": { "english":"Mobile Number Registered. Please Enter OTP Code." }
+  "S001": { "english":"Application uploaded Successfully." },
+  "S002": { "english":"Mobile Number Registered. Please Enter OTP Code." },
+  "S003": { "english":"Name updated Successfully." },
+  "S004": { "english":"MobileNumber updated Successfully." },
+  "S005": { "english":"Password changed Successfully." }
 }

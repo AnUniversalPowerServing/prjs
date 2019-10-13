@@ -1,6 +1,6 @@
 <?php
 session_start();
-print_r($_POST);
+// print_r($_POST);
 // print_r($_FILES);
 $target_dir = "../../../uploads/";
 $jsonData = json_decode($_POST["JSON_DATA"]);
