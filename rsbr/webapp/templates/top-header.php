@@ -360,10 +360,10 @@ function customerprofile_screen_changePassword(){
 			<div id="topMenu" style="margin-top:2%;" class="navbar-form navbar-left">
 
 			  <?php
-			    if($_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') { 
+			    if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') { 
 			  ?>
 			 
-			  <?php } if($_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER' || $_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR') {  ?>
+			  <?php } if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && ($_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER' || $_SESSION["USER_ACCOUNT_TYPE"]=='ADMINISTRATOR')) {  ?>
 			  <div class="form-group">
 			    <a href="#" data-toggle="modal" data-target="#customerProfileInfo" 
 				onclick="javascript:customerprofile_modal_init();">

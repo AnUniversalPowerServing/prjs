@@ -34,6 +34,16 @@ var USER_ACCOUNT_TYPE='<?php if(isset($_SESSION["USER_ACCOUNT_TYPE"])) { echo $_
 var USER_MOBILE_NUMBER='<?php if(isset($_SESSION["USER_MOBILE_NUMBER"])) { echo $_SESSION["USER_MOBILE_NUMBER"]; } ?>';
 var USER_ACCOUNT_USERNAME='<?php if(isset($_SESSION["USER_ACCOUNT_USERNAME"])) { echo $_SESSION["USER_ACCOUNT_USERNAME"]; } ?>';
 var USER_ACCOUNT_NAME='<?php if(isset($_SESSION["USER_ACCOUNT_NAME"])) { echo $_SESSION["USER_ACCOUNT_NAME"]; } ?>';
+
+console.log("PROJECT_MODE: "+PROJECT_MODE);
+console.log("PROJECT_VERSION_NUMBER: "+PROJECT_VERSION_NUMBER);
+console.log("PROJECT_URL: "+PROJECT_URL);
+console.log("USR_LANG: "+USR_LANG);
+console.log("USER_ACCOUNT_ID: "+USER_ACCOUNT_ID);
+console.log("USER_ACCOUNT_TYPE: "+USER_ACCOUNT_TYPE);
+console.log("USER_MOBILE_NUMBER: "+USER_MOBILE_NUMBER);
+console.log("USER_ACCOUNT_USERNAME: "+USER_ACCOUNT_USERNAME);
+console.log("USER_ACCOUNT_NAME: "+USER_ACCOUNT_NAME);
 </script>
 <script type="text/javascript">
 function js_ajax(method,url,data,fn_output){

@@ -1,0 +1,19 @@
+#
+RewriteEngine on
+# RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteRule ^(.*)$ apps/1.0/$1 [L]
+#RewriteCond %{REQUEST_URI} !(.*)apps/1.0 
+RewriteCond %{REQUEST_URI} !^/apps/1.0/mw/
+RewriteRule account/admin/(.*)$ php/dac/controller.admin.accounts.php?action=$1 [L,QSA]
+RewriteRule account/customer/(.*)$ php/dac/controller.customer.accounts.php?action=$1 [L,QSA]
+
+
+RewriteRule ^mw/(.*)$ mw/$1 [L]
+
+
+#ErrorDocument 404 http://localhost/mylocalhook/
+
+DirectoryIndex default.php

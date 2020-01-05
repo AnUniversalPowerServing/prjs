@@ -1,5 +1,5 @@
 <?php session_start(); 
-if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') {
+// if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]=='CUSTOMER') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +92,7 @@ $(document).ready(function(){
 var APPLICATION_LIST_RESPONSE;
 function buildCustomerApplicationListTable(response){
  response=JSON.parse(response);
- 
+ console.log(response);
  APPLICATION_LIST_RESPONSE = response;
  var content='';
  if(response.length>0){
@@ -377,4 +377,4 @@ function viewUploadedApplicationBack(event, url){
 </div>
 </body>
 </html>
-<?php } else { header("Location:".$_SESSION["PROJECT_URL"]); } ?>
+<?php // } else { header("Location:".$_SESSION["PROJECT_URL"]); } ?>

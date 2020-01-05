@@ -17,7 +17,7 @@
 <div class="col-md-6 col-sm-6 col-xs-12 home-item-bg1">
  
 	 <div>
-	  <h3 align="center" class="home-item-title">How Royal Success Book of Records works?</h3>
+	  <h3 align="center"><b>How Royal Success Book of Records works?</b></h3>
 	 </div><!--/div -->
 	 <div align="center" class="home-item-title-desc">
 	  Here you can find the process how Royal Success Book of Records works about record-breaking and 
@@ -52,8 +52,8 @@
 <div class="col-md-6 col-sm-6 col-xs-12 home-item-bg2">
 
  <div>
-  <h3 align="center" class="home-item-title">
-   Find Categories
+  <h3 align="center">
+   <b>Find Categories</b>
   </h3>
  </div><!--/div -->
  <div align="center" class="home-item-title-desc">

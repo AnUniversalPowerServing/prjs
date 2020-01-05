@@ -21,6 +21,7 @@ if(isset($_POST["action"])){
     $customerRequests = new CustomerRequests();
     $query = $customerRequests->query_add_customerRequests($account_Id, $application, $recordTitle, $recordDesc, $picture1,
 	$picture2, $picture3, $isCertify, $certifyTitle, $certifyDesc, $displayRecords, $status, $comment);
+	echo $query;
     $database = new Database($DB_BASIC_SERVERNAME,$DB_BASIC_NAME,$DB_BASIC_USER,$DB_BASIC_PASSWORD);
     echo $database->addupdateData($query);
  } else if($_POST["action"]=='UPDATE_CUSTOMER_REQUESTS'){

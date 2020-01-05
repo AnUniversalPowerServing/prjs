@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('lib\fpdf\fpdf.php');
+require('lib/fpdf/fpdf.php');
 include('lib/phpqrcode/qrlib.php');
 // print_r($_POST);
 if(isset($_POST["rsbr_certificate_txt"]) && isset($_POST["rsbr_certificate_desc"]) &&

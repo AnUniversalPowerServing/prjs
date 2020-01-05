@@ -807,3 +807,74 @@ Monday 14th October 2019 02:35:06 AM [INFO] ::: [app.database.php]  Database con
 Monday 14th October 2019 02:35:10 AM [INFO] ::: [app.database.php]  Database connected Successfully 
 Monday 14th October 2019 02:39:32 AM [INFO] ::: [app.database.php]  Database connected Successfully 
 Monday 14th October 2019 02:39:33 AM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:44:34 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:44:35 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:49:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:49:45 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:49:46 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:50:23 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:00 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:00 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_accounts(name, mobileNumber, acc_pwd) VALUES ('Srinivas','9959832339','25d55ad283aa400af464c76d713c07ad') 
+Saturday 19th October 2019 04:53:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:05 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:20 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:21 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:54 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:53:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:54:10 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:55:12 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:57:00 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:57:00 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_accounts(name, mobileNumber, acc_pwd) VALUES ('Srinivas','9959832339','25d55ad283aa400af464c76d713c07ad') 
+Saturday 19th October 2019 04:57:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:57:04 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:58:09 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:59:36 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:59:36 PM [INFO] ::: [app.database.php]  Query(Status-ERROR) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (,'http://localhost/prjs/rsbr/webapp/uploads/customers//1571484575433.pdf','TestRecord','Test Enter Record Description','','','','','','','','2019-10-19 16:59:35','UPLOADED',''); 
+Saturday 19th October 2019 04:59:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 04:59:45 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:00:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:01:44 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:01:44 PM [INFO] ::: [app.database.php]  Query(Status-ERROR) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (,'http://localhost/prjs/rsbr/webapp/uploads/customers//1571484703011.pdf','Test Record','Test Enter Record Description','','','','','','','','2019-10-19 17:01:43','UPLOADED',''); 
+Saturday 19th October 2019 05:01:45 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:03:18 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:03:18 PM [INFO] ::: [app.database.php]  Query(Status-ERROR) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (,'http://localhost/prjs/rsbr/webapp/uploads/customers//1571484797190.pdf','Test Record','Test Record Description','','','','','','','','2019-10-19 17:03:17','UPLOADED',''); 
+Saturday 19th October 2019 05:03:19 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:04:35 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:04:57 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:04:57 PM [INFO] ::: [app.database.php]  Query(Status-ERROR) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (,'http://localhost/prjs/rsbr/webapp/uploads/customers/1571484895965.pdf','Test Enter Record Title','Test Enter Record Description','','','','','','','','2019-10-19 17:04:56','UPLOADED',''); 
+Saturday 19th October 2019 05:04:58 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:09:21 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:11:37 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:12:23 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:12:52 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:12:52 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_accounts(name, mobileNumber, acc_pwd) VALUES ('Srinivas','9959832339','25d55ad283aa400af464c76d713c07ad') 
+Saturday 19th October 2019 05:12:53 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:12:56 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:13:24 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:13:24 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : INSERT INTO cust_requests(account_Id, application, recordTitle, recordDesc, picture1, picture2, picture3, isCertify, certifyTitle, certifyDesc, displayRecords, ts, status, comment) VALUES (5,'http://localhost/prjs/rsbr/webapp/uploads/customers/5/1571485403534.pdf','Test Record Title','Test Enter Record Description','','','','','','','','2019-10-19 17:13:23','UPLOADED',''); 
+Saturday 19th October 2019 05:13:25 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:14:23 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:14:24 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:14:29 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:14:30 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:15:12 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:15:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:17:13 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:17:15 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:19:02 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:19:03 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:19:30 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:19:32 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:19:44 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:20:22 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:20:22 PM [INFO] ::: [app.database.php]  Query(Status-SUCCESS) : UPDATE cust_requests SET isCertify='Y', certifyTitle='This is the Title in the Action of the Action in the Score.', certifyDesc='This is the Title in the Action of the Action in the Score. This is the Title in the Action of the Action in the Score. This is the Title in the Action of the Action in the Score. This is the Title in the Action of the Action in the Score. ' WHERE request_Id=1 
+Saturday 19th October 2019 05:20:59 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:21:52 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:22:30 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:22:55 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:23:47 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:25:08 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:25:11 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:25:21 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:25:32 PM [INFO] ::: [app.database.php]  Database connected Successfully 
+Saturday 19th October 2019 05:26:09 PM [INFO] ::: [app.database.php]  Database connected Successfully 

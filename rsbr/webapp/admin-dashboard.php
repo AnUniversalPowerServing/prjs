@@ -88,11 +88,13 @@ function buildCustomerApplicationListModal(index){
    var recordTitle = APPLICATION_LIST_RESPONSE[index].recordTitle;
    var recordDesc = APPLICATION_LIST_RESPONSE[index].recordDesc;
    var isCertify = APPLICATION_LIST_RESPONSE[index].isCertify;
+   var certifyTitle = APPLICATION_LIST_RESPONSE[index].certifyTitle;
+   var certifyDesc = APPLICATION_LIST_RESPONSE[index].certifyDesc;
    var ts = APPLICATION_LIST_RESPONSE[index].ts;
    var status = APPLICATION_LIST_RESPONSE[index].status;
    var comment = APPLICATION_LIST_RESPONSE[index].comment;
    if(comment.length===0){
-     comment = '-';
+     comment = '-'; 
    }
    var content='<div class="modal-dialog">';
        content+='<div class="modal-content">';
@@ -183,12 +185,21 @@ function buildCustomerApplicationListModal(index){
 	   content+='<div class="form-group">';
 	   content+='<label>Certificate Title</label>';
 	   content+='<input type="hidden" id="rsbr_certificate_Id" name="rsbr_certificate_Id" value="'+request_Id+'" />';
-	   content+='<textarea id="rsbr_certificate_txt" name="rsbr_certificate_txt" class="form-control"></textarea>';
-	   content+='</div>'; // form-group
+	   content+='<textarea id="rsbr_certificate_txt" name="rsbr_certificate_txt" class="form-control">';
 	   
+	   if(certifyTitle.length>0){
+	   content+=certifyTitle;
+	   }
+	   content+='</textarea>';
+	   content+='</div>'; // form-group
+	  
 	   content+='<div class="form-group">';
 	   content+='<label>Certificate Description</label>';
-	   content+='<textarea id="rsbr_certificate_desc" name="rsbr_certificate_desc" class="form-control"></textarea>';
+	   content+='<textarea id="rsbr_certificate_desc" name="rsbr_certificate_desc" class="form-control">';
+	   if(certifyDesc.length>0){
+	   content+=certifyDesc;
+	   }
+	   content+='</textarea>';
 	   content+='</div>'; // form-group
 	  
 	   content+='<div align="right" class="form-group">';

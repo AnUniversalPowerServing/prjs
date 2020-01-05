@@ -228,7 +228,7 @@ function adminPanel_hide_OtpCodeForm(){
 	  <div class="footer-opt">
 	     <a style="text-decoration:none;" href="<?php echo $_SESSION["PROJECT_URL"];?>app/careers">Careers</a>
 	  </div> 
-	  <?php if(isset($_SESSION["USER_ACCOUNT_TYPE"]) && $_SESSION["USER_ACCOUNT_TYPE"]!='CUSTOMER') { ?>
+	  <?php if(!isset($_SESSION["USER_ACCOUNT_TYPE"])) { ?>
 	  <div class="footer-opt" data-toggle="modal" data-target="#adminPanel" 
 	   onclick="javascript:adminPanel_formload_login(event);"><a href="#">Admin Panel</a></div>  
 	  <?php } ?>

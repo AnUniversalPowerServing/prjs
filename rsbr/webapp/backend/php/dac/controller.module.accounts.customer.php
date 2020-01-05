@@ -16,8 +16,17 @@ if(isset($_GET["action"])){
 	$acc_pwd = md5($_GET["acc_pwd"]);
 	$database = new Database($DB_BASIC_SERVERNAME,$DB_BASIC_NAME,$DB_BASIC_USER,$DB_BASIC_PASSWORD);
     $customerAccounts = new CustomerAccounts();
-	$query = $customerAccounts->query_add_customerAccounts($name, $mobileNumber, $acc_pwd);
-	echo $database->addupdateData($query); 
+	$query1 = $customerAccounts->query_add_customerAccounts($name, $mobileNumber, $acc_pwd);
+	echo $database->addupdateData($query1); 
+	$query2 = $customerAccounts->query_view_customerAccountByMobileNumber($mobileNumber,$acc_pwd);
+	$jsonData = $database->getJSONData($query2);
+	$deJsonData = json_decode($jsonData);
+	if(count($deJsonData)>0){
+	   $_SESSION["USER_ACCOUNT_ID"]=$deJsonData[0]->{'account_Id'};
+	   $_SESSION["USER_ACCOUNT_NAME"]=$deJsonData[0]->{'name'};
+	   $_SESSION["USER_ACCOUNT_TYPE"]='CUSTOMER';
+	   $_SESSION["USER_MOBILE_NUMBER"]=$deJsonData[0]->{'mobileNumber'};
+	}
   } else if($_GET["action"]=='GET_ACCOUNT_INFO'){
      $mobileNumber = $_GET["mobileNumber"];
 	 $acc_pwd = md5($_GET["acc_pwd"]);
