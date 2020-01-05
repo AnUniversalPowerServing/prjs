@@ -64,7 +64,7 @@ if(isset($_GET["action"])){
 	 echo $database->addupdateData($query);	
 	 
   } else {
-  
+      echo 'MISSING_ACTION';
   }
 } else { echo 'NO_ACTION'; }
 ?>
