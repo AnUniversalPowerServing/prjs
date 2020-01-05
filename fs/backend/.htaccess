@@ -6,12 +6,14 @@ RewriteEngine on
 
 #RewriteRule ^(.*)$ apps/1.0/$1 [L]
 #RewriteCond %{REQUEST_URI} !(.*)apps/1.0 
-RewriteCond %{REQUEST_URI} !^/apps/1.0/mw/
-RewriteRule account/admin/(.*)$ php/dac/controller.admin.accounts.php?action=$1 [L,QSA]
-RewriteRule account/customer/(.*)$ php/dac/controller.customer.accounts.php?action=$1 [L,QSA]
+#RewriteCond %{REQUEST_URI} !^/apps/1.0/mw/
 
+RewriteRule admin/account/(.*)$ php/dac/controller.admin.accounts.php?action=$1 [L,QSA]
+RewriteRule customer/account/(.*)$ php/dac/controller.customer.accounts.php?action=$1 [L,QSA]
+RewriteRule customer/cart/(.*)$ php/dac/controller.customer.cart.php?action=$1 [L,QSA]
+RewriteRule products/(.*)$ php/dac/controller.products.info.php?action=$1 [L,QSA]
 
-RewriteRule ^mw/(.*)$ mw/$1 [L]
+#RewriteRule ^mw/(.*)$ mw/$1 [L]
 
 
 #ErrorDocument 404 http://localhost/mylocalhook/

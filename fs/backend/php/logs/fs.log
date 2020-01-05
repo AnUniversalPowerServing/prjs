@@ -361,3 +361,6 @@ Sunday 5th January 2020 10:46:42 PM [INFO] ::: [api.database.php]  Database conn
 Sunday 5th January 2020 10:46:42 PM [INFO] ::: [api.database.php]  Query(Status-Success) : UPDATE admin_accounts SET username='Administrator',acc_pwd='482c811da5d5b4bc6d497ffa98491e38',acc_active='N' WHERE account_Id='AA47778618'; 
 Sunday 5th January 2020 10:47:37 PM [INFO] ::: [api.database.php]  Database connected Successfully 
 Sunday 5th January 2020 10:47:37 PM [INFO] ::: [api.database.php]  Query(Status-Success) : UPDATE admin_accounts SET username='Administrator',acc_pwd='482c811da5d5b4bc6d497ffa98491e38',acc_active='N' WHERE account_Id='AA47778618'; 
+Sunday 5th January 2020 11:08:02 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Sunday 5th January 2020 11:08:02 PM [INFO] ::: [api.database.php]  Query(Status-Success) : UPDATE admin_role SET roleName='Admin' WHERE role_Id='AR37139692' 
+Sunday 5th January 2020 11:08:29 PM [INFO] ::: [api.database.php]  Database connected Successfully 

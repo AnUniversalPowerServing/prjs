@@ -16,7 +16,8 @@ if(isset($_GET["action"])){
 							 $GLOBALS['DB_ECOM_USER'],$GLOBALS['DB_ECOM_PASSWORD']);
 	 echo $database->addupdateData($query);	
 	 
-  } else if($_GET["action"]=='addUser'){
+  }
+  else if($_GET["action"]=='addUser'){
   
      $identity = new Identity();
 	 $account_Id =  $identity->pk_adminAccounts();
@@ -30,7 +31,8 @@ if(isset($_GET["action"])){
 							 $GLOBALS['DB_ECOM_USER'],$GLOBALS['DB_ECOM_PASSWORD']);
 	 echo $database->addupdateData($query);	
 	 
-  } else if($_GET["action"]=='loginAuth'){
+  } 
+  else if($_GET["action"]=='loginAuth'){
   
      $username = $_POST["username"];
 	 $acc_pwd =  md5($_POST["acc_pwd"]);
@@ -40,7 +42,8 @@ if(isset($_GET["action"])){
 							 $GLOBALS['DB_ECOM_USER'],$GLOBALS['DB_ECOM_PASSWORD']);
 	 echo $database->getJSONData($query);
 	
-  } else if($_GET["action"]=='updateRole'){
+  } 
+  else if($_GET["action"]=='updateRole'){
   
      $role_Id = ''; if(isset($_POST["role_Id"])){ $role_Id = $_POST["role_Id"]; }
      $roleName = ''; if(isset($_POST["roleName"])){ $roleName = $_POST["roleName"];  }
@@ -50,7 +53,8 @@ if(isset($_GET["action"])){
 							 $GLOBALS['DB_ECOM_USER'],$GLOBALS['DB_ECOM_PASSWORD']);
 	 echo $database->addupdateData($query);	
 	 
-  } else if($_GET["action"]=='updateUser'){
+  } 
+  else if($_GET["action"]=='updateUser'){
      
 	 $account_Id = ''; if(isset($_POST["account_Id"])){ $account_Id = $_POST["account_Id"]; }
 	 $username = ''; if(isset($_POST["username"])){ $username = $_POST["username"]; }
@@ -63,7 +67,8 @@ if(isset($_GET["action"])){
 							 $GLOBALS['DB_ECOM_USER'],$GLOBALS['DB_ECOM_PASSWORD']);
 	 echo $database->addupdateData($query);	
 	 
-  } else {
+  } 
+  else {
       echo 'MISSING_ACTION';
   }
 } else { echo 'NO_ACTION'; }
