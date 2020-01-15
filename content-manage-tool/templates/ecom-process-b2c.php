@@ -3,11 +3,11 @@ $(document).ready(function(){
  $('#process_b2b_model01').change(function(){
   if($(this).prop('checked')){ 
     $('#process_b2b_model02,#process_b2b_model03,#process_b2b_model04').bootstrapToggle('off');
-    var data = { nodes:[{id: 1, label: 'Single Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 2, label: 'Inventory', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'},
-					    {id: 3, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1, to: 2, arrows:'to', dashes:true },
-					{from: 2, to: 3, arrows:'to', dashes:true}]
+    var data = { nodes:[{id: 1111, label: 'Single Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
+					    {id: 1112, label: 'Inventory', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'},
+					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
+			 edges:[{from: 1111, to: 1112, arrows:'to', dashes:true },
+					{from: 1112, to: 1114, arrows:'to', dashes:true}]
 			};
     processFlow(data,'processFlow');
   } else { document.getElementById("processFlow").innerHTML=''; }
@@ -15,11 +15,11 @@ $(document).ready(function(){
  $('#process_b2b_model02').change(function(){
   if($(this).prop('checked')){ 
     $('#process_b2b_model01,#process_b2b_model03,#process_b2b_model04').bootstrapToggle('off');
-    var data = { nodes:[{id: 1, label: 'Multiple Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 2, label: 'Inventory', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'},
-					    {id: 3, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1, to: 2, arrows:'to', dashes:true },
-					{from: 2, to: 3, arrows:'to', dashes:true}]
+    var data = { nodes:[{id: 1112, label: 'Multiple Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
+					    {id: 1113, label: 'Inventory', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'},
+					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
+			 edges:[{from: 1112, to: 1113, arrows:'to', dashes:true },
+					{from: 1113, to: 1114, arrows:'to', dashes:true}]
 			};
     processFlow(data,'processFlow');
   } else { document.getElementById("processFlow").innerHTML=''; }
@@ -27,9 +27,9 @@ $(document).ready(function(){
  $('#process_b2b_model03').change(function(){
   if($(this).prop('checked')){ 
     $('#process_b2b_model01,#process_b2b_model02,#process_b2b_model04').bootstrapToggle('off');
-    var data = { nodes:[{id: 1, label: 'Single Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 2, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1, to: 2, arrows:'to', dashes:true }]
+    var data = { nodes:[{id: 1111, label: 'Single Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
+					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
+			 edges:[{from: 1111, to: 1114, arrows:'to', dashes:true }]
 			};
     processFlow(data,'processFlow');
   } else { document.getElementById("processFlow").innerHTML=''; }
@@ -37,9 +37,9 @@ $(document).ready(function(){
  $('#process_b2b_model04').change(function(){
   if($(this).prop('checked')){ 
     $('#process_b2b_model01,#process_b2b_model02,#process_b2b_model03').bootstrapToggle('off');
-    var data = { nodes:[{id: 1, label: 'Multiple Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 2, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1, to: 2, arrows:'to', dashes:true }]
+    var data = { nodes:[{id: 1112, label: 'Multiple Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
+					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
+			 edges:[{from: 1112, to: 1114, arrows:'to', dashes:true }]
 			};
     processFlow(data,'processFlow');
   } else { document.getElementById("processFlow").innerHTML=''; }
