@@ -1,69 +1,10 @@
-<script type="text/javascript">
-$(document).ready(function(){
- $('#process_b2b_model01').change(function(){
-  if($(this).prop('checked')){ 
-    $('#process_b2b_model02,#process_b2b_model03,#process_b2b_model04').bootstrapToggle('off');
-    var data = { nodes:[{id: 1111, label: 'Single Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 1112, label: 'Inventory', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'},
-					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1111, to: 1112, arrows:'to', dashes:true },
-					{from: 1112, to: 1114, arrows:'to', dashes:true}]
-			};
-    processFlow(data,'processFlow');
-  } else { document.getElementById("processFlow").innerHTML=''; }
- });
- $('#process_b2b_model02').change(function(){
-  if($(this).prop('checked')){ 
-    $('#process_b2b_model01,#process_b2b_model03,#process_b2b_model04').bootstrapToggle('off');
-    var data = { nodes:[{id: 1112, label: 'Multiple Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 1113, label: 'Inventory', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'},
-					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1112, to: 1113, arrows:'to', dashes:true },
-					{from: 1113, to: 1114, arrows:'to', dashes:true}]
-			};
-    processFlow(data,'processFlow');
-  } else { document.getElementById("processFlow").innerHTML=''; }
- });
- $('#process_b2b_model03').change(function(){
-  if($(this).prop('checked')){ 
-    $('#process_b2b_model01,#process_b2b_model02,#process_b2b_model04').bootstrapToggle('off');
-    var data = { nodes:[{id: 1111, label: 'Single Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1111, to: 1114, arrows:'to', dashes:true }]
-			};
-    processFlow(data,'processFlow');
-  } else { document.getElementById("processFlow").innerHTML=''; }
- });
- $('#process_b2b_model04').change(function(){
-  if($(this).prop('checked')){ 
-    $('#process_b2b_model01,#process_b2b_model02,#process_b2b_model03').bootstrapToggle('off');
-    var data = { nodes:[{id: 1112, label: 'Multiple Market Store', color:'#f44336', font:{color:'#fff', size:12}, shape:'box' },
-					    {id: 1114, label: 'Whole-sale Buyers', color:'#f44336', font:{color:'#fff', size:12}, shape:'box'}],
-			 edges:[{from: 1112, to: 1114, arrows:'to', dashes:true }]
-			};
-    processFlow(data,'processFlow');
-  } else { document.getElementById("processFlow").innerHTML=''; }
- });
-});  
-function processFlow(data,display){
-  // create an array with nodes
-  var nodes = new vis.DataSet(data.nodes);
-  // create an array with edges
-  var edges = new vis.DataSet(data.edges);
-  // create a network
-  var container = document.getElementById(display);
-  var data = { nodes: nodes, edges: edges };  
-  var options = {};
-      options.nodes={ configurePhysics: false, allowedToMoveX: false, allowedToMoveY: false };
-  var network = new vis.Network(container, data, options);
-}
-</script>
+
 <div class="list-group mbot0p">
   <div class="list-group-item pad0">
 	<!-- Model#1 ::: Start -->
 	<div class="process-bg">
 	  <label class="checkbox-inline padLeft40">
-	   <input id="process_b2b_model01" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
+	   <input id="process_b2c_model01" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
 			  data-offstyle="danger" data-toggle="toggle" data-size="mini"
 			  onchange=""> <b>Model # 1</b>
 	  </label>
@@ -77,7 +18,7 @@ function processFlow(data,display){
 	<!-- Model#2 ::: Start -->
 	<div class="process-bg">
 	  <label class="checkbox-inline padLeft40">
-	   <input id="process_b2b_model02" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
+	   <input id="process_b2c_model02" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
 			  data-offstyle="danger" data-toggle="toggle" data-size="mini"
 			  onchange=""> <b>Model # 2</b>
 	  </label>
@@ -91,7 +32,7 @@ function processFlow(data,display){
 	<!-- Model#3 ::: Start -->
 	<div class="process-bg">
 	  <label class="checkbox-inline padLeft40">
-	   <input id="process_b2b_model03" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
+	   <input id="process_b2c_model03" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
 			  data-offstyle="danger" data-toggle="toggle" data-size="mini"
 			  onchange=""> <b>Model # 3</b>
 	  </label>
@@ -105,7 +46,7 @@ function processFlow(data,display){
 	<!-- Model#4 ::: Start -->
 	<div class="process-bg">
 	  <label class="checkbox-inline padLeft40">
-	   <input id="process_b2b_model04" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
+	   <input id="process_b2c_model04" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
 			  data-offstyle="danger" data-toggle="toggle" data-size="mini"
 			  onchange=""> <b>Model # 4</b>
 	  </label>
@@ -119,7 +60,7 @@ function processFlow(data,display){
 	<!-- Model#5 ::: Start -->
 	<div class="process-bg">
 	  <label class="checkbox-inline padLeft40">
-	   <input id="process_b2b_model04" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
+	   <input id="process_b2c_model05" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
 			  data-offstyle="danger" data-toggle="toggle" data-size="mini"
 			  onchange=""> <b>Model # 5</b>
 	  </label>
@@ -133,7 +74,7 @@ function processFlow(data,display){
 	<!-- Model#6 ::: Start -->
 	<div class="process-bg">
 	  <label class="checkbox-inline padLeft40">
-	   <input id="process_b2b_model04" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
+	   <input id="process_b2c_model06" type="checkbox" data-on="Yes" data-off="No" data-onstyle="success" 
 			  data-offstyle="danger" data-toggle="toggle" data-size="mini"
 			  onchange=""> <b>Model # 6</b>
 	  </label>
