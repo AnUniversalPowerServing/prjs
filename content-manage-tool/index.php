@@ -12,31 +12,21 @@
   <script src="js/api/core-array.js"></script>
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="styles/api/core-skeleton.css"/>
 <style>
-.fs12 { font-size:12px; }
-.mtopbot5p { margin-top:5px;margin-bottom:5px; }
-.padRight0 { padding-right:0px; }
-.padLeft0 { padding-left:0px; }
-.padLeft10 { padding-left:10px; }
-.padLeft40 { padding-left:40px; }
-.pad0 { padding:0px; }
-.pad10 { padding:10px; }
-.mtop5p { margin-top:5px; }
-.mtop10p { margin-top:10px; }
-.mtop15p { margin-top:15px; }
-
-.mbot0p { margin-bottom:0px; }
-.hide-block { display:none; }
 /* Page Related CSS ::: Start */
-.process-bg { background-color:#eee;padding-top:5px;padding-bottom:5px; }
- #processFlow { height:400px; }
+
 /* Page Related CSS ::: End */
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
 
 });
-     
+function quote_ecom(){
+ if(quote_ecom_b2b!==undefined && quote_ecom_b2c!==undefined){
+   window.open('quote-ecom.php?quote_ecom_b2b='+quote_ecom_b2b+'&quote_ecom_b2c='+quote_ecom_b2c);
+ }
+}
 </script>
 </head>
 <body>
@@ -77,129 +67,12 @@ $(document).ready(function(){
 		</div>
 		
 		<div align="right" class="list-group-item">
-		  <button class="btn btn-success" onclick="javascript:generateFlow();"><b>Generate Flow</b></button>
+		  <button class="btn btn-success" onclick="javascript:quote_ecom();"><b>Generate Flow</b></button>
 		</div><!--/.list-group-item -->
 		
 	  </div><!--/.list-group -->
 	  <!-- -->
 	</div><!--/.col-sm-4 -->
-	<div class="col-sm-4">
-	  <!-- -->
-	  <div align="center"><h5><b>E-Commerce Process Flow</b></h5></div>
-	  <div class="list-group">
-	    <div id="processFlow" class="list-group-item">
-	  
-	    </div><!--/.list-group-item -->
-		<div id="processFlowDesc" class="list-group-item">
-	  
-	    </div><!--/.list-group-item -->
-	  </div><!--/.list-group -->
-	  <!-- -->
-	</div>
-	<div class="col-sm-4">
-	  <!-- -->
-	  <div align="center"><h5><b>E-Commerce Features Calculator</b></h5></div>
-	  <div class="list-group">
-	    <div class="list-group-item">
-	     <!-- Single Market Store ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Single Market Store</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li>Employees and their Roles Management</li>
-			 <li>Product Categories Management</li>
-			 <li>Products Management</li>
-			 <li>Whole-sale Buyers Quotations Management</li>
-			 <li>Customers Quotations Management</li>
-		   </ul>
-		 </div>
-		 <!-- Single Market Store ::: End -->
-		 <!-- Multiple Market Store ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Multiple Market Store</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li>Multiple Market Stores Management</li>
-			 <li>Employees and their Roles Management</li>
-			 <li>Product Categories Management</li>
-			 <li>Products Management</li>
-			 <li>Whole-sale Buyers Quotations Management</li>
-			 <li>Customers Quotations Management</li>
-		   </ul>
-		 </div>
-		 <!-- Multiple Market Store ::: End -->
-		 <!-- Inventory ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Inventory</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li>Inventory Address</li>
-			 <li>Inventory Employee Management and their Roles</li>
-			 <li>Products from Store to Inventory</li>
-			 <li>Products from Inventory to Whole-sale Buyers</li>
-			 <li>Products from Whole-sale Buyers to Inventory</li>
-			 <li>Products from Inventory to Customers</li>
-		   </ul>
-		 </div>
-		 <!-- Inventory ::: End -->
-		 <!-- Whole-sale Buyers ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Whole-sale Buyers</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li>Whole-sale Buyers Accounts Management</li>
-			 <li>Product Orders and Cart Management</li>
-			 <li>Request for Product and Price Quotation</li>
-		   </ul>
-		 </div>
-		 <!-- Whole-sale Buyers ::: End -->
-		 <!-- Customers ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Customers</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li></li>
-		   </ul>
-		 </div>
-		 <!-- Customers ::: End -->
-		 <!-- Self-Delivery Management ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Self-Delivery Management</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li>Employees and their Roles Management</li>
-			 <li>Employee Status : ON-DUTY / OFF-DUTY</li>
-		   </ul>
-		 </div>
-		 <!-- Self-Delivery Management ::: End -->
-		 <!-- Third-party Delivery Management ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Third-party Delivery Management</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li></li>
-		   </ul>
-		 </div>
-		 <!-- Third-party Delivery Management ::: End -->
-		 <!-- Secure Payment Service ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>Secure Payment Service</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li><b><i>Whole-sale Buyers pay-to Platform:</i></b><br/> 
-			 On Success of Product Transaction / Whole-sale Buyers Satisfaction, platform pay-to Store.
-			 On Failure of Product Transaction / Whole-sale Buyers Satisfaction, platform pay-to Whole-sale Buyers</li>
-			 <li><b><i>Customers pay-to Platform:</i></b><br/> 
-			 On Success of Product Transaction / Customer Satisfaction, platform pay-to Store.
-			 On Failure of Product Transaction / Customer Satisfaction, platform pay-to Customers</li>
-		   </ul>
-		 </div>
-		 <!-- Secure Payment Service ::: End -->
-		 <!-- General Payment Service ::: Start -->
-		 <div class="process-bg mtopbot5p padLeft10"><b>General Payment Service</b></div>
-		 <div class="mtop15p">
-		   <ul>
-			 <li></li>
-		   </ul>
-		 </div>
-		 <!-- General Payment Service ::: End -->
-	    </div><!--/.list-group-item -->
-	  </div><!--/.list-group -->
-	  <!-- -->
-	</div>
-	
   </div><!--/.row -->
   
   

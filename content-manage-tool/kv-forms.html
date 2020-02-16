@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/api/bootstrap-advanced.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
+
+<style>
+body { background-color:purple;color:#fff; }
+.mtop15p { margin-top:15px; }
+/* Page Related CSS ::: Start */
+.step-badges { height:40px;cursor:pointer;margin-top:15px; }
+.step-badges>div>span.badge { font-size:30px;background-color:#fff;color:purple; }
+.step-badges>div>span.badge.active { font-size:30px;background-color:#fff5c4;color:purple; }
+.hide-block { display:none; }
+/* Page Related CSS ::: End */
+</style>
+
+<script type="text/javascript">
+var ALLOW_UPTO_INDEX=1;
+var badge_htmlElements = { badge_menu:["badge-auth-reg-genInfo","badge-auth-reg-setPassword","badge-auth-reg-securityQ"],
+						   badge_info:{ "badge-auth-reg-genInfo":{ "contents":["auth-reg-genInfo"],"functions":function(){ } },
+										"badge-auth-reg-setPassword":{ "contents":["auth-reg-setPassword"],"functions":function(){ } },
+										"badge-auth-reg-securityQ":{ "contents":["auth-reg-securityQ"],"functions":function(){ } }}
+						   };
+var auth_reg_htmlElements = { auth_reg_surName:'auth-reg-genInfo-surName', auth_reg_name:'auth-reg-genInfo-name', 
+							  auth_reg_gender:'auth-reg-genInfo-gender', auth_reg_mobile:'auth-reg-genInfo-mobile', 
+							  auth_reg_otpcode:'auth-reg-genInfo-otpcode', auth_reg_password:'auth_reg_password',
+							  auth_reg_confirmPassword:'auth_reg_confirmPassword' };
+function sel_auth_badges(sel_Id){
+ bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
+}
+/**********************************************************************************************************************/
+function submit_auth_reg_genInfo(){
+ var surName = $("#"+auth_reg_htmlElements.auth_reg_surName).val();
+ var name = $("#"+auth_reg_htmlElements.auth_reg_name).val();
+ var gender = $("#"+auth_reg_htmlElements.auth_reg_gender).val();
+ var mobile = $("#"+auth_reg_htmlElements.auth_reg_mobile).val();
+ var otpcode = $("#"+auth_reg_htmlElements.auth_reg_otpcode).val();
+ var valid_surName = validate_surName(surName);
+ var valid_name = validate_name(name);
+ var valid_gender = validate_gender(gender);
+ var valid_mobile = validate_mobile(mobile);
+ var valid_otpcode = validate_otpcode(otpcode);
+ if(valid_surName && valid_name && valid_gender && valid_mobile && valid_otpcode){
+    ALLOW_UPTO_INDEX=2;
+	sel_auth_badges(badge_htmlElements.badge_menu[ALLOW_UPTO_INDEX-1]);
+ } else {
+    if(!valid_surName){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_surName); }
+	if(!valid_name){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_name); }
+	if(!valid_gender){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_gender); }
+	if(!valid_mobile){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile); }
+	if(!valid_otpcode){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_otpcode); }
+ }
+}
+function validate_surName(surName){
+  if(surName.length>0){ return true; }
+  else { return false; }
+}
+function validate_name(name){
+  if(name.length>0){ return true; }
+  else { return false; }
+}
+function validate_gender(gender){
+  if(gender.length>0){ return true; }
+  else { return false; }
+}
+function validate_mobile(mobile){
+  if(mobile.length>0){ return true; }
+  else { return false; }
+}
+function validate_otpcode(otpcode){
+  if(otpcode.length>0){ return true; }
+  else { return false; }
+}
+/**********************************************************************************************************************/
+function submit_auth_reg_setPassword(){
+ var password=$("#"+auth_reg_htmlElements.auth_reg_password).val();
+ var confirmPassword=$("#"+auth_reg_htmlElements.auth_reg_confirmPassword).val();
+ var valid_password=validate_password(password);
+ var valid_confirmPassword=validate_confirmPassword(confirmPassword);
+ if(valid_password && valid_confirmPassword){
+	ALLOW_UPTO_INDEX=3;
+	sel_auth_badges(badge_htmlElements.badge_menu[ALLOW_UPTO_INDEX-1]);
+ } else {
+	if(!valid_password){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_password); }
+	if(!valid_confirmPassword){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_confirmPassword); }
+ }
+}
+function validate_password(password){
+  if(password.length>0){ return true; }
+  else { return false; }
+}
+function validate_confirmPassword(password){
+  if(password.length>0){ return true; }
+  else { return false; }
+}
+/***********************************************************/
+function submit_auth_reg_securityQ(){
+
+}
+$(document).ready(function(){
+ sel_auth_badges(badge_htmlElements.badge_menu[0]);
+});
+</script>
+</head>
+<body>
+
+<div class="container-fluid mtop15p">
+<div class="row">
+<div class="col-xs-12 col-md-4 col-sm-6">
+<!-- -->
+<div align="center"><h4><b>Create an Account</b></h4></div>
+<!-- -->
+<!-- -->
+<div class="step-badges">
+ <div align="center" class="col-xs-4">
+   <span id="badge-auth-reg-genInfo" class="badge active"onclick="javascript:sel_auth_badges(this.id);">1</span>
+ </div><!--/.col-xs-4 -->
+ <div align="center" class="col-xs-4">
+   <span id="badge-auth-reg-setPassword" class="badge" onclick="javascript:sel_auth_badges(this.id);">2</span>
+ </div><!--/.col-xs-4 -->
+ <div align="center" class="col-xs-4">
+   <span id="badge-auth-reg-securityQ" class="badge" onclick="javascript:sel_auth_badges(this.id);">3</span>
+ </div><!--/.col-xs-4 -->
+</div><!--/.step-badges -->
+<!-- -->
+<div style="padding-left:20px;padding-right:20px;margin-top:15px;">
+ <div id="auth-reg-genInfo" class="hide-block">
+ <!-- -->
+   <div align="center" class="form-group" style="color:#fff5c4;">
+	 <h5><b>Provide Basic Information to create Account</b></h5>
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <input id="auth-reg-genInfo-surName" class="form-control" placeholder="Enter Surname"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <input id="auth-reg-genInfo-name" class="form-control" placeholder="Enter Name"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <select id="auth-reg-genInfo-gender" class="form-control">
+		<option value="">Select your Gender</option>
+		<option value="MALE">Male</option>
+		<option value="FEMALE">Female</option>
+	 </select>
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <div class="input-group">
+	   <input id="auth-reg-genInfo-mobile" class="form-control" placeholder="Enter Mobile Number"/>
+	   <div class="input-group-btn">
+		  <button class="btn btn-default"><b>Verify</b></button>
+	   </div><!--/.input-btn-group -->
+     </div><!--/.input-group -->
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <input id="auth-reg-genInfo-otpcode" class="form-control" placeholder="Enter OTP Code"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_genInfo();"><b>Next</b></button>
+   </div><!--/.form-group -->
+   <!-- -->
+ </div><!--/#auth-reg-genInfo -->
+ <div id="auth-reg-setPassword" class="hide-block">
+ <!-- -->
+   <div align="center" class="form-group" style="color:#fff5c4;">
+     <h5><b>Set Password to access your Account</b></h5>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <input id="auth_reg_password" class="form-control" placeholder="Enter Password"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <input id="auth_reg_confirmPassword" class="form-control" placeholder="Enter Confirm Password"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_setPassword();"><b>Next</b></button>
+   </div><!--/.form-group -->
+ <!-- -->
+ </div><!--/.col-xs-12 -->
+ <div id="auth-reg-securityQ" class="hide-block">
+ <!-- -->
+   <div align="center" class="form-group" style="color:#fff5c4;">
+	 <h5><b>Choose 3 Security Questions to secure Account</b></h5>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <select id="" class="form-control">
+       <option value="">Security Question # 1</option>
+     </select>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <input class="form-control" placeholder="Enter Answer"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <select class="form-control">
+       <option value="">Security Question # 2</option>
+     </select>
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <input class="form-control" placeholder="Enter Answer"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+	 <select class="form-control">
+	   <option value="">Security Question # 3</option>
+	 </select>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <input class="form-control" placeholder="Enter Answer"/>
+   </div><!--/.form-group -->
+   <div class="form-group">
+     <button class="btn btn-default form-control"><b>Create Account</b></button>
+   </div><!--/.form-group -->
+   <!-- -->
+ </div><!--/.col-xs-12 -->
+</div>
+<!-- -->
+</div><!--/.col-xs-12 col-md-4 col-sm-4 -->
+</div><!--/.row -->
+</div><!--/.container-fluid -->
+
+</body>
+</html>
