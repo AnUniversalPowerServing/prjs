@@ -36,8 +36,12 @@ var badge_htmlElements = { badge_menu:["badge-auth-reg-genInfo","badge-auth-reg-
 						   };
 var auth_reg_htmlElements = { auth_reg_surName:'auth-reg-genInfo-surName', auth_reg_name:'auth-reg-genInfo-name', 
 							  auth_reg_gender:'auth-reg-genInfo-gender', auth_reg_mobile:'auth-reg-genInfo-mobile', 
-							  auth_reg_otpcode:'auth-reg-genInfo-otpcode', auth_reg_password:'auth_reg_password',
-							  auth_reg_confirmPassword:'auth_reg_confirmPassword' };
+							  auth_reg_otpcode:'auth-reg-genInfo-otpcode', auth_reg_password:'auth-reg-genInfo-password',
+							  auth_reg_confirmPassword:'auth-reg-genInfo-confirmPassword',
+							  auth_reg_sQ1:'auth-reg-securityQ-sQ1', auth_reg_a1:'auth-reg-securityQ-a1',
+							  auth_reg_sQ2:'auth-reg-securityQ-sQ2', auth_reg_a2:'auth-reg-securityQ-a2',
+							  auth_reg_sQ3:'auth-reg-securityQ-sQ3', auth_reg_a3:'auth-reg-securityQ-a3'	
+							};
 function sel_auth_badges(sel_Id){
  bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
 }
@@ -108,7 +112,26 @@ function validate_confirmPassword(password){
 }
 /***********************************************************/
 function submit_auth_reg_securityQ(){
-
+ var sQ1 = $("#"+auth_reg_htmlElements.auth_reg_sQ1).val();
+ var a1 = $("#"+auth_reg_htmlElements.auth_reg_a1).val();
+ var sQ2 = $("#"+auth_reg_htmlElements.auth_reg_sQ2).val();
+ var a2 = $("#"+auth_reg_htmlElements.auth_reg_a2).val();
+ var sQ3 = $("#"+auth_reg_htmlElements.auth_reg_sQ3).val();
+ var a3 = $("#"+auth_reg_htmlElements.auth_reg_a3).val();
+ var valid_a1 = validate_securityQA(a1);
+ var valid_a2 = validate_securityQA(a2);
+ var valid_a3 = validate_securityQA(a3);
+ if(valid_a1 && valid_a2 && valid_a3){
+ 
+ } else {
+	if(!valid_a1){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a1); }
+	if(!valid_a2){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a2); }
+	if(!valid_a3){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a3); }
+ }
+}
+function validate_securityQA(answer){
+  if(password.length>0){ return true; }
+  else { return false; }
 }
 $(document).ready(function(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
@@ -177,10 +200,10 @@ $(document).ready(function(){
      <h5><b>Set Password to access your Account</b></h5>
    </div><!--/.form-group -->
    <div class="form-group">
-     <input id="auth_reg_password" class="form-control" placeholder="Enter Password"/>
+     <input id="auth-reg-genInfo-password" class="form-control" placeholder="Enter Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <input id="auth_reg_confirmPassword" class="form-control" placeholder="Enter Confirm Password"/>
+     <input id="auth-reg-genInfo-confirmPassword" class="form-control" placeholder="Enter Confirm Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
      <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_setPassword();"><b>Next</b></button>
@@ -193,28 +216,28 @@ $(document).ready(function(){
 	 <h5><b>Choose 3 Security Questions to secure Account</b></h5>
    </div><!--/.form-group -->
    <div class="form-group">
-     <select id="" class="form-control">
+     <select id="auth-reg-securityQ-sQ1" class="form-control">
        <option value="">Security Question # 1</option>
      </select>
    </div><!--/.form-group -->
    <div class="form-group">
-     <input class="form-control" placeholder="Enter Answer"/>
+     <input id="auth-reg-securityQ-a1" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <select class="form-control">
+     <select id="auth-reg-securityQ-sQ2" class="form-control">
        <option value="">Security Question # 2</option>
      </select>
    </div><!--/.form-group -->
    <div class="form-group">
-	 <input class="form-control" placeholder="Enter Answer"/>
+	 <input id="auth-reg-securityQ-a2" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-	 <select class="form-control">
+	 <select id="auth-reg-securityQ-sQ3" class="form-control">
 	   <option value="">Security Question # 3</option>
 	 </select>
    </div><!--/.form-group -->
    <div class="form-group">
-     <input class="form-control" placeholder="Enter Answer"/>
+     <input id="auth-reg-securityQ-a3" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
      <button class="btn btn-default form-control"><b>Create Account</b></button>
