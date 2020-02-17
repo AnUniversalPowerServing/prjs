@@ -133,6 +133,16 @@ function validate_securityQA(answer){
   if(password.length>0){ return true; }
   else { return false; }
 }
+var securityQuestions = { "1":"Question#1", "2":"Question#2", "3":"Question#3" };
+var securityQuestion1;
+var securityQuestion2;
+var securityQuestion3;
+function load_auth_reg_securityQ(){
+  for(var index in securityQuestions){
+   console.log("security: "+index+"  "+securityQuestions[index]);
+  }
+  auth_reg_htmlElements.auth_reg_sQ1
+}
 $(document).ready(function(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
 });
