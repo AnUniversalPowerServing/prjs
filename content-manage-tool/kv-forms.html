@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/api/bootstrap-advanced.js"></script>
+<script src="js/api/core-skeleton.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
@@ -111,6 +112,7 @@ function validate_confirmPassword(password){
   else { return false; }
 }
 /***********************************************************/
+AUTH_REG_SQENDPOINT='backend/php/dac/controller.accounts.user.auth.php';
 function submit_auth_reg_securityQ(){
  var sQ1 = $("#"+auth_reg_htmlElements.auth_reg_sQ1).val();
  var a1 = $("#"+auth_reg_htmlElements.auth_reg_a1).val();
@@ -118,33 +120,94 @@ function submit_auth_reg_securityQ(){
  var a2 = $("#"+auth_reg_htmlElements.auth_reg_a2).val();
  var sQ3 = $("#"+auth_reg_htmlElements.auth_reg_sQ3).val();
  var a3 = $("#"+auth_reg_htmlElements.auth_reg_a3).val();
- var valid_a1 = validate_securityQA(a1);
- var valid_a2 = validate_securityQA(a2);
- var valid_a3 = validate_securityQA(a3);
- if(valid_a1 && valid_a2 && valid_a3){
+ var validate = validate_securityQA(sQ1, a1, sQ2, a2, sQ3, a3);
+ if(validate){
  
- } else {
-	if(!valid_a1){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a1); }
-	if(!valid_a2){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a2); }
-	if(!valid_a3){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a3); }
  }
 }
-function validate_securityQA(answer){
-  if(password.length>0){ return true; }
-  else { return false; }
+function validate_securityQA(sQ1, a1, sQ2, a2, sQ3, a3){
+  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a1);
+  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a2);
+  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a3);
 }
-var securityQuestions = { "1":"Question#1", "2":"Question#2", "3":"Question#3" };
+var SECURITYQUESTIONS;
 var securityQuestion1;
 var securityQuestion2;
 var securityQuestion3;
 function load_auth_reg_securityQ(){
-  for(var index in securityQuestions){
-   console.log("security: "+index+"  "+securityQuestions[index]);
+  securityQuestion1='';securityQuestion2='';securityQuestion3='';
+  js_ajax('GET',AUTH_REG_SQENDPOINT,{ action:'USER_AUTH_SECURITYQ' },function(securityQuestions){
+    SECURITYQUESTIONS = securityQuestions;
+	load_auth_reg_securityQ1();
+	load_auth_reg_securityQ2();
+	load_auth_reg_securityQ3();
+  });
+}
+function load_auth_reg_securityQ1(){
+ var content='<option value="">Choose your Security Question#1</option>';
+ for(var index in SECURITYQUESTIONS){
+  var sQ_Id = SECURITYQUESTIONS[index].sQ_Id;
+  var sQ = SECURITYQUESTIONS[index].sQ;
+  var exclude = false;
+	  if(securityQuestion2===sQ_Id) { exclude = true; }
+	  if(securityQuestion3===sQ_Id) { exclude = true; }
+  if(!exclude){
+   content+='<option value="'+sQ_Id+'">'+sQ+'</option>';
   }
-  auth_reg_htmlElements.auth_reg_sQ1
+ }
+ document.getElementById(auth_reg_htmlElements.auth_reg_sQ1).innerHTML=content;
+}
+function update_auth_reg_securityQ1(){
+ securityQuestion1=document.getElementById(auth_reg_htmlElements.auth_reg_sQ1).value;
+ reset_auth_reg_securityQ();
+}
+function load_auth_reg_securityQ2(){
+ var content='<option value="">Choose your Security Question#2</option>';
+ for(var index in SECURITYQUESTIONS){
+  var sQ_Id = SECURITYQUESTIONS[index].sQ_Id;
+  var sQ = SECURITYQUESTIONS[index].sQ;
+  var exclude = false;
+	  if(securityQuestion1===sQ_Id) { exclude = true; }
+	  if(securityQuestion3===sQ_Id) { exclude = true; }
+  if(!exclude){
+    content+='<option value="'+sQ_Id+'">'+sQ+'</option>';
+  }
+ }
+ document.getElementById(auth_reg_htmlElements.auth_reg_sQ2).innerHTML=content;
+}
+function update_auth_reg_securityQ2(){
+ securityQuestion2=document.getElementById(auth_reg_htmlElements.auth_reg_sQ2).value;
+ reset_auth_reg_securityQ();
+}
+function load_auth_reg_securityQ3(){
+ var content='<option value="">Choose your Security Question#3</option>';
+ for(var index in SECURITYQUESTIONS){
+  var sQ_Id = SECURITYQUESTIONS[index].sQ_Id;
+  var sQ = SECURITYQUESTIONS[index].sQ;
+  var exclude = false;
+	  if(securityQuestion1===sQ_Id) { exclude = true; }
+	  if(securityQuestion2===sQ_Id) { exclude = true; }
+  if(!exclude){
+    content+='<option value="'+sQ_Id+'">'+sQ+'</option>';
+  }
+ }
+ document.getElementById(auth_reg_htmlElements.auth_reg_sQ3).innerHTML=content;
+}
+function update_auth_reg_securityQ3(){
+ securityQuestion3=document.getElementById(auth_reg_htmlElements.auth_reg_sQ3).value;
+ reset_auth_reg_securityQ();
+}
+function reset_auth_reg_securityQ(){
+ console.log("securityQuestion1: "+securityQuestion1);
+ console.log("securityQuestion2: "+securityQuestion2);
+ console.log("securityQuestion3: "+securityQuestion3);
+ if(securityQuestion1=='') { load_auth_reg_securityQ1(); }
+ if(securityQuestion2=='') { load_auth_reg_securityQ2(); }
+ if(securityQuestion3=='') { load_auth_reg_securityQ3(); }
 }
 $(document).ready(function(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
+ load_auth_reg_securityQ();
 });
 </script>
 </head>
@@ -226,7 +289,7 @@ $(document).ready(function(){
 	 <h5><b>Choose 3 Security Questions to secure Account</b></h5>
    </div><!--/.form-group -->
    <div class="form-group">
-     <select id="auth-reg-securityQ-sQ1" class="form-control">
+     <select id="auth-reg-securityQ-sQ1" class="form-control" onchange="javascript:update_auth_reg_securityQ1();">
        <option value="">Security Question # 1</option>
      </select>
    </div><!--/.form-group -->
@@ -234,7 +297,7 @@ $(document).ready(function(){
      <input id="auth-reg-securityQ-a1" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <select id="auth-reg-securityQ-sQ2" class="form-control">
+     <select id="auth-reg-securityQ-sQ2" class="form-control" onchange="javascript:update_auth_reg_securityQ2();">
        <option value="">Security Question # 2</option>
      </select>
    </div><!--/.form-group -->
@@ -242,7 +305,7 @@ $(document).ready(function(){
 	 <input id="auth-reg-securityQ-a2" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-	 <select id="auth-reg-securityQ-sQ3" class="form-control">
+	 <select id="auth-reg-securityQ-sQ3" class="form-control" onchange="javascript:update_auth_reg_securityQ3();">
 	   <option value="">Security Question # 3</option>
 	 </select>
    </div><!--/.form-group -->
