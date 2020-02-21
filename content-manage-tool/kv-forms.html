@@ -59,9 +59,19 @@ function submit_auth_reg_genInfo(){
  var valid_mobile = validate_mobile(mobile);
  var valid_otpcode = validate_otpcode(otpcode);
  if(valid_surName && valid_name && valid_gender && valid_mobile && valid_otpcode){
+    AUTH_REG_SURNAME = surName;
+	AUTH_REG_NAME = name;
+	AUTH_REG_GENDER = gender;
+	AUTH_REG_MOBILE = mobile;
+	AUTH_REG_OTPCODE = otpcode;
     ALLOW_UPTO_INDEX=2;
 	sel_auth_badges(badge_htmlElements.badge_menu[ALLOW_UPTO_INDEX-1]);
  } else {
+	AUTH_REG_SURNAME = '';
+	AUTH_REG_NAME = '';
+	AUTH_REG_GENDER = '';
+	AUTH_REG_MOBILE = '';
+	AUTH_REG_OTPCODE = '';
     if(!valid_surName){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_surName); }
 	if(!valid_name){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_name); }
 	if(!valid_gender){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_gender); }
@@ -96,9 +106,11 @@ function submit_auth_reg_setPassword(){
  var valid_password=validate_password(password);
  var valid_confirmPassword=validate_confirmPassword(confirmPassword);
  if(valid_password && valid_confirmPassword){
+    AUTH_REG_PASSWORD = password;
 	ALLOW_UPTO_INDEX=3;
 	sel_auth_badges(badge_htmlElements.badge_menu[ALLOW_UPTO_INDEX-1]);
  } else {
+	AUTH_REG_PASSWORD = '';
 	if(!valid_password){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_password); }
 	if(!valid_confirmPassword){ bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_confirmPassword); }
  }
@@ -112,6 +124,18 @@ function validate_confirmPassword(password){
   else { return false; }
 }
 /***********************************************************/
+var AUTH_REG_SURNAME;
+var AUTH_REG_NAME;
+var AUTH_REG_GENDER;
+var AUTH_REG_MOBILE;
+var AUTH_REG_OTPCODE;
+var AUTH_REG_PASSWORD;
+var AUTH_REG_SQ1;
+var AUTH_REG_A1;
+var AUTH_REG_SQ2;
+var AUTH_REG_A2;
+var AUTH_REG_SQ3;
+var AUTH_REG_A3;
 AUTH_REG_SQENDPOINT='backend/php/dac/controller.accounts.user.auth.php';
 function submit_auth_reg_securityQ(){
  var sQ1 = $("#"+auth_reg_htmlElements.auth_reg_sQ1).val();
@@ -122,13 +146,33 @@ function submit_auth_reg_securityQ(){
  var a3 = $("#"+auth_reg_htmlElements.auth_reg_a3).val();
  var validate = validate_securityQA(sQ1, a1, sQ2, a2, sQ3, a3);
  if(validate){
- 
+   AUTH_REG_SQ1 = sQ1;
+   AUTH_REG_A1 = a1;
+   AUTH_REG_SQ2 = sQ2;
+   AUTH_REG_A2 = a2;
+   AUTH_REG_SQ3 = sQ3;
+   AUTH_REG_A3 = a3;
+   bootstrap_formField_trigger('success',
+   [auth_reg_htmlElements.auth_reg_a1,auth_reg_htmlElements.auth_reg_a2,auth_reg_htmlElements.auth_reg_a3]);
+   console.log("AUTH_REG_SURNAME: "+AUTH_REG_SURNAME);
+   console.log("AUTH_REG_NAME: "+AUTH_REG_NAME);
+   console.log("AUTH_REG_GENDER: "+AUTH_REG_GENDER);
+   console.log("AUTH_REG_MOBILE: "+AUTH_REG_MOBILE);
+   console.log("AUTH_REG_OTPCODE: "+AUTH_REG_OTPCODE);
+   console.log("AUTH_REG_PASSWORD: "+AUTH_REG_PASSWORD);
+   console.log("AUTH_REG_SQ1: "+AUTH_REG_SQ1);
+   console.log("AUTH_REG_A1: "+AUTH_REG_A1);
+   console.log("AUTH_REG_SQ2: "+AUTH_REG_SQ2);
+   console.log("AUTH_REG_A2: "+AUTH_REG_A2);
+   console.log("AUTH_REG_SQ3: "+AUTH_REG_SQ3);
+   console.log("AUTH_REG_A3: "+AUTH_REG_A3);
+   
+   
  }
 }
 function validate_securityQA(sQ1, a1, sQ2, a2, sQ3, a3){
-  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a1);
-  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a2);
-  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_a3);
+  bootstrap_formField_trigger('error',[auth_reg_htmlElements.auth_reg_a1,auth_reg_htmlElements.auth_reg_a2,auth_reg_htmlElements.auth_reg_a3]);
+  return true;
 }
 var SECURITYQUESTIONS;
 var securityQuestion1;
@@ -313,7 +357,7 @@ $(document).ready(function(){
      <input id="auth-reg-securityQ-a3" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <button class="btn btn-default form-control"><b>Create Account</b></button>
+     <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_securityQ();"><b>Create Account</b></button>
    </div><!--/.form-group -->
    <!-- -->
  </div><!--/.col-xs-12 -->

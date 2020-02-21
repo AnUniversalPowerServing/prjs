@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2020 at 04:07 AM
+-- Generation Time: Feb 21, 2020 at 07:20 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -23,20 +23,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_account_sq`
+-- Table structure for table `user_accounts_sq`
 --
 
-CREATE TABLE IF NOT EXISTS `user_account_sq` (
+CREATE TABLE IF NOT EXISTS `user_accounts_sq` (
   `sQ_Id` int(11) NOT NULL AUTO_INCREMENT,
   `sQ` varchar(100) NOT NULL,
   PRIMARY KEY (`sQ_Id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `user_account_sq`
+-- Dumping data for table `user_accounts_sq`
 --
 
-INSERT INTO `user_account_sq` (`sQ_Id`, `sQ`) VALUES
+INSERT INTO `user_accounts_sq` (`sQ_Id`, `sQ`) VALUES
 (1, 'Which is your favourite food?'),
 (2, 'Which is your dream country, you would like to visit?'),
 (3, 'Who is your favourite Teacher?'),

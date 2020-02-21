@@ -12,3 +12,22 @@ Tuesday 18th February 2020 10:26:10 AM [INFO] ::: [api.database.php]  Database c
 Tuesday 18th February 2020 10:27:58 AM [INFO] ::: [api.database.php]  Database connected Successfully 
 Tuesday 18th February 2020 10:30:00 AM [INFO] ::: [api.database.php]  Database connected Successfully 
 Tuesday 18th February 2020 10:32:00 AM [INFO] ::: [api.database.php]  Database connected Successfully 
+Wednesday 19th February 2020 10:09:28 AM [INFO] ::: [api.database.php]  Database connected Successfully 
+Wednesday 19th February 2020 10:48:04 AM [INFO] ::: [api.database.php]  Database connected Successfully 
+Wednesday 19th February 2020 10:49:25 AM [INFO] ::: [api.database.php]  Database connected Successfully 
+Wednesday 19th February 2020 10:58:02 AM [INFO] ::: [api.database.php]  Database connected Successfully 
+Wednesday 19th February 2020 10:58:58 AM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 12:53:43 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 12:58:22 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:00:36 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:00:36 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3) VALUES ('password123','AR37139692','Y','','','','d41d8cd98f00b204e9800998ecf8427e','','','','','',''); 
+Friday 21st February 2020 01:07:13 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:07:13 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3) VALUES ('password123','AR37139692','Y','','','','d41d8cd98f00b204e9800998ecf8427e','1','','2','','3',''); 
+Friday 21st February 2020 01:17:18 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:17:18 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3) VALUES ('password123','AR37139692','Y','','','','d41d8cd98f00b204e9800998ecf8427e','1','','2','','3',''); 
+Friday 21st February 2020 01:33:23 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:33:23 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3) VALUES ('password123','AR37139692','Y','','','','d41d8cd98f00b204e9800998ecf8427e','1','','2','','3',''); 
+Friday 21st February 2020 01:37:09 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:37:09 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3, acc_active) VALUES ('password123','AR37139692','Y','','','','d41d8cd98f00b204e9800998ecf8427e','1','','2','','3','','acc_active'); 
+Friday 21st February 2020 01:37:42 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Friday 21st February 2020 01:37:42 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3, acc_active) VALUES ('password123','AR37139692','Y','','','','d41d8cd98f00b204e9800998ecf8427e','1','','2','','3','','Y'); 
