@@ -12,6 +12,17 @@ if(isset($_GET["action"])){
     $query = $userAccountAuth->query_view_userSecurityQ();
     $database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
     echo $database->getJSONData($query);
+ } else if($_GET["action"]=='USER_AUTH_VERIFYMOBILE') {
+    $mobile=$_GET["mobile"];
+    $userAccountAuth = new UserAccountAuth();
+    $query = $userAccountAuth->query_view_userMobileIsExists($mobile);
+    $database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
+    $jsonData=json_decode($database->getJSONData($query));
+	$wsStatus = array();
+	if(count($jsonData)>0){
+	  $wsStatus["user"]='EXISTS';
+	} else { $wsStatus["user"]='NOT_EXISTS'; }
+	echo json_encode($wsStatus);
  } 
 }
 if(isset($_POST["action"])){

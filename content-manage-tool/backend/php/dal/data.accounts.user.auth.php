@@ -8,6 +8,9 @@ class UserAccountAuth {
 	return "SELECT * FROM ".$this->TABLE_USERACCOUNT_SECURITYQ.";";
   }
 
+  function query_view_userMobileIsExists($mobile){
+    return "SELECT * FROM ".$this->TABLE_USERACCOUNT_AUTHINFO." WHERE mobile='".$mobile."';";
+  }
   function query_add_userAccounts($mob_code, $mobile, $mob_val, $surName, $name, $gender, $acc_pwd, $q1, $a1, $q2, $a2, $q3, $a3, $acc_active){
    $sql="INSERT INTO ".$this->TABLE_USERACCOUNT_AUTHINFO."(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3, acc_active) ";
    $sql.="VALUES ('".$mob_code."','".$mobile."','".$mob_val."','".$surName;

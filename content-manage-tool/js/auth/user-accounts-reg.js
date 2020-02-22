@@ -103,16 +103,31 @@ function submit_auth_reg_changeMobile(){
  $("#"+auth_reg_htmlElements.auth_reg_mobile).val('');
  showHide_auth_reg_otpForm('hide');
 }
-
 function submit_auth_reg_verifyMobile(){
  VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
  var valid_surName = validate_surName(auth_reg_htmlElements.auth_reg_surName);
  var valid_name = validate_name(auth_reg_htmlElements.auth_reg_name);
  var valid_gender = validate_gender(auth_reg_htmlElements.auth_reg_gender);
  var valid_mobile = validate_mobile(auth_reg_htmlElements.auth_reg_mobile);
+ var mobile = $('#'+auth_reg_htmlElements.auth_reg_mobile).val();
  if(valid_surName && valid_name && valid_gender && valid_mobile){
-    showHide_auth_reg_otpForm('show');
-	document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
+   js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_VERIFYMOBILE', mobile:mobile },
+   function(response){
+      console.log(JSON.stringify(response));
+      if(response.user==='NOT_EXISTS'){
+        showHide_auth_reg_otpForm('show');
+	    document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
+		bootstrap_formField_trigger('success',auth_reg_htmlElements.auth_reg_mobile);
+	  } else if(response.user==='EXISTS'){
+	    VALIDATION_MESSAGE_ERROR='You already Registered. Please login to your Account ';
+	    show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
+		bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile);
+	  } else {
+	    VALIDATION_MESSAGE_ERROR='Unable to verify your Mobile Number. Please try later.';
+	    show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
+		bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile);
+	  }
+   });
  } else {
     show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
  }
@@ -237,7 +252,7 @@ function submit_auth_reg_securityQ(){
    console.log("AUTH_REG_SQ3: "+AUTH_REG_SQ3);
    console.log("AUTH_REG_A3: "+AUTH_REG_A3); 
    	// Call Service to Store data into Database
-   js_ajax('POST',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_ADDNEWACCOUNT', mob_code:'+91',mobile:'',
+   js_ajax('POST',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_ADDNEWACCOUNT', mob_code:'+91',mobile:AUTH_REG_MOBILE,
     surName:AUTH_REG_SURNAME, name:AUTH_REG_NAME, gender:AUTH_REG_GENDER, acc_pwd:AUTH_REG_PASSWORD, 
 	q1:AUTH_REG_SQ1, a1:AUTH_REG_A1, q2:AUTH_REG_SQ2, a2:AUTH_REG_A2, q3:AUTH_REG_SQ3, a3:AUTH_REG_A3 },
 	function(response){
