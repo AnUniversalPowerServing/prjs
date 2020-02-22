@@ -1,0 +1,15 @@
+{ 
+  "E001": { "english":"Provide valid Surname." },
+  "E002": { "english":"Provide valid  Name." },
+  "E003": { "english":"Provide valid  Gender." },
+  "E004": { "english":"Provide valid  Mobile Number." },
+  "E005": { "english":"Provide valid  OTP-Code." },
+  "E006": { "english":"Provide valid Password." },
+  "E007": { "english":"Password and Confirm Password doesn't match." },
+  "E008": { "english":"Choose Security Question #1." },
+  "E009": { "english":"Provide valid Answer for Security Question #1." },
+  "E010": { "english":"Choose Security Question #2." },
+  "E011": { "english":"Provide valid Answer for Security Question #2." },
+  "E012": { "english":"Choose Security Question #3." },
+  "E013": { "english":"Provide valid Answer for Security Question #3." }
+}

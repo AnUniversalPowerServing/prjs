@@ -20,11 +20,14 @@
    <div align="center" class="form-group" style="color:#fff5c4;">
 	 <h5><b>Provide Basic Information to create Account</b></h5>
    </div><!--/.form-group -->
+   <div id="auth-reg-genInfo-warnErrorMsg" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
-	 <input id="auth-reg-genInfo-surName" class="form-control" placeholder="Enter Surname"/>
+	 <input id="auth-reg-genInfo-surName" class="form-control" placeholder="Enter Surname" 
+	  onkeypress="javascript:return core_validate_allowOnlyAlphabets(event);"/>
    </div><!--/.form-group -->
    <div class="form-group">
-	 <input id="auth-reg-genInfo-name" class="form-control" placeholder="Enter Name"/>
+	 <input id="auth-reg-genInfo-name" class="form-control" placeholder="Enter Name" 
+	  onkeypress="javascript:return core_validate_allowOnlyAlphabets(event);"/>
    </div><!--/.form-group -->
    <div class="form-group">
 	 <select id="auth-reg-genInfo-gender" class="form-control">
@@ -46,7 +49,8 @@
 		   </div>
 		  <!-- -->
 	   </div><!--/.input-btn-group -->
-	   <input id="auth-reg-genInfo-mobile" class="form-control" placeholder="Enter Mobile Number"/>
+	   <input id="auth-reg-genInfo-mobile" class="form-control" placeholder="Enter Mobile Number" 
+	    onkeypress="javascript:return core_validate_allowOnlyNumeric(event);"/>
 	   <div class="input-group-btn">
 		  <button id="auth-reg-genInfo-mobile-verifyBtn" class="btn btn-default hide-block" onclick="javascript:submit_auth_reg_verifyMobile();"><b>Verify</b></button>
 		  <button id="auth-reg-genInfo-mobile-changeBtn" class="btn btn-default hide-block" onclick="javascript:submit_auth_reg_changeMobile();"><b>Change</b></button>
@@ -56,9 +60,10 @@
    
    <div id="auth-reg-genInfo-verifyMobileForm" class="form-group hide-block">
 	 <div class="input-group">
-	   <input id="auth-reg-genInfo-otpcode" class="form-control" placeholder="Enter OTP Code"/>
+	   <input id="auth-reg-genInfo-otpcode" class="form-control" placeholder="Enter OTP Code" 
+	    onkeypress="javascript:return core_validate_allowOnlyNumeric(event);"/>
 	   <div class="input-group-btn">
-		 <button class="btn btn-default" onclick="javascript:submit_auth_reg_validateOTPCode();"><b>Validate</b></button>
+		 <button id="auth-reg-genInfo-mobile-validateOTPBtn" class="btn btn-default" onclick="javascript:submit_auth_reg_validateOTPCode();"><b>Validate</b></button>
 	   </div><!--/.input-btn-group -->
      </div><!--/.input-group -->
    </div><!--/.form-group -->
@@ -74,11 +79,12 @@
    <div align="center" class="form-group" style="color:#fff5c4;">
      <h5><b>Set Password to access your Account</b></h5>
    </div><!--/.form-group -->
+   <div id="auth-reg-lock-warnErrorMsg" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
-     <input id="auth-reg-genInfo-password" class="form-control" placeholder="Enter Password"/>
+     <input id="auth-reg-lock-password" class="form-control" placeholder="Enter Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <input id="auth-reg-genInfo-confirmPassword" class="form-control" placeholder="Enter Confirm Password"/>
+     <input id="auth-reg-lock-confirmPassword" class="form-control" placeholder="Enter Confirm Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
      <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_setPassword();"><b>Next</b></button>
@@ -90,6 +96,7 @@
    <div align="center" class="form-group" style="color:#fff5c4;">
 	 <h5><b>Choose 3 Security Questions to secure Account</b></h5>
    </div><!--/.form-group -->
+   <div id="auth-reg-sQ-warnErrorMsg" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
      <select id="auth-reg-securityQ-sQ1" class="form-control" onchange="javascript:update_auth_reg_securityQ1();">
        <option value="">Security Question # 1</option>

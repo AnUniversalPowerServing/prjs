@@ -16,6 +16,10 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
+<script type="text/javascript">
+var PROJECT_URL='';
+var USR_LANG='english';
+</script>
 <script src="js/api/bootstrap-advanced.js"></script>
 <script src="js/api/core-skeleton.js"></script>
 <script src="js/common/validations.js"></script>
