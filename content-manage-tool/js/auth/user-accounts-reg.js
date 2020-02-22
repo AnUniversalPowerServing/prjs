@@ -28,12 +28,15 @@ var auth_reg_htmlElements = { auth_reg_surName:'auth-reg-genInfo-surName', auth_
 							  auth_reg_sQ1:'auth-reg-securityQ-sQ1', auth_reg_a1:'auth-reg-securityQ-a1',
 							  auth_reg_sQ2:'auth-reg-securityQ-sQ2', auth_reg_a2:'auth-reg-securityQ-a2',
 							  auth_reg_sQ3:'auth-reg-securityQ-sQ3', auth_reg_a3:'auth-reg-securityQ-a3',
-							  verifyMobileForm:'auth-reg-genInfo-verifyMobileForm'
+							  verifyMobileForm:'auth-reg-genInfo-verifyMobileForm',
+							  verifyMobileBtn:'auth-reg-genInfo-mobile-verifyBtn',
+							  changeMobileBtn:'auth-reg-genInfo-mobile-changeBtn'
 							};
 						
 function trigger_userAccounts_auth(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
  load_auth_reg_securityQ();
+ showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn');
 }
 function sel_auth_badges(sel_Id){
  bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
@@ -41,16 +44,47 @@ function sel_auth_badges(sel_Id){
 /*********************************************************************************************************************/
 /*********************************************************************************************************************/
 /*********************************************************************************************************************/
-function showHide_auth_reg_otpForm(mode){
-  if($('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block') && mode=='show'){
-    $('#'+auth_reg_htmlElements.verifyMobileForm).removeClass('hide-block');
+function showHide_auth_reg_mobileVerifyChangeBtn(view){
+ if(view=='verifyBtn'){
+  if($('#'+auth_reg_htmlElements.verifyMobileBtn).hasClass('hide-block')){
+   $('#'+auth_reg_htmlElements.verifyMobileBtn).removeClass('hide-block');
   }
-  if(!$('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block') && mode=='hide'){
-    $('#'+auth_reg_htmlElements.verifyMobileForm).addClass('hide-block');
-  }  
-  var otpcode = $("#"+auth_reg_htmlElements.auth_reg_otpcode).val();
+  if(!$('#'+auth_reg_htmlElements.changeMobileBtn).hasClass('hide-block')){
+   $('#'+auth_reg_htmlElements.changeMobileBtn).addClass('hide-block');
+  }
+ } else if(view=='changeBtn'){
+   if(!$('#'+auth_reg_htmlElements.verifyMobileBtn).hasClass('hide-block')){
+     $('#'+auth_reg_htmlElements.verifyMobileBtn).addClass('hide-block');
+   }
+   if($('#'+auth_reg_htmlElements.changeMobileBtn).hasClass('hide-block')){
+   $('#'+auth_reg_htmlElements.changeMobileBtn).removeClass('hide-block');
+  }
+ }
+}
+function showHide_auth_reg_otpForm(mode){
+  if(mode=='show'){
+    if($('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block')){
+       $('#'+auth_reg_htmlElements.verifyMobileForm).removeClass('hide-block');
+    }
+    $("#"+auth_reg_htmlElements.auth_reg_otpcode).val('');
+    showHide_auth_reg_mobileVerifyChangeBtn('changeBtn');
+    document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=true;
+  } else if(mode=='hide'){
+     if(!$('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block')){
+       $('#'+auth_reg_htmlElements.verifyMobileForm).addClass('hide-block');
+     }
+	 showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn');
+	 bootstrap_formField_trigger('remove',auth_reg_htmlElements.auth_reg_mobile);
+  }
   
 }
+
+function submit_auth_reg_changeMobile(){
+ document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=false;
+ $("#"+auth_reg_htmlElements.auth_reg_mobile).val('');
+ showHide_auth_reg_otpForm('hide');
+}
+
 function submit_auth_reg_verifyMobile(){
  var surName = $("#"+auth_reg_htmlElements.auth_reg_surName).val();
  var name = $("#"+auth_reg_htmlElements.auth_reg_name).val();
@@ -64,6 +98,7 @@ function submit_auth_reg_verifyMobile(){
     showHide_auth_reg_otpForm('show');
  }
 }
+
 function submit_auth_reg_genInfo(){
  var surName = $("#"+auth_reg_htmlElements.auth_reg_surName).val();
  var name = $("#"+auth_reg_htmlElements.auth_reg_name).val();

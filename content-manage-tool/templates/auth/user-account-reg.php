@@ -48,19 +48,25 @@
 	   </div><!--/.input-btn-group -->
 	   <input id="auth-reg-genInfo-mobile" class="form-control" placeholder="Enter Mobile Number"/>
 	   <div class="input-group-btn">
-		  <button class="btn btn-default" onclick="javascript:submit_auth_reg_verifyMobile();"><b>Verify</b></button>
+		  <button id="auth-reg-genInfo-mobile-verifyBtn" class="btn btn-default hide-block" onclick="javascript:submit_auth_reg_verifyMobile();"><b>Verify</b></button>
+		  <button id="auth-reg-genInfo-mobile-changeBtn" class="btn btn-default hide-block" onclick="javascript:submit_auth_reg_changeMobile();"><b>Change</b></button>
 	   </div><!--/.input-btn-group -->
      </div><!--/.input-group -->
    </div><!--/.form-group -->
    
-   <div id="auth-reg-genInfo-verifyMobileForm" class="hide-block">
-	 <div class="form-group">
+   <div id="auth-reg-genInfo-verifyMobileForm" class="form-group hide-block">
+	 <div class="input-group">
 	   <input id="auth-reg-genInfo-otpcode" class="form-control" placeholder="Enter OTP Code"/>
-	 </div><!--/.form-group -->
-	 <div class="form-group">
-	   <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_genInfo();"><b>Next</b></button>
-	 </div><!--/.form-group -->
-   </div>
+	   <div class="input-group-btn">
+		 <button class="btn btn-default" onclick="javascript:submit_auth_reg_validateOTPCode();"><b>Validate</b></button>
+	   </div><!--/.input-btn-group -->
+     </div><!--/.input-group -->
+   </div><!--/.form-group -->
+	 
+   <div id="auth-reg-genInfo-moveNextForm" class="form-group hide-block">
+	 <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_genInfo();"><b>Next</b></button>
+   </div><!--/.form-group -->
+  
    <!-- -->
  </div><!--/#auth-reg-genInfo -->
  <div id="auth-reg-setPassword" class="hide-block">
