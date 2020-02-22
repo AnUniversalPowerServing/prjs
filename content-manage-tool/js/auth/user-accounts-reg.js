@@ -27,9 +27,10 @@ var auth_reg_htmlElements = { auth_reg_surName:'auth-reg-genInfo-surName', auth_
 							  auth_reg_confirmPassword:'auth-reg-genInfo-confirmPassword',
 							  auth_reg_sQ1:'auth-reg-securityQ-sQ1', auth_reg_a1:'auth-reg-securityQ-a1',
 							  auth_reg_sQ2:'auth-reg-securityQ-sQ2', auth_reg_a2:'auth-reg-securityQ-a2',
-							  auth_reg_sQ3:'auth-reg-securityQ-sQ3', auth_reg_a3:'auth-reg-securityQ-a3'	
+							  auth_reg_sQ3:'auth-reg-securityQ-sQ3', auth_reg_a3:'auth-reg-securityQ-a3',
+							  verifyMobileForm:'auth-reg-genInfo-verifyMobileForm'
 							};
-							
+						
 function trigger_userAccounts_auth(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
  load_auth_reg_securityQ();
@@ -40,6 +41,29 @@ function sel_auth_badges(sel_Id){
 /*********************************************************************************************************************/
 /*********************************************************************************************************************/
 /*********************************************************************************************************************/
+function showHide_auth_reg_otpForm(mode){
+  if($('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block') && mode=='show'){
+    $('#'+auth_reg_htmlElements.verifyMobileForm).removeClass('hide-block');
+  }
+  if(!$('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block') && mode=='hide'){
+    $('#'+auth_reg_htmlElements.verifyMobileForm).addClass('hide-block');
+  }  
+  var otpcode = $("#"+auth_reg_htmlElements.auth_reg_otpcode).val();
+  
+}
+function submit_auth_reg_verifyMobile(){
+ var surName = $("#"+auth_reg_htmlElements.auth_reg_surName).val();
+ var name = $("#"+auth_reg_htmlElements.auth_reg_name).val();
+ var gender = $("#"+auth_reg_htmlElements.auth_reg_gender).val();
+ var mobile = $("#"+auth_reg_htmlElements.auth_reg_mobile).val();
+ var valid_surName = validate_surName(auth_reg_htmlElements.auth_reg_surName);
+ var valid_name = validate_name(auth_reg_htmlElements.auth_reg_name);
+ var valid_gender = validate_gender(auth_reg_htmlElements.auth_reg_gender);
+ var valid_mobile = validate_mobile(auth_reg_htmlElements.auth_reg_mobile);
+ if(valid_surName && valid_name && valid_gender && valid_mobile){
+    showHide_auth_reg_otpForm('show');
+ }
+}
 function submit_auth_reg_genInfo(){
  var surName = $("#"+auth_reg_htmlElements.auth_reg_surName).val();
  var name = $("#"+auth_reg_htmlElements.auth_reg_name).val();
