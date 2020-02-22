@@ -23,6 +23,11 @@ if(isset($_GET["action"])){
 	  $wsStatus["user"]='EXISTS';
 	} else { $wsStatus["user"]='NOT_EXISTS'; }
 	echo json_encode($wsStatus);
+ } else if($_GET["action"]=='USER_AUTH_SURNAMES') {
+    $userAccountAuth = new UserAccountAuth();
+    $query = $userAccountAuth->query_view_listOfSurNames();
+    $database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
+    echo json_encode($database->getAColumnAsArray($query,'surName'));
  } 
 }
 if(isset($_POST["action"])){

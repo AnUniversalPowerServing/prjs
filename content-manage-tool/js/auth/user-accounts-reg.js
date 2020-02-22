@@ -42,7 +42,18 @@ function trigger_userAccounts_auth(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
  load_auth_reg_securityQ();
  showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn');
+ autocomplete_surNames();
 }
+
+function autocomplete_surNames(){
+ js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_SURNAMES' },function(response){
+  console.log(response);
+    $("#auth-reg-genInfo-surName").autocomplete({
+      source:response
+    });
+ });
+}
+
 function sel_auth_badges(sel_Id){
  bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
 }
