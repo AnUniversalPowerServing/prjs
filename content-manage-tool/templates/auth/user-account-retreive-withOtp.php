@@ -1,7 +1,7 @@
-<div id="auth-login-userAccountForm" class="hide-block">
+<div id="auth-login-retrievePwdWithMobileForm" class="hide-block">
 <!-- -->
 <div align="center" class="form-group" style="color:#fff5c4;">
-  <h5><b>Access your Account with your Credentials</b></h5>
+  <h5 style="line-height:22px;"><b>Remember Mobile Number, but Forgot Password.<br/>Please Enter your Mobile Number.</b></h5>
 </div><!--/.form-group -->
 <!-- -->
 <div style="padding-left:20px;padding-right:20px;margin-top:15px;">
@@ -23,6 +23,10 @@
 	<!-- -->
    </div><!--/.input-btn-group -->
    <input id="auth-login-mobile" class="form-control" placeholder="Enter Mobile Number"/>
+   <div class="input-group-btn">
+	  <button id="auth-reg-genInfo-mobile-validateOTPBtn" class="btn btn-default" 
+		 onclick="javascript:submit_auth_reg_validateOTPCode();"><b>Verify</b></button>
+   </div><!--/.input-btn-group -->
   </div><!--/.input-group -->
   <!-- -->
  </div><!--/.form-group -->
@@ -34,4 +38,3 @@
  </div><!--/.form-group -->
  </div>
  </div>
-

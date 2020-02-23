@@ -38,8 +38,26 @@ body { background-color:purple;color:#fff; }
 </style>
 
 <script type="text/javascript">
+function showHide_auth_accountAccessForm(id){
+ var arry_Id=["auth-login-userAccountForm","auth-login-retrievePwdWithMobileForm","auth-login-retrieveAccountWithoutInfoForm"];
+ var arry_btn_Id=["auth-login-access-userAccountForm","auth-login-access-retrievePwdWithMobileForm","auth-login-access-retrieveAccountWithoutInfoForm"];
+ for(var index=0;index<arry_btn_Id.length;index++){
+  if(arry_btn_Id[index]===id){
+    if($('#'+arry_Id[index]).hasClass('hide-block')){ $('#'+arry_Id[index]).removeClass('hide-block'); }
+	if(!$('#'+arry_btn_Id[index]).hasClass('hide-block')){ $('#'+arry_btn_Id[index]).addClass('hide-block'); }
+  } else {
+    if(!$('#'+arry_Id[index]).hasClass('hide-block')){ $('#'+arry_Id[index]).addClass('hide-block'); }
+	if($('#'+arry_btn_Id[index]).hasClass('hide-block')){ $('#'+arry_btn_Id[index]).removeClass('hide-block'); }
+  }
+ }
+ if(id==='auth-login-access-retrieveAccountWithoutInfoForm'){
+   showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn('verifyBtn');
+ }
+}
 $(document).ready(function(){
  trigger_userAccounts_auth();
+ trigger_userAccounts_auth_login_rAWoIForm();
+ // showHide_auth_retrieveAccountWithoutInfoForm('auth-login-retrieveAccountWithoutInfoForm-securityQ');
 });
 </script>
 </head>
@@ -52,7 +70,26 @@ $(document).ready(function(){
  <?php include_once 'templates/auth/user-account-reg.php'; ?>
 </div><!--/.col-xs-12 col-md-4 col-sm-4 -->
 <div class="col-xs-12 col-md-4 col-sm-6">
+ <!-- -->
+ <div align="center"><h4 class="mbot35p"><b>Login to your Account</b></h4></div>
+ 
  <?php include_once 'templates/auth/user-account-login.php'; ?>
+ <?php include_once 'templates/auth/user-account-retreive-withOtp.php'; ?>
+ <?php include_once 'templates/auth/user-account-retreive-withSQ.php'; ?>
+ 
+ <div id="auth-login-access-userAccountForm" align="right" class="form-group hide-block curpoint"
+   onclick="javascript:showHide_auth_accountAccessForm(this.id);">
+	<b><u>Login to your Account</u></b>
+ </div><!--/.form-group -->
+ <div id="auth-login-access-retrievePwdWithMobileForm" align="right" class="form-group hide-block curpoint"
+   onclick="javascript:showHide_auth_accountAccessForm(this.id);">
+    <b><u>Remember Mobile Number, but Forgot Password?</u></b>
+ </div><!--/.form-group -->
+ <div id="auth-login-access-retrieveAccountWithoutInfoForm" align="right" class="form-group hide-block curpoint"
+   onclick="javascript:showHide_auth_accountAccessForm(this.id);">
+    <b><u>Forgot Password and Mobile Number changed?</u></b>
+ </div><!--/.form-group -->
+ <!-- -->
 </div><!--/.col-xs-12 col-md-4 col-sm-4 -->
 <div class="col-xs-12 col-md-2 col-sm-12"></div>
 </div><!--/.row -->

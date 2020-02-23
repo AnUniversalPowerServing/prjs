@@ -12,7 +12,8 @@ if(isset($_GET["action"])){
     $query = $userAccountAuth->query_view_userSecurityQ();
     $database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
     echo $database->getJSONData($query);
- } else if($_GET["action"]=='USER_AUTH_VERIFYMOBILE') {
+ } 
+ else if($_GET["action"]=='USER_AUTH_VERIFYMOBILE') {
     $mobile=$_GET["mobile"];
     $userAccountAuth = new UserAccountAuth();
     $query = $userAccountAuth->query_view_userMobileIsExists($mobile);
@@ -23,12 +24,21 @@ if(isset($_GET["action"])){
 	  $wsStatus["user"]='EXISTS';
 	} else { $wsStatus["user"]='NOT_EXISTS'; }
 	echo json_encode($wsStatus);
- } else if($_GET["action"]=='USER_AUTH_SURNAMES') {
+ } 
+ else if($_GET["action"]=='USER_AUTH_SURNAMES') {
     $userAccountAuth = new UserAccountAuth();
     $query = $userAccountAuth->query_view_listOfSurNames();
     $database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
     echo json_encode($database->getAColumnAsArray($query,'surName'));
  } 
+ else if($_GET["action"]=='USER_AUTH_LOGIN') {
+    $mob_code='+91';
+	$mobile=$_GET["mobile"];
+    $userAccountAuth = new UserAccountAuth();
+    $query = $userAccountAuth->query_view_userInfoByMobile($mob_code,$mobile);
+	$database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
+	echo $database->getJSONData($query);
+ }
 }
 if(isset($_POST["action"])){
   if($_POST["action"]=='USER_AUTH_ADDNEWACCOUNT') { 

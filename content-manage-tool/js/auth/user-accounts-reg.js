@@ -40,7 +40,6 @@ var auth_reg_htmlElements = { auth_reg_surName:'auth-reg-genInfo-surName', auth_
 						
 function trigger_userAccounts_auth(){
  sel_auth_badges(badge_htmlElements.badge_menu[0]);
- load_auth_reg_securityQ();
  showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn');
  autocomplete_surNames();
 }
@@ -143,7 +142,6 @@ function submit_auth_reg_verifyMobile(){
     show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
  }
 }
-
 function submit_auth_reg_validateOTPCode(){
   VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
   var otpcode = $("#"+auth_reg_htmlElements.auth_reg_otpcode).val();
@@ -157,7 +155,6 @@ function submit_auth_reg_validateOTPCode(){
      show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
   }
 }
-
 function submit_auth_reg_genInfo(){
  VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
  var surName = $("#"+auth_reg_htmlElements.auth_reg_surName).val();
@@ -187,7 +184,6 @@ function submit_auth_reg_genInfo(){
 	show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
  }
 }
-
 function reset_auth_reg_genInfoForm(){
  ALLOW_UPTO_INDEX=1;
  $("#"+auth_reg_htmlElements.auth_reg_surName).val('');
@@ -215,13 +211,12 @@ function submit_auth_reg_setPassword(){
 	ALLOW_UPTO_INDEX=3;
 	sel_auth_badges(badge_htmlElements.badge_menu[ALLOW_UPTO_INDEX-1]);
 	document.getElementById(auth_reg_htmlElements.auth_reg_lock_warnErrorMsg).innerHTML='';
+	load_auth_reg_securityQ();
  } else {	
     AUTH_REG_PASSWORD = ''; 
 	show_validate_msg('error',auth_reg_htmlElements.auth_reg_lock_warnErrorMsg);
  }
 }
-
-
 function reset_auth_reg_passwordForm(){
  ALLOW_UPTO_INDEX=2;
  $("#"+auth_reg_htmlElements.auth_reg_password).val('');
@@ -275,7 +270,6 @@ function submit_auth_reg_securityQ(){
    });
  } else { show_validate_msg('error',auth_reg_htmlElements.auth_reg_sQ_warnErrorMsg); }
 }
-
 function load_auth_reg_securityQ(){
   SECURITYQUESTION1='';SECURITYQUESTION2='';SECURITYQUESTION3='';
   js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_SECURITYQ' },function(securityQuestions){
@@ -341,7 +335,6 @@ function reset_auth_reg_securityQ(){
  if(SECURITYQUESTION2=='') { load_auth_reg_securityQ2(); }
  if(SECURITYQUESTION3=='') { load_auth_reg_securityQ3(); }
 }
-
 function reset_auth_reg_securityQForm(){
  ALLOW_UPTO_INDEX=3;
  $("#"+auth_reg_htmlElements.auth_reg_sQ1).val('');
