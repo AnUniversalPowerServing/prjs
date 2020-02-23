@@ -4,7 +4,6 @@ var auth_login_htmlElements = { auth_login_rAWoIForm_warnErrorMsg:'auth-login-re
 	 auth_login_rAWoIForm_mobile_verifyBtn:'auth-login-retrieveAccountWithoutInfoForm-mobile-verifyBtn', 
 	 auth_login_rAWoIForm_mobile_changeBtn:'auth-login-retrieveAccountWithoutInfoForm-mobile-changeBtn',
 	 auth_login_rAWoIForm:'auth-login-retrieveAccountWithoutInfoForm-init',
-	 auth_login_rAWoIForm_userInfo:'auth-login-retrieveAccountWithoutInfoForm-userInfoForm',
 	 auth_login_rAWoIForm_securityQForm:'auth-login-retrieveAccountWithoutInfoForm-securityQForm',
 	 auth_login_rAWoIForm_changePasswordForm:'auth-login-retrieveAccountWithoutInfoForm-changePasswordForm',
 	 auth_login_rAWoIForm_securityQForm_warnErrorMsg:'auth-login-retrieveAccountWithoutInfoForm-sQ-warnErrorMsg',
@@ -49,13 +48,13 @@ function showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(id){
    }
  }
 }
-function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(div_Id,response){
- var content='<table>';
+function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
+ /*var content='<table>';
 	 content+='<tr><td><label>Surname</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].surName+'</td></tr>';
      content+='<tr><td><label>Name</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].name+'</td></tr>';
 	 content+='<tr><td><label>Gender</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].gender+'</td></tr>';
 	 content+='</table>';
-  document.getElementById(div_Id).innerHTML=content;
+  document.getElementById(div_Id).innerHTML=content; */
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1).innerHTML='<b>Q1: '+response[0].qq1+'</b>';
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2).innerHTML='<b>Q2: '+response[0].qq2+'</b>';
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3).innerHTML='<b>Q3: '+response[0].qq3+'</b>';
@@ -76,7 +75,7 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_verifyMobile(){
 	   showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn('changeBtn');
 	   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_mobile).disabled=true;
 	   showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm);
-       ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(auth_login_htmlElements.auth_login_rAWoIForm_userInfo,response);
+       ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response);
        js_show('show',auth_login_htmlElements.auth_login_rAWoIForm);
 	   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_warnErrorMsg).innerHTML='';
 	   bootstrap_formField_trigger('success',auth_login_htmlElements.auth_login_rAWoIForm_mobile);
@@ -159,7 +158,6 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_changePwd(){
   <!-- -->
  </div><!--/.form-group -->
  <div id="auth-login-retrieveAccountWithoutInfoForm-init" class="hide-block">
- <div id="auth-login-retrieveAccountWithoutInfoForm-userInfoForm" class="form-group"></div><!--/.form-group -->
  <div id="auth-login-retrieveAccountWithoutInfoForm-securityQForm" class="hide-block">
  <!-- -->
    <div align="center" class="form-group" style="color:#fff5c4;">
