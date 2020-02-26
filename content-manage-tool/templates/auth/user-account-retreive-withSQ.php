@@ -8,8 +8,11 @@ var auth_login_htmlElements = { auth_login_rAWoIForm_warnErrorMsg:'auth-login-re
 	 auth_login_rAWoIForm_changePasswordForm:'auth-login-retrieveAccountWithoutInfoForm-changePasswordForm',
 	 auth_login_rAWoIForm_securityQForm_warnErrorMsg:'auth-login-retrieveAccountWithoutInfoForm-sQ-warnErrorMsg',
 	 auth_login_rAWoIForm_securityQForm_securityQ1:'auth-login-retrieveAccountWithoutInfoForm-securityQ-q1',
+	 auth_login_rAWoIForm_securityQForm_securityQ1Id:'auth-login-retrieveAccountWithoutInfoForm-securityQ-q1Id',
 	 auth_login_rAWoIForm_securityQForm_securityQ2:'auth-login-retrieveAccountWithoutInfoForm-securityQ-q2',
+	 auth_login_rAWoIForm_securityQForm_securityQ2Id:'auth-login-retrieveAccountWithoutInfoForm-securityQ-q2Id',
 	 auth_login_rAWoIForm_securityQForm_securityQ3:'auth-login-retrieveAccountWithoutInfoForm-securityQ-q3',
+	 auth_login_rAWoIForm_securityQForm_securityQ3Id:'auth-login-retrieveAccountWithoutInfoForm-securityQ-q3Id',
 	 auth_login_rAWoIForm_securityQForm_securityA1:'auth-login-retrieveAccountWithoutInfoForm-securityQ-a1',
 	 auth_login_rAWoIForm_securityQForm_securityA2:'auth-login-retrieveAccountWithoutInfoForm-securityQ-a2',
 	 auth_login_rAWoIForm_securityQForm_securityA3:'auth-login-retrieveAccountWithoutInfoForm-securityQ-a3',
@@ -17,10 +20,10 @@ var auth_login_htmlElements = { auth_login_rAWoIForm_warnErrorMsg:'auth-login-re
 	 auth_login_rAWoIForm_changePassword_newMobile:'auth-login-retrieveAccountWithoutInfoForm-changePassword-newMobile',
 	 auth_login_rAWoIForm_changePassword_newPassword:'auth-login-retrieveAccountWithoutInfoForm-changePassword-newPassword',
 	 auth_login_rAWoIForm_changePassword_confirmpassword:'auth-login-retrieveAccountWithoutInfoForm-changePassword-confirmpassword'
-		};
+		}; 
 function trigger_userAccounts_auth_login_rAWoIForm(){
  showHide_auth_accountAccessForm('auth-login-access-userAccountForm');
-}
+} 
 function showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn(view){
  if(view=='verifyBtn'){
   if($('#'+auth_login_htmlElements.auth_login_rAWoIForm_mobile_verifyBtn).hasClass('hide-block')){
@@ -48,6 +51,9 @@ function showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(id){
    }
  }
 }
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3;
 function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
  /*var content='<table>';
 	 content+='<tr><td><label>Surname</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].surName+'</td></tr>';
@@ -55,9 +61,18 @@ function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
 	 content+='<tr><td><label>Gender</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].gender+'</td></tr>';
 	 content+='</table>';
   document.getElementById(div_Id).innerHTML=content; */
-  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1).innerHTML='<b>Q1: '+response[0].qq1+'</b>';
-  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2).innerHTML='<b>Q2: '+response[0].qq2+'</b>';
-  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3).innerHTML='<b>Q3: '+response[0].qq3+'</b>';
+  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1=response[0].qq1;
+  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2=response[0].qq2;
+  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3=response[0].qq3;
+  var sQ1='<b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1+'</b>';
+	  sQ1+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id+'"/>';
+  var sQ2='<b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2+'</b>';
+	  sQ2+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id+'"/>';
+  var sQ3='<b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3+'</b>';
+	  sQ3+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id+'"/>';	  
+  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1).innerHTML=sQ1;
+  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2).innerHTML=sQ2;
+  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3).innerHTML=sQ3;
 }
 function submit_auth_login_retrieveAccountWithoutInfoForm_verifyMobile(){
 /* -----------------------------------
@@ -104,7 +119,17 @@ function reset_auth_login_retrieveAccountWithoutInfoForm_validateSQForm(){
  $('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3).val('');
 }
 function submit_auth_login_retrieveAccountWithoutInfoForm_validateSQ(){
- showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(auth_login_htmlElements.auth_login_rAWoIForm_changePasswordForm);
+ var auth_reg_a1=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA1).val();
+ var auth_reg_a2=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA2).val();
+ var auth_reg_a3=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3).val();
+ if(validate_securityQA(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id, 
+						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA1, 
+						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id, 
+						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA2, 
+						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id, 
+						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3)){
+   showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(auth_login_htmlElements.auth_login_rAWoIForm_changePasswordForm);
+ }
 }
 function reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm(){
  document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_changePassword_warnErrorMsg).innerHTML='';
