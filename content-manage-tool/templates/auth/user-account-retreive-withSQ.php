@@ -65,11 +65,11 @@ function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2=response[0].qq2;
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3=response[0].qq3;
   var sQ1='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1+'</b></h5>';
-	  sQ1+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id+'"/>';
+	  sQ1+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id+'" value="'+response[0].q1+'"/>';
   var sQ2='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2+'</b></h5>';
-	  sQ2+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id+'"/>';
+	  sQ2+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id+'" value="'+response[0].q2+'"/>';
   var sQ3='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3+'</b></h5>';
-	  sQ3+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id+'"/>';	  
+	  sQ3+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id+'" value="'+response[0].q3+'"/>';	  
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1).innerHTML=sQ1;
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2).innerHTML=sQ2;
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3).innerHTML=sQ3;
@@ -119,6 +119,9 @@ function reset_auth_login_retrieveAccountWithoutInfoForm_validateSQForm(){
  $('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3).val('');
 }
 function submit_auth_login_retrieveAccountWithoutInfoForm_validateSQ(){
+ var auth_reg_q1=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id).val();
+ var auth_reg_q2=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id).val();
+ var auth_reg_q3=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id).val();
  var auth_reg_a1=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA1).val();
  var auth_reg_a2=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA2).val();
  var auth_reg_a3=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3).val();
@@ -129,6 +132,7 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_validateSQ(){
 						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id, 
 						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3)){
    showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(auth_login_htmlElements.auth_login_rAWoIForm_changePasswordForm);
+   // Call the Endpoint and show Change Password Form
  }
 }
 function reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm(){
