@@ -64,11 +64,11 @@ function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1=response[0].qq1;
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2=response[0].qq2;
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3=response[0].qq3;
-  var sQ1='<b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1+'</b>';
+  var sQ1='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1+'</b></h5>';
 	  sQ1+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id+'"/>';
-  var sQ2='<b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2+'</b>';
+  var sQ2='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2+'</b></h5>';
 	  sQ2+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id+'"/>';
-  var sQ3='<b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3+'</b>';
+  var sQ3='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3+'</b></h5>';
 	  sQ3+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id+'"/>';	  
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1).innerHTML=sQ1;
   document.getElementById(auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2).innerHTML=sQ2;
@@ -189,21 +189,15 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_changePwd(){
 	 <h5><b>Validate your Security Questions to secure Account</b></h5>
    </div><!--/.form-group -->
    <div id="auth-login-retrieveAccountWithoutInfoForm-sQ-warnErrorMsg" class="form-group"></div><!--/.form-group -->
-   <div class="form-group">
-     <h5 id="auth-login-retrieveAccountWithoutInfoForm-securityQ-q1"><b>Security Question # 1</b></h5> 
-   </div><!--/.form-group -->
+   <div id="auth-login-retrieveAccountWithoutInfoForm-securityQ-q1" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
      <input id="auth-login-retrieveAccountWithoutInfoForm-securityQ-a1" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
-   <div class="form-group">
-     <h5 id="auth-login-retrieveAccountWithoutInfoForm-securityQ-q2"><b>Security Question # 2</b></h5> 
-   </div><!--/.form-group -->
+   <div id="auth-login-retrieveAccountWithoutInfoForm-securityQ-q2" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
 	 <input id="auth-login-retrieveAccountWithoutInfoForm-securityQ-a2" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
-   <div class="form-group">
-	 <h5 id="auth-login-retrieveAccountWithoutInfoForm-securityQ-q3"><b>Security Question # 3</b></h5> 
-   </div><!--/.form-group -->
+   <div id="auth-login-retrieveAccountWithoutInfoForm-securityQ-q3" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
      <input id="auth-login-retrieveAccountWithoutInfoForm-securityQ-a3" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
