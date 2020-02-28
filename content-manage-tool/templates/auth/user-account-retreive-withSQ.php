@@ -52,18 +52,19 @@ function showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(id){
  }
 }
 var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA1;
 var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA2;
 var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA3;
 function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
- /*var content='<table>';
-	 content+='<tr><td><label>Surname</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].surName+'</td></tr>';
-     content+='<tr><td><label>Name</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].name+'</td></tr>';
-	 content+='<tr><td><label>Gender</label></td><td>&nbsp;&nbsp;<b>:</b>&nbsp;&nbsp;</td><td>'+response[0].gender+'</td></tr>';
-	 content+='</table>';
-  document.getElementById(div_Id).innerHTML=content; */
+ console.log("response: "+JSON.stringify(response));
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1=response[0].qq1;
+  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA1=response[0].a1;
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2=response[0].qq2;
+  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA2=response[0].a2;
   AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3=response[0].qq3;
+  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA3=response[0].a3;
   var sQ1='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1+'</b></h5>';
 	  sQ1+='<input type="hidden" id="'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id+'" value="'+response[0].q1+'"/>';
   var sQ2='<h5><b>Q1: '+AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2+'</b></h5>';
@@ -118,6 +119,38 @@ function reset_auth_login_retrieveAccountWithoutInfoForm_validateSQForm(){
  $('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA2).val('');
  $('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3).val('');
 }
+function validate_securityQAUserResponse(auth_reg_a1_actual, auth_reg_a1_user, 
+		auth_reg_a2_actual, auth_reg_a2_user, auth_reg_a3_actual, auth_reg_a3_user){
+ var auth_reg_a1=$('#'+auth_reg_a1_user).val();
+ var auth_reg_a2=$('#'+auth_reg_a2_user).val();
+ var auth_reg_a3=$('#'+auth_reg_a3_user).val();
+ console.log(auth_reg_a1_actual+"  "+auth_reg_a1);
+ console.log(auth_reg_a2_actual+"  "+auth_reg_a2);
+ console.log(auth_reg_a3_actual+"  "+auth_reg_a3);
+ var answerValidated = true;
+ if(auth_reg_a1_actual!==auth_reg_a1){
+	 answerValidated = false;
+	 bootstrap_formField_trigger('error',auth_reg_a1_user);
+   } else {
+     answerValidated = true;
+     bootstrap_formField_trigger('success',auth_reg_a1_user);
+   }
+   if(auth_reg_a2_actual!==auth_reg_a2){
+	 answerValidated = false;
+	 bootstrap_formField_trigger('error',auth_reg_a2_user);
+   } else {
+     answerValidated = true;
+     bootstrap_formField_trigger('success',auth_reg_a2_user);
+   }
+   if(auth_reg_a3_actual!==auth_reg_a3){
+	 answerValidated = false;
+	 bootstrap_formField_trigger('error',auth_reg_a3_user);
+   } else {
+     answerValidated = true;
+     bootstrap_formField_trigger('success',auth_reg_a3_user);
+   }
+  return answerValidated;
+}
 function submit_auth_login_retrieveAccountWithoutInfoForm_validateSQ(){
  var auth_reg_q1=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ1Id).val();
  var auth_reg_q2=$('#'+auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ2Id).val();
@@ -131,8 +164,15 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_validateSQ(){
 						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA2, 
 						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityQ3Id, 
 						auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3)){
-   showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(auth_login_htmlElements.auth_login_rAWoIForm_changePasswordForm);
-   // Call the Endpoint and show Change Password Form
+   if(validate_securityQAUserResponse(AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA1, 
+							auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA1, 
+									  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA2, 
+							auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA2, 
+									  AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA3, 
+							auth_login_htmlElements.auth_login_rAWoIForm_securityQForm_securityA3)){
+     showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(auth_login_htmlElements.auth_login_rAWoIForm_changePasswordForm);
+   }
+  // Call the Endpoint and show Change Password Form
  }
 }
 function reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm(){
