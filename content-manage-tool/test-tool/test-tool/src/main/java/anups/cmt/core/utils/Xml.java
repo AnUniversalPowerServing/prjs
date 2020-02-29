@@ -50,6 +50,7 @@ public class Xml extends XmlUtils {
 	
 	public TestScenarios getTestCase(String testCaseId) {
 	  TestScenarios testScenarios = new TestScenarios();
+	 
 	  for(int index=0;index<testScenarioFiles.size();index++) {
 		try {
 		  Document document = XmlUtils.getDocument(testScenarioFiles.get(index)); 
@@ -59,21 +60,23 @@ public class Xml extends XmlUtils {
 		  String xpath_testCaseDesc = "//testcase[contains(@id,'"+testCaseId+"')]/desc/text()";
 		  String xpath_testStepIds = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep/@id";
 		  
-		  String scenarioTitle = (XmlUtils.evaluateXPath(document, xpath_scenarioTitle)).get(0);
-		  String scenarioDesc = (XmlUtils.evaluateXPath(document, xpath_scenarioDesc)).get(0);
-		  String testCaseTitle = (XmlUtils.evaluateXPath(document, xpath_testCaseTitle)).get(0);
-		  String testCaseDesc = (XmlUtils.evaluateXPath(document, xpath_testCaseDesc)).get(0);
-		 
-		  testScenarios.setScenarioTitle(scenarioTitle);
-		  testScenarios.setScenarioDesc(scenarioDesc);
+		  List<String> content_scenarioTitle = (XmlUtils.evaluateXPath(document, xpath_scenarioTitle));
+		  if(content_scenarioTitle.size()>0) { 
+			String scenarioTitle = content_scenarioTitle.get(0);
+			String scenarioDesc = (XmlUtils.evaluateXPath(document, xpath_scenarioDesc)).get(0);
+			String testCaseTitle = (XmlUtils.evaluateXPath(document, xpath_testCaseTitle)).get(0);
+			String testCaseDesc = (XmlUtils.evaluateXPath(document, xpath_testCaseDesc)).get(0);
+			
+			testScenarios.setScenarioTitle(scenarioTitle);
+			testScenarios.setScenarioDesc(scenarioDesc);
+			 
+			TestCases testCases = new TestCases();
+			   testCases.setTestCaseTitle(testCaseTitle);
+			   testCases.setTestCaseDesc(testCaseDesc);
 		  
-		  TestCases testCases = new TestCases();
-		  		testCases.setTestCaseTitle(testCaseTitle);
-		  		testCases.setTestCaseDesc(testCaseDesc);
-		  		
-		  List<String> testStepIds = XmlUtils.evaluateXPath(document, xpath_testStepIds);
+		    List<String> testStepIds = XmlUtils.evaluateXPath(document, xpath_testStepIds);
 		  
-		  TestSteps testSteps = new TestSteps();
+		    TestSteps testSteps = new TestSteps(); 
 		  for(int testStepIndex=0;testStepIndex<testStepIds.size();testStepIndex++) {
 			String xpath_testStepTitle = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/title/text()";
 			String xpath_testStepDesc = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/desc/text()";
@@ -94,17 +97,21 @@ public class Xml extends XmlUtils {
 		  
 		  String xpath_testData = "//testcase[contains(@id,'"+testCaseId+"')]/data/*";
 		  LinkedHashMap<String, String> testData = XmlUtils.evaluateXPathKeyValue(document, xpath_testData);
-
-		  testCases.setTestData(testData);
 		  
+		  testCases.setTestData(testData);
 		  testScenarios.setTestCases(testCases);
-		} catch(Exception e) { e.printStackTrace(); }
+		 }
+		} catch(IndexOutOfBoundsException e) { 
+			 System.out.println("XMLTags for TestCase are Empty or Invalid Format."); 
+			 testScenarios = new TestScenarios();
+		  }
+		 catch(Exception e) { e.printStackTrace(); }
 	  }
 	  return testScenarios;
 	}
 	
  public static void main(String args[]) throws Exception {
-	 TestScenarios testScenarios = new Xml().getTestCase("344567");
+	 TestScenarios testScenarios = new Xml().getTestCase("2244671");
 	 Gson gson = new Gson();
 	 System.out.println(gson.toJson(testScenarios));
 	

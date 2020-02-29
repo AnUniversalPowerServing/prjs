@@ -24,20 +24,20 @@
       </teststep>
     </teststeps>
   </testcase>
-  <testcase id="22441">
+  <testcase id="2244671">
     <title>Check Page Authentication</title>
     <desc>Able to Check Page Authentication by providing Username and Password</desc>
     <teststeps>
       <teststep id="1">
       	<title>Open Page URL</title>
-      	<desc></desc>
+      	<desc>drgeg</desc>
       	<data>
       		<url>http://localhost/tmpl/php_authentication/auth.php</url>
       	</data>
       </teststep>
       <teststep id="2">
       	<title>Provide Username and Password</title>
-      	<desc></desc>
+      	<desc>ergt</desc>
       	<data>
       		<username>root</username>
       		<password>root</password>
@@ -45,7 +45,7 @@
       </teststep>
     </teststeps>
   </testcase>
-  <testcase id="344567">
+  <testcase id="34774567">
     <title>Check Page Authentication</title>
     <desc>Able to Check Page Authentication by providing Username and Password</desc>
 	<data>

@@ -30,14 +30,14 @@
     <teststeps>
       <teststep id="1">
       	<title>Open Page URL</title>
-      	<desc></desc>
+      	<desc>gtrgrt</desc>
       	<data>
       		<url>http://localhost/tmpl/php_authentication/auth.php</url>
       	</data>
       </teststep>
       <teststep id="2">
       	<title>Provide Username and Password</title>
-      	<desc></desc>
+      	<desc>rgetg</desc>
       	<data>
       		<username>root</username>
       		<password>root</password>
@@ -46,7 +46,7 @@
     </teststeps>
   </testcase>
   <testcase id="344567">
-    <title>Check Page Authentication</title>
+    <title>Check Page Authentication sdfsf</title>
     <desc>Able to Check Page Authentication by providing Username and Password</desc>
 	<data>
       <url>http://localhost/tmpl/php_authentication/auth.php</url>
