@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+  <testcase id="13345" type="SimpleTestCase">
+    <title>Check Page Authentication</title>
+    <desc>Able to Check Page Authentication by providing Username and Password</desc>
+    <teststeps>
+      <teststep id="1">
+      	<title>Open Page URL</title>
+      	<desc></desc>
+      	<data>
+      		<url>http://localhost/tmpl/php_authentication/auth.php</url>
+      	</data>
+      </teststep>
+      <teststep id="2">
+      	<title>Provide Username and Password</title>
+      	<desc></desc>
+      	<data>
+      		<username>root</username>
+      		<password>root</password>
+      	</data>
+      </teststep>
+    </teststeps>
+  </testcase>
+  <testcase id="22441">
+    <title>Check Page Authentication</title>
+    <desc>Able to Check Page Authentication by providing Username and Password</desc>
+    <teststeps>
+      <teststep id="1">
+      	<title>Open Page URL</title>
+      	<desc></desc>
+      	<data>
+      		<url>http://localhost/tmpl/php_authentication/auth.php</url>
+      	</data>
+      </teststep>
+      <teststep id="2">
+      	<title>Provide Username and Password</title>
+      	<desc></desc>
+      	<data>
+      		<username>root</username>
+      		<password>root</password>
+      	</data>
+      </teststep>
+    </teststeps>
+  </testcase>
+</testcases>
