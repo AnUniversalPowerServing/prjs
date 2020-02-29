@@ -3,20 +3,20 @@
 <title>ScenarioTitle#1</title>
 <desc>ScenarioTitleDesc#1</desc>
 <testcases>
-  <testcase id="13345" type="SimpleTestCase">
+  <testcase id="133545" type="SimpleTestCase">
     <title>Check Page Authentication</title>
     <desc>Able to Check Page Authentication by providing Username and Password</desc>
     <teststeps>
       <teststep id="1">
       	<title>Open Page URL</title>
-      	<desc>asdsfds</desc>
+      	<desc></desc>
       	<data>
       		<url>http://localhost/tmpl/php_authentication/auth.php</url>
       	</data>
       </teststep>
       <teststep id="2">
       	<title>Provide Username and Password</title>
-      	<desc>ffggrtt</desc>
+      	<desc></desc>
       	<data>
       		<username>root</username>
       		<password>root</password>
