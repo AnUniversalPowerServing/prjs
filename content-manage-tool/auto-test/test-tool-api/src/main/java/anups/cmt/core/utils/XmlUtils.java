@@ -53,6 +53,31 @@ public class XmlUtils extends ProjectBase {
 		  } catch (XPathExpressionException e) {  e.printStackTrace(); }
 	    return keyValues;
 	}
+	
+	public static void evaluateXPathChild(Document document, String xpathExpression) throws Exception  {
+		XPathFactory xpathFactory = XPathFactory.newInstance();
+	    XPath xpath = xpathFactory.newXPath();
+	    try {
+			 XPathExpression expr = xpath.compile(xpathExpression);
+			 NodeList nodes = (NodeList) expr.evaluate(document, XPathConstants.NODESET);	 
+			 for(int i = 0; i < nodes.getLength(); i++) { 
+				Element el = (Element) nodes.item(i);
+				String key = el.getNodeName();
+				if (el.getFirstChild().getNodeType() == Node.TEXT_NODE) {
+					String value = el.getFirstChild().getNodeValue();	
+				}
+				NodeList children = el.getChildNodes();
+		        for (int k = 0; k < children.getLength(); k++) {
+		            Node child = children.item(k);
+		            if (child.getNodeType() != Node.TEXT_NODE) {
+		                System.out.println("child tag: " + child.getNodeName());
+		                if (child.getFirstChild().getNodeType() == Node.TEXT_NODE)
+		                    System.out.println("inner child value:" + child.getFirstChild().getNodeValue());;
+		            }
+		        }
+			 }           
+		  } catch (XPathExpressionException e) {  e.printStackTrace(); }
+	}
 	public static Document getDocument(String fileName) throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);

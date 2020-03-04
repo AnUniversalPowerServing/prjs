@@ -16,6 +16,7 @@ class AuthEndpoints {
   userAccounts_viewInfo_byMobileNumber(mobile,respFunc){
    js_ajax('GET','backend/php/dac/controller.accounts.user.auth.php',{ action:'USER_AUTH_LOGIN', mobile:mobile }, 
    function(response){ console.log(response);respFunc(); });
+  }
 }
 
 var authEndpoints = new AuthEndpoints();

@@ -45,7 +45,7 @@ function trigger_userAccounts_auth(){
 }
 
 function autocomplete_surNames(){
- authEndpoints.userAccounts_autocomplete_surNames(function(){ 
+ authEndpoints.userAccounts_autocomplete_surNames(function(response){ 
 	$("#auth-reg-genInfo-surName").autocomplete({ source:response }); 
  });
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+<title>Create an Account - General Information</title>
+<desc>In this Form, user is asked to enter General Information of SurName, Name, Gender and Phone Number</desc>
+<testcases>
+  <testcase id="00001">
+    <title>Only First Badge (General Information Badge) should be Allowed</title>
+    <desc>User should not be able to select other Badge Forms(Password Badge and SecurityQ Badge)</desc>
+    <teststeps>
+      <teststep id="1">
+      	<title>Select General Information Badge and check the Badge Title</title>
+      	<desc>Click on General Information Badge</desc>
+      	<expectations>
+      	  <response expected="yes">
+      	    <msg>Provide Basic Information to create Account</msg>
+      	  </response>
+      	</expectations>
+      </teststep>
+      <teststep id="2">
+      	<title>Select Password Badge and check the Badge Title</title>
+      	<desc>Click on Password Badge should not </desc>
+      	<expectations>
+      	  <response expected="yes">
+      	    <msg>Provide Basic Information to create Account</msg>
+      	  </response>
+      	  <response expected="no">
+      	    <msg>Set Password to access your Account</msg>
+      	  </response>
+      	</expectations>
+      </teststep>
+      <teststep id="3">
+      	<title>Select SecurityQ Badge and check the Badge Title</title>
+      	<desc>Click on Password Badge should not </desc>
+      	<response expected="yes">
+      	  <msg>Provide Basic Information to create Account</msg>
+      	</response>
+      	<response expected="no">
+      	  <msg>Choose 3 Security Questions to secure Account</msg>
+      	</response>
+      </teststep>
+    </teststeps>
+  </testcase>
+  <testcase id="22441">
+    <title>Check Page Authentication</title>
+    <desc>Able to Check Page Authentication by providing Username and Password</desc>
+    <teststeps>
+      <teststep id="1">
+      	<title>Open Page URL</title>
+      	<desc>gtrgrt</desc>
+      	<data>
+      		<url>http://localhost/tmpl/php_authentication/auth.php</url>
+      	</data>
+      </teststep>
+      <teststep id="2">
+      	<title>Provide Username and Password</title>
+      	<desc>rgetg</desc>
+      	<data>
+      		<username>root</username>
+      		<password>root</password>
+      	</data>
+      </teststep>
+    </teststeps>
+  </testcase>
+  <testcase id="344567">
+    <title>Check Page Authentication sdfsf</title>
+    <desc>Able to Check Page Authentication by providing Username and Password</desc>
+	<data>
+      <url>http://localhost/tmpl/php_authentication/auth.php</url>
+    </data>
+  </testcase>
+</testcases>
+</scenario>
