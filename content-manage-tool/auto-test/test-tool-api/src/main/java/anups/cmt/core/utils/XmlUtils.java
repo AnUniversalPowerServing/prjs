@@ -3,7 +3,6 @@ package anups.cmt.core.utils;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,8 +17,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.google.gson.Gson;
+
 import anups.cmt.core.constants.ProjectBase;
-import anups.cmt.core.files.FileManager;
 
 public class XmlUtils extends ProjectBase {
 
@@ -54,30 +54,52 @@ public class XmlUtils extends ProjectBase {
 	    return keyValues;
 	}
 	
-	public static void evaluateXPathChild(Document document, String xpathExpression) throws Exception  {
+	
+	
+	
+	public static LinkedHashMap<String, Object> printNodeInfo(Document document, String xpathExpression) {
+		LinkedHashMap<String, Object> childNodesInfo = new LinkedHashMap<String, Object>();
 		XPathFactory xpathFactory = XPathFactory.newInstance();
 	    XPath xpath = xpathFactory.newXPath();
 	    try {
 			 XPathExpression expr = xpath.compile(xpathExpression);
 			 NodeList nodes = (NodeList) expr.evaluate(document, XPathConstants.NODESET);	 
-			 for(int i = 0; i < nodes.getLength(); i++) { 
-				Element el = (Element) nodes.item(i);
-				String key = el.getNodeName();
-				if (el.getFirstChild().getNodeType() == Node.TEXT_NODE) {
-					String value = el.getFirstChild().getNodeValue();	
-				}
-				NodeList children = el.getChildNodes();
-		        for (int k = 0; k < children.getLength(); k++) {
-		            Node child = children.item(k);
-		            if (child.getNodeType() != Node.TEXT_NODE) {
-		                System.out.println("child tag: " + child.getNodeName());
-		                if (child.getFirstChild().getNodeType() == Node.TEXT_NODE)
-		                    System.out.println("inner child value:" + child.getFirstChild().getNodeValue());;
-		            }
-		        }
-			 }           
-		  } catch (XPathExpressionException e) {  e.printStackTrace(); }
+			 Element el = (Element) nodes.item(0);
+			 if(el!=null) {
+			 String tagName = el.getTagName();
+		     int attributeSize = el.getAttributes().getLength();
+		childNodesInfo.put("tag", tagName);
+		LinkedHashMap<String, String> attributes = new LinkedHashMap<String, String>();
+		if(attributeSize>0) {
+			for(int index=0;index<attributeSize;index++) {
+				Node attribute = el.getAttributes().item(index);
+				String key = attribute.toString().split("=")[0];
+				String  value = attribute.toString().split("=")[1].replace("\"", "");
+				attributes.put(key, value);
+			}
+		}
+		childNodesInfo.put("attributes", attributes);
+		
+		ArrayList<LinkedHashMap<String, Object>>  childNodes = new ArrayList<LinkedHashMap<String, Object>>();
+		for(int index=0;index<el.getChildNodes().getLength();index++) {
+			if(el.getChildNodes().item(index).getNodeType() != Node.TEXT_NODE) {
+			  Element childElement = (Element)  el.getChildNodes().item(index);
+			  LinkedHashMap<String, Object> childNodePrint = printNodeInfo(document, xpathExpression+"/"+childElement.getTagName());
+			  childNodes.add(childNodePrint);
+			}
+		}
+		childNodesInfo.put("child-tags", childNodes);
+		if(childNodes.size()==0) {
+			if(el.getTextContent()!=null && el.getTextContent().length()>0) {
+				childNodesInfo.put("textcontent", el.getTextContent());
+			}
+		}
+		
+	    }
+	   } catch (XPathExpressionException e) {  e.printStackTrace(); }
+	return childNodesInfo;
 	}
+	
 	public static Document getDocument(String fileName) throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -85,4 +107,5 @@ public class XmlUtils extends ProjectBase {
         Document doc = builder.parse(fileName);
         return doc;
     }
+
 }

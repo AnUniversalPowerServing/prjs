@@ -1,6 +1,7 @@
 package anups.cmt.core.pojos;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import lombok.Data;
 
@@ -15,6 +16,6 @@ public class TestCases {
   private String testId;
   private String testCaseTitle;
   private String testCaseDesc;
-  private TestSteps testSteps;
+  private List<TestSteps> testSteps;
   private LinkedHashMap<String, String> testData;
 }

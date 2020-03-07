@@ -6,8 +6,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import org.w3c.dom.Document;
 
-import com.google.gson.Gson;
-
 import anups.cmt.core.pojos.TestCases;
 import anups.cmt.core.pojos.TestScenarios;
 import anups.cmt.core.pojos.TestSteps;
@@ -16,7 +14,6 @@ public class Xml extends XmlUtils {
 
 	private List<String> testScenarioFiles;
 	private LinkedHashSet<String> testCaseIds;
-	private LinkedHashMap<String,TestScenarios> testScenarios;
 	
 	public Xml() {
 	  buildListOfFiles();
@@ -76,14 +73,12 @@ public class Xml extends XmlUtils {
 		  
 		    List<String> testStepIds = XmlUtils.evaluateXPath(document, xpath_testStepIds);
 		  
-		    TestSteps testSteps = new TestSteps(); 
+		   List<TestSteps> testStepList = new ArrayList<TestSteps>();
 		  for(int testStepIndex=0;testStepIndex<testStepIds.size();testStepIndex++) {
 			String xpath_testStepTitle = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/title/text()";
 			String xpath_testStepDesc = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/desc/text()";
 			String xpath_testStepData = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/data/*";
 			String xpath_testStepExpectations = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/expectations";
-			//String xpath_testStepResponseExpected = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/response/@expected";
-			// String xpath_testStepResponse = "//testcase[contains(@id,'"+testCaseId+"')]/teststeps/teststep[contains(@id,'"+testStepIds.get(testStepIndex)+"')]/response/*";
 			
 			String testStepId = testStepIds.get(testStepIndex);
 		    String testStepTitle = (XmlUtils.evaluateXPath(document, xpath_testStepTitle)).get(0);
@@ -91,27 +86,18 @@ public class Xml extends XmlUtils {
 		    
 		    LinkedHashMap<String, String> testStepData = XmlUtils.evaluateXPathKeyValue(document, xpath_testStepData);
 		    
-		    XmlUtils.evaluateXPathChild(document, xpath_testStepExpectations);
-		   // for(int in=0;in<testExpectations.size();in++) {
-		    //	testExpectations.get(0);
-		   // }
-		   // String testStepResponseExpected = (XmlUtils.evaluateXPath(document, xpath_testStepResponseExpected)).get(0);
-		   //  LinkedHashMap<String, String> testStepResponse = XmlUtils.evaluateXPathKeyValue(document, xpath_testStepResponse);
-		    
-		    
+		    LinkedHashMap<String, Object> testStepExpectations = XmlUtils.printNodeInfo(document, xpath_testStepExpectations);
+		    TestSteps testSteps = new TestSteps(); 
 		    testSteps.setStepId(testStepId);
 		    testSteps.setTestStepTitle(testStepTitle);
 		    testSteps.setTestStepDesc(testStepDesc);
 		    testSteps.setTestData(testStepData);
-		    // testSteps.setResponseExpectedInfo(testStepResponse);
-		 //   if("yes".equalsIgnoreCase(testStepResponseExpected)) {
-		    //	testSteps.setResponseExpected(true);
-		 //   } else {
-		    //	testSteps.setResponseExpected(false);
-		 //   }
+		    testSteps.setExpectations(testStepExpectations);
+		    testStepList.add(testSteps);
 		  }
+		  testCases.setTestSteps(testStepList);
 		  
-		  testCases.setTestSteps(testSteps);
+		  
 		  
 		  String xpath_testData = "//testcase[contains(@id,'"+testCaseId+"')]/data/*";
 		  LinkedHashMap<String, String> testData = XmlUtils.evaluateXPathKeyValue(document, xpath_testData);
