@@ -117,21 +117,19 @@ function submit_auth_reg_verifyMobile(){
  var valid_gender = validate_gender(auth_reg_htmlElements.auth_reg_gender);
  var valid_mobile = validate_mobile(auth_reg_htmlElements.auth_reg_mobile);
  var mobile = $('#'+auth_reg_htmlElements.auth_reg_mobile).val();
- if(valid_surName && valid_name && valid_gender && valid_mobile){
+ if(valid_mobile){
    authEndpoints.userAccounts_verify_mobileNumber(mobile,function(response){
       console.log(JSON.stringify(response));
-      if(response.user==='NOT_EXISTS'){
-        showHide_auth_reg_otpForm('show');
+	  if(response.user==='NOT_EXISTS' && valid_surName && valid_name && valid_gender){
 	    document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
-		bootstrap_formField_trigger('success',auth_reg_htmlElements.auth_reg_mobile);
+        showHide_auth_reg_otpForm('show');
+	    bootstrap_formField_trigger('success',auth_reg_htmlElements.auth_reg_mobile);
 	  } else if(response.user==='EXISTS'){
 	    VALIDATION_MESSAGE_ERROR='You already Registered. Please login to your Account ';
 	    show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
 		bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile);
 	  } else {
-	    VALIDATION_MESSAGE_ERROR='Unable to verify your Mobile Number. Please try later.';
-	    show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
-		bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile);
+		 show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
 	  }
    });
  } else {

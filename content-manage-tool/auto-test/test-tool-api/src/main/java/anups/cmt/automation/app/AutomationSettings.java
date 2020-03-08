@@ -9,6 +9,8 @@ public class AutomationSettings {
 	
 	public static final String RESOURCE_FOLDER = "src/main/resources";
 	
+	public static final String REPORT_FOLDER = RESOURCE_FOLDER+"/output";
+	
 	public static final String OPERA_DRIVER = PROJECT_URL+"/"+RESOURCE_FOLDER+"/server/operadriver.exe";
 	
 	public static final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

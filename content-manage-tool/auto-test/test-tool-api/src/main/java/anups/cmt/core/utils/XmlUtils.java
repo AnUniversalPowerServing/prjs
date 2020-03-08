@@ -54,9 +54,6 @@ public class XmlUtils extends ProjectBase {
 	    return keyValues;
 	}
 	
-	
-	
-	
 	public static LinkedHashMap<String, Object> printNodeInfo(Document document, String xpathExpression) {
 		LinkedHashMap<String, Object> childNodesInfo = new LinkedHashMap<String, Object>();
 		XPathFactory xpathFactory = XPathFactory.newInstance();
@@ -108,4 +105,6 @@ public class XmlUtils extends ProjectBase {
         return doc;
     }
 
+	
+	
 }

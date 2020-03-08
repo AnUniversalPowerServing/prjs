@@ -12,31 +12,45 @@
       	<desc>Click on General Information Badge</desc>
       	<expectations>
       	  <response expected="yes">
-      	    <msg>Provide Basic Information to create Account</msg>
+      	    <msg>{messages.BADGE_GENINFO_TITLE}</msg>
+      	  </response>
+      	   <response expected="no">
+      	    <msg>{messages.BADGE_SETPWD_TITLE}</msg>
+      	  </response>
+      	   <response expected="no">
+      	    <msg>{messages.BADGE_SECURITYQ_TITLE}</msg>
       	  </response>
       	</expectations>
       </teststep>
       <teststep id="2">
       	<title>Select Password Badge and check the Badge Title</title>
-      	<desc>Click on Password Badge should not </desc>
+      	<desc>Click on Password Badge should not change title and form</desc>
       	<expectations>
       	  <response expected="yes">
-      	    <msg>Provide Basic Information to create Account</msg>
+      	    <msg>{messages.BADGE_GENINFO_TITLE}</msg>
       	  </response>
       	  <response expected="no">
-      	    <msg>Set Password to access your Account</msg>
+      	    <msg>{messages.BADGE_SETPWD_TITLE}</msg>
+      	  </response>
+      	  <response expected="no">
+      	    <msg>{messages.BADGE_SECURITYQ_TITLE}</msg>
       	  </response>
       	</expectations>
       </teststep>
       <teststep id="3">
       	<title>Select SecurityQ Badge and check the Badge Title</title>
-      	<desc>Click on Password Badge should not </desc>
-      	<response expected="yes">
-      	  <msg>Provide Basic Information to create Account</msg>
-      	</response>
-      	<response expected="no">
-      	  <msg>Choose 3 Security Questions to secure Account</msg>
-      	</response>
+      	<desc>Click on Password Badge should not change title and form</desc>
+      	<expectations>
+      	  <response expected="yes">
+      	    <msg>{messages.BADGE_GENINFO_TITLE}</msg>
+      	  </response>
+      	  <response expected="no">
+      	    <msg>{messages.BADGE_SETPWD_TITLE}</msg>
+      	  </response>
+      	  <response expected="no">
+      	    <msg>{messages.BADGE_SECURITYQ_TITLE}</msg>
+      	  </response>
+      	  </expectations>
       </teststep>
     </teststeps>
   </testcase>

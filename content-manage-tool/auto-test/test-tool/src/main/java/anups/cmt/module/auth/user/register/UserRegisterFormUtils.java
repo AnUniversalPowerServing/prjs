@@ -31,7 +31,7 @@ public class UserRegisterFormUtils extends AutomationBase implements UserRegiste
 		WebElement setPassword_badgeheading_WebElement = userRegisterWebElements.getBadgeHeadingWebElement(UserRegisterForm.BADGE_SETPWD_DIVISION);
 		WebElement securityQ_badgeheading_WebElement = userRegisterWebElements.getBadgeHeadingWebElement(UserRegisterForm.BADGE_SECURITYQ_DIVISION);
 		
-		super.doubleClickButton(genInfoDiv_badge_WebElement);
+		super.singleClickButton(genInfoDiv_badge_WebElement);
 		
 		if(BADGE_GENINFO_TITLE.equalsIgnoreCase(genInfoDiv_badgeheading_WebElement.getText().trim())) {
 			badgeResponse.put("BADGE_GENINFO_RESPONSE", true);
@@ -39,7 +39,7 @@ public class UserRegisterFormUtils extends AutomationBase implements UserRegiste
 			badgeResponse.put("BADGE_GENINFO_RESPONSE", false);
 		}
 		
-		super.doubleClickButton(setPassword_badge_WebElement);
+		super.singleClickButton(setPassword_badge_WebElement);
 		
 		if(BADGE_SETPWD_TITLE.equalsIgnoreCase(setPassword_badgeheading_WebElement.getText().trim())) {
 			badgeResponse.put("BADGE_SETPWD_RESPONSE", true);
@@ -47,7 +47,7 @@ public class UserRegisterFormUtils extends AutomationBase implements UserRegiste
 			badgeResponse.put("BADGE_SETPWD_RESPONSE", false);
 		}
 		
-		super.doubleClickButton(securityQ_badge_WebElement);
+		super.singleClickButton(securityQ_badge_WebElement);
 		
 		if(BADGE_SECURITYQ_TITLE.equalsIgnoreCase(securityQ_badgeheading_WebElement.getText().trim())) {
 			badgeResponse.put("BADGE_SECURITYQ_RESPONSE", true);

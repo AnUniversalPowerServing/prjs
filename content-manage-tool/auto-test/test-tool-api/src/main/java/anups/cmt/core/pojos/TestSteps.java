@@ -11,4 +11,6 @@ public class TestSteps {
  private String testStepDesc;
  private LinkedHashMap<String, String> testData;
  private LinkedHashMap<String, Object> expectations;
+ private String comment;
+ private String testStepStatus;
 }

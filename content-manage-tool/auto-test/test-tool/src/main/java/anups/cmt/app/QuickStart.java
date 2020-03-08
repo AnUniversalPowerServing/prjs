@@ -11,8 +11,11 @@ import anups.cmt.core.utils.Xml;
  */
 public class QuickStart {
     public static void main( String[] args ){
+    	/*
     	 TestScenarios testScenarios = new Xml().getTestCase("00001");
     	 Gson gson = new Gson();
     	 System.out.println(gson.toJson(testScenarios));
+    	 */
+    	 
     }
 }
