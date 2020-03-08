@@ -81,10 +81,10 @@
    </div><!--/.form-group -->
    <div id="auth-reg-lock-warnErrorMsg" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
-     <input id="auth-reg-lock-password" class="form-control" placeholder="Enter Password"/>
+     <input id="auth-reg-lock-password" type="password" class="form-control" placeholder="Enter Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <input id="auth-reg-lock-confirmPassword" class="form-control" placeholder="Enter Confirm Password"/>
+     <input id="auth-reg-lock-confirmPassword" type="password" class="form-control" placeholder="Enter Confirm Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
      <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_setPassword();"><b>Next</b></button>

@@ -86,5 +86,32 @@ if(isset($_POST["action"])){
 	}
 	echo json_encode($wsStatus);
  }
+  if($_POST["action"]=='USER_AUTH_UPDATEACCOUNTINFO') {
+    $wsStatus = array();
+	if(isset($_POST["account_Id"])){
+	$account_Id = $_POST["account_Id"];
+    $mob_code=''; if(isset($_POST["mob_code"])){ $mob_code = $_POST["mob_code"]; }
+	$mobile=''; if(isset($_POST["mobile"])){ $mobile = $_POST["mobile"]; }
+	$surName=''; if(isset($_POST["surName"])){ $surName = $_POST["surName"]; }
+	$name=''; if(isset($_POST["name"])){ $name = $_POST["name"]; }
+	$gender=''; if(isset($_POST["gender"])){ $gender = $_POST["gender"]; }
+	$q1=''; if(isset($_POST["q1"])){ $q1 = $_POST["q1"]; }
+	$a1=''; if(isset($_POST["a1"])){ $a1 = $_POST["a1"]; }
+	$q2=''; if(isset($_POST["q2"])){ $q2 = $_POST["q2"]; }
+	$a2=''; if(isset($_POST["a2"])){ $a2 = $_POST["a2"]; }
+	$q3=''; if(isset($_POST["q3"])){ $q3 = $_POST["q3"]; }
+	$a3=''; if(isset($_POST["a3"])){ $a3 = $_POST["a3"]; }
+	$acc_active=''; if(isset($_POST["acc_active"])){ $acc_active = $_POST["acc_active"]; }
+	$userAccountAuth = new UserAccountAuth();
+	$query = $userAccountAuth->query_update_userAccounts($account_Id, $mob_code, $mobile, $surName, $name, $gender, 
+	$acc_pwd, $q1, $a1, $q2, $a2, $q3, $a3, $acc_active);
+	$database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
+	$wsStatus["status"]=$database->addupdateData($query);
+	} else { 
+	  $wsStatus["status"]="FAILED";
+	  $wsStatus["description"]='Missing Account Id';
+	}
+	echo json_encode($wsStatus);
+  }
 }
 ?>

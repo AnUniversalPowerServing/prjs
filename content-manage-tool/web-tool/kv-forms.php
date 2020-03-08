@@ -17,6 +17,7 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
 <script src="js/common/endpoints.auth.js"></script>
+<script src="js/common/messages.stat.js"></script>
 <script type="text/javascript">
 var PROJECT_URL='';
 var USR_LANG='english';
