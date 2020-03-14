@@ -53,8 +53,8 @@ class UserAccountAuth {
 	if(strlen($q3)>0){ $sql.="q3=".$q3.","; }
 	if(strlen($a3)>0){ $sql.="a3='".$a3."',"; }
 	if(strlen($acc_active)>0){ $sql.="acc_active='".$acc_active."',"; }
-	$sql=chop(',',$sql);
-	$sql.="WHERE account_Id='".$account_Id."';";
+	$sql=chop($sql,',');
+	$sql.=" WHERE account_Id='".$account_Id."';";
 	return $sql;
   }
 }

@@ -647,3 +647,73 @@ Sunday 8th March 2020 11:29:31 PM [INFO] ::: [api.database.php]  Database connec
 Sunday 8th March 2020 11:30:58 PM [INFO] ::: [api.database.php]  Database connected Successfully 
 Sunday 8th March 2020 11:31:05 PM [INFO] ::: [api.database.php]  Database connected Successfully 
 Sunday 8th March 2020 11:31:31 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:45:32 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:45:32 PM [INFO] ::: [api.database.php]  Query(Status-ERROR) : WHERE account_Id='2'; 
+Saturday 14th March 2020 03:46:43 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:46:43 PM [INFO] ::: [api.database.php]  Query(Status-ERROR) : WHERE account_Id='2'; 
+Saturday 14th March 2020 03:47:14 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:47:14 PM [INFO] ::: [api.database.php]  Query(Status-ERROR) : WHERE account_Id='2'; 
+Saturday 14th March 2020 03:47:50 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:47:50 PM [INFO] ::: [api.database.php]  Query(Status-ERROR) : UPDATE user_accounts_auth SET mob_code='+1',WHERE account_Id='2'; 
+Saturday 14th March 2020 03:48:05 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:48:05 PM [INFO] ::: [api.database.php]  Query(Status-ERROR) : UPDATE user_accounts_auth SET mob_code='+1',UPDATE user_accounts_auth SET mob_code='+1'WHERE account_Id='2'; 
+Saturday 14th March 2020 03:49:10 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:49:10 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : UPDATE user_accounts_auth SET mob_code='+1'WHERE account_Id='2'; 
+Saturday 14th March 2020 03:58:37 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:58:47 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 03:59:19 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:00:27 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:05:17 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:05:28 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:05:47 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:05:55 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:08:25 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:09:17 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:09:36 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:20:48 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:20:55 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:21:12 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:22:45 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:22:58 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:23:14 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:23:29 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 04:23:29 PM [INFO] ::: [api.database.php]  Query(Status-SUCCESS) : UPDATE user_accounts_auth SET mob_code='+91',mobile='9166869337',acc_pwd='@12345678' WHERE account_Id='16'; 
+Saturday 14th March 2020 05:17:40 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:18:08 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:18:33 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:21:36 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:22:26 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:22:56 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:24:38 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:25:24 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:26:18 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:26:39 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:26:59 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:27:15 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:27:26 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:36:45 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:39:56 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:40:04 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:40:13 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:46:40 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:46:46 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:47:51 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:48:40 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:59:33 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 05:59:42 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:00:05 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:00:10 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:01:17 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:01:24 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:01:53 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:07:10 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:07:17 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:07:37 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:12:26 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:12:30 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:12:56 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:13:28 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:23:20 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:23:28 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:23:44 PM [INFO] ::: [api.database.php]  Database connected Successfully 
+Saturday 14th March 2020 06:24:13 PM [INFO] ::: [api.database.php]  Database connected Successfully 

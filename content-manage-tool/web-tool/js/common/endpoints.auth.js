@@ -3,7 +3,7 @@ var AUTH_REG_ENDPOINT='backend/php/dac/controller.accounts.user.auth.php';
 class AuthEndpoints {
   userAccounts_autocomplete_surNames(respFunc){
    js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_SURNAMES' },
-    function(response){ console.log(response);respFunc(response); });
+   function(response){ console.log(response);respFunc(response); });
   }
   userAccounts_verify_mobileNumber(mobile,respFunc){
    js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_VERIFYMOBILE', mobile:mobile },
@@ -14,8 +14,12 @@ class AuthEndpoints {
    js_ajax('POST',AUTH_REG_ENDPOINT,inputData,function(response){ console.log(response);respFunc(response); });
   }
   userAccounts_viewInfo_byMobileNumber(mobile,respFunc){
-   js_ajax('GET','backend/php/dac/controller.accounts.user.auth.php',{ action:'USER_AUTH_LOGIN', mobile:mobile }, 
+   js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_LOGIN', mobile:mobile }, 
    function(response){ console.log(response);respFunc(response); });
+  }
+  userAccounts_updateInfo_accountById(updateData,respFunc){
+   updateData.action='USER_AUTH_UPDATEACCOUNTINFO';
+   js_ajax('POST',AUTH_REG_ENDPOINT,updateData,function(response){ console.log(response);respFunc(response); });
   }
 }
 

@@ -40,10 +40,21 @@ body { background-color:purple;color:#fff; }
 </style>
 
 <script type="text/javascript">
+var auth_loginForm_htmlElements = {
+  userAccountForm:'auth-login-userAccountForm',
+  userAccountBtn:'auth-login-access-userAccountForm',
+  retrievePwdWithMobileForm:'auth-login-retrievePwdWithMobileForm',
+  retrievePwdWithMobileBtn:'auth-login-access-retrievePwdWithMobileForm',
+  retrieveAccountWithoutInfoForm:'auth-login-retrieveAccountWithoutInfoForm',
+  retrieveAccountWithoutInfoBtn:'auth-login-access-retrieveAccountWithoutInfoForm'
+};
 function showHide_auth_accountAccessForm(id){
- var arry_Id=["auth-login-userAccountForm","auth-login-retrievePwdWithMobileForm","auth-login-retrieveAccountWithoutInfoForm"];
- var arry_btn_Id=["auth-login-access-userAccountForm","auth-login-access-retrievePwdWithMobileForm","auth-login-access-retrieveAccountWithoutInfoForm"];
+ var arry_Id=[auth_loginForm_htmlElements.userAccountForm,auth_loginForm_htmlElements.retrievePwdWithMobileForm,
+			  auth_loginForm_htmlElements.retrieveAccountWithoutInfoForm];
+ var arry_btn_Id=[auth_loginForm_htmlElements.userAccountBtn,auth_loginForm_htmlElements.retrievePwdWithMobileBtn,
+				  auth_loginForm_htmlElements.retrieveAccountWithoutInfoBtn];
  for(var index=0;index<arry_btn_Id.length;index++){
+  console.log(arry_btn_Id[index]+"  "+id+" "+arry_Id[index]);
   if(arry_btn_Id[index]===id){
     if($('#'+arry_Id[index]).hasClass('hide-block')){ $('#'+arry_Id[index]).removeClass('hide-block'); }
 	if(!$('#'+arry_btn_Id[index]).hasClass('hide-block')){ $('#'+arry_btn_Id[index]).addClass('hide-block'); }
@@ -52,10 +63,19 @@ function showHide_auth_accountAccessForm(id){
 	if($('#'+arry_btn_Id[index]).hasClass('hide-block')){ $('#'+arry_btn_Id[index]).removeClass('hide-block'); }
   }
  }
- if(id==='auth-login-access-retrieveAccountWithoutInfoForm'){
+ if(id===auth_loginForm_htmlElements.retrievePwdWithMobileBtn){
    showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn('verifyBtn');
  }
 }
+
+function reset_auth_accountAccessForm_userAccountForm(){ 
+
+}
+function reset_auth_accountAccessForm_retrievePwdWithMobileForm(){ 
+
+}
+
+
 $(document).ready(function(){
  trigger_userAccounts_auth();
  trigger_userAccounts_auth_login_rAWoIForm();
@@ -74,7 +94,7 @@ $(document).ready(function(){
 <div class="col-xs-12 col-md-4 col-sm-6">
  <!-- -->
  <div align="center"><h4 class="mbot35p"><b>Login to your Account</b></h4></div>
- 
+ <button onclick="javascript:reset_auth_accountAccessForm_retrieveAccountWithoutInfoForm();">Test</button>
  <?php include_once 'templates/auth/user-account-login.php'; ?>
  <?php include_once 'templates/auth/user-account-retreive-withOtp.php'; ?>
  <?php include_once 'templates/auth/user-account-retreive-withSQ.php'; ?>

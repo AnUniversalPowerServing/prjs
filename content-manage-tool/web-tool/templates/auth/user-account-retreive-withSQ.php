@@ -1,5 +1,6 @@
 <script type="text/javascript">
-var auth_login_rAWoIForm_htmlElements = { auth_login_rAWoIForm_warnErrorMsg:'auth-login-retrieveAccountWithoutInfoForm-warnErrorMsg',
+var auth_login_rAWoIForm_htmlElements = { 
+	 auth_login_rAWoIForm_warnErrorMsg:'auth-login-retrieveAccountWithoutInfoForm-warnErrorMsg',
 	 auth_login_rAWoIForm_mobile:'auth-login-retrieveAccountWithoutInfoForm-mobile',
 	 auth_login_rAWoIForm_mobile_verifyBtn:'auth-login-retrieveAccountWithoutInfoForm-mobile-verifyBtn', 
 	 auth_login_rAWoIForm_mobile_changeBtn:'auth-login-retrieveAccountWithoutInfoForm-mobile-changeBtn',
@@ -27,8 +28,19 @@ var auth_login_rAWoIForm_htmlElements = { auth_login_rAWoIForm_warnErrorMsg:'aut
 	 auth_login_rAWoIForm_changePassword_confirmpassword:'auth-login-retrieveAccountWithoutInfoForm-changePassword-confirmpassword'
   };
 function trigger_userAccounts_auth_login_rAWoIForm(){
- showHide_auth_accountAccessForm('auth-login-access-userAccountForm');
+ showHide_auth_accountAccessForm(auth_loginForm_htmlElements.userAccountBtn);
 } 
+function reset_auth_accountAccessForm_retrieveAccountWithoutInfoForm(){ 
+ $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_mobile).val('');
+ document.getElementById(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_mobile).disabled=false;
+ reset_auth_login_retrieveAccountWithoutInfoForm_validateSQForm();
+ reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm();
+ if(!$('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm).hasClass('hide-block')){
+   $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm).addClass('hide-block');
+ }
+ showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn('verifyBtn');
+ bootstrap_formField_trigger('remove',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_mobile);
+}
 function showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn(view){
  if(view=='verifyBtn'){
   if($('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_mobile_verifyBtn).hasClass('hide-block')){
@@ -190,6 +202,12 @@ function reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm(){
  $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile).val('');
  $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword).val('');
  $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_confirmpassword).val('');
+ bootstrap_formField_trigger('remove',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile);
+ bootstrap_formField_trigger('remove',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword);
+ bootstrap_formField_trigger('remove',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_confirmpassword);
+ reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm();
+ showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm('hide');
+ showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_mobileVerifyChangeBtn('verifyBtn');
 }
 
 /* ============================================================================================== */
@@ -214,6 +232,7 @@ function reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm()
  $("#"+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_otpcode).val('');
  document.getElementById(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_otpcode).disabled=false;
  document.getElementById(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_validateOTPBtn).disabled=false;
+ document.getElementById(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile).disabled=false;
  bootstrap_formField_trigger('remove',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_otpcode);
 }
 function showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm(mode){
@@ -245,7 +264,7 @@ if(valid_mobile){
 		 showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm('show');
 		 showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_mobileVerifyChangeBtn('changeBtn');
 	  } else if(response.user==='EXISTS'){
-	     VALIDATION_MESSAGE_ERROR='You already Registered. Please login to your Account. ';
+	     VALIDATION_MESSAGE_ERROR='This Number is already Registered. Please try with other Mobile Number. ';
 	     show_validate_msg('error',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_warnErrorMsg);
 		 bootstrap_formField_trigger('error',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile);
 	  }
@@ -291,21 +310,30 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_validate
   }
 }
 function submit_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_validateOTPCode_savePwdAndMobile(){
+  var mobile = $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile).val();
+  var newPassword = $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword).val();
+  var confirmPassword = $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_confirmpassword).val();
+  var valid_mobile = validate_mobile(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile);
+  var valid_newPassword = validate_password(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword);
+  var valid_confirmPassword =validate_confirmPassword(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword, 
+						auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_confirmpassword);
+  console.log("valid_mobile: "+valid_mobile);
+  console.log("valid_newPassword: "+valid_newPassword);
+  console.log("valid_confirmPassword: "+valid_confirmPassword);
+  console.log("AUTH_LOGIN_RAWOIFORM_VERIFIEDMOBILE: "+AUTH_LOGIN_RAWOIFORM_VERIFIEDMOBILE);
   if(!AUTH_LOGIN_RAWOIFORM_VERIFIEDMOBILE){
 	  VALIDATION_MESSAGE_ERROR='Your New MobileNumber is not verified. Please verify it and then, update the Information.';
 	  show_validate_msg('error',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_warnErrorMsg);
+	  bootstrap_formField_trigger('error',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_otpcode);
   } else {
-		var mobile = $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile).val();
-		var newPassword = $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword).val();
-		var confirmPassword = $('#'+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_confirmpassword).val();
-		var valid_mobile = validate_mobile(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newMobile);
-		var valid_newPassword = validate_password(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword);
-		var valid_confirmPassword =validate_confirmPassword(auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_newPassword, 
-						auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_confirmpassword);
 		if(valid_mobile && valid_newPassword && valid_confirmPassword){
 		  // Trigger Service to update Mobile and Password
-		} else {
-			show_validate_msg('error',auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_warnErrorMsg);
+		  authEndpoints.userAccounts_updateInfo_accountById({ account_Id:AUTH_LOGIN_RAWOIFORM_USERACCOUNT_ID, 
+		  mobile: mobile, mob_code:'+91', acc_pwd: newPassword },
+		  function(response){
+		    console.log("userAccounts_updateInfo_accountById: "+response);
+			showHide_auth_accountAccessForm(auth_loginForm_htmlElements.userAccountBtn);
+		  });
 		}
 	}
 }

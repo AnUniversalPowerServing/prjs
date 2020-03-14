@@ -95,6 +95,7 @@ if(isset($_POST["action"])){
 	$surName=''; if(isset($_POST["surName"])){ $surName = $_POST["surName"]; }
 	$name=''; if(isset($_POST["name"])){ $name = $_POST["name"]; }
 	$gender=''; if(isset($_POST["gender"])){ $gender = $_POST["gender"]; }
+	$acc_pwd=''; if(isset($_POST["acc_pwd"])){ $acc_pwd = $_POST["acc_pwd"]; }
 	$q1=''; if(isset($_POST["q1"])){ $q1 = $_POST["q1"]; }
 	$a1=''; if(isset($_POST["a1"])){ $a1 = $_POST["a1"]; }
 	$q2=''; if(isset($_POST["q2"])){ $q2 = $_POST["q2"]; }
