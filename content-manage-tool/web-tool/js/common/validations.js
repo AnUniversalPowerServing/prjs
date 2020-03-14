@@ -86,12 +86,15 @@ function validate_otpcode(auth_reg_otpcode){
 function validate_password(auth_reg_password){
   var password = $("#"+auth_reg_password).val();
   var status = false;
-  if(password.length>=8){ 
-     status = true;VALIDATION_MESSAGE_ERROR+='';
-	 bootstrap_formField_trigger('success',auth_reg_password); }
-  else { 
-    bootstrap_formField_trigger('error',auth_reg_password);
+  if(password.length===0){
+	bootstrap_formField_trigger('error',auth_reg_password);
 	VALIDATION_MESSAGE_ERROR+=' Password,';
+  } else if(password.length>=8){ 
+     status = true;VALIDATION_MESSAGE_ERROR+='';
+	 bootstrap_formField_trigger('success',auth_reg_password); 
+  } else { 
+    bootstrap_formField_trigger('error',auth_reg_password);
+	VALIDATION_MESSAGE_ERROR+=' Password should contain minimum 8-Alphanumeric Characters,';
   }
   return status;
 }

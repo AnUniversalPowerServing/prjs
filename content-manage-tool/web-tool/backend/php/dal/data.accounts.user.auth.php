@@ -5,33 +5,31 @@ class UserAccountAuth {
   private $TABLE_USERACCOUNT_AUTHINFO='user_accounts_auth';
   
   function query_view_userSecurityQ(){
-	return "SELECT * FROM ".$this->TABLE_USERACCOUNT_SECURITYQ.";";
+	return "SELECT * FROM user_accounts_sq;";
   }
 
   function query_view_userInfoByMobile($mob_code,$mobile){
-   $authInfoTbl = $this->TABLE_USERACCOUNT_AUTHINFO;
-   $authSecurityQTbl = $this->TABLE_USERACCOUNT_SECURITYQ;
    $sql="SELECT account_Id, mob_code, mobile, surName, name, gender, q1, ";
-   $sql.="(SELECT sQ FROM ".$authSecurityQTbl." WHERE ";
-   $sql.=$authInfoTbl.".q1=".$authSecurityQTbl.".sQ_Id) As qq1, a1, q2,";
-   $sql.="(SELECT sQ FROM ".$authSecurityQTbl." WHERE ";
-   $sql.=$authInfoTbl.".q2=".$authSecurityQTbl.".sQ_Id) As qq2, a2, q3, ";
-   $sql.="(SELECT sQ FROM ".$authSecurityQTbl." WHERE ";
-   $sql.=$authInfoTbl.".q3=".$authSecurityQTbl.".sQ_Id) As qq3, a3 FROM ";
-   $sql.=$authInfoTbl." WHERE mob_code='".$mob_code."' AND mobile='".$mobile."';";
+   $sql.="(SELECT sQ FROM user_accounts_sq WHERE ";
+   $sql.="user_accounts_auth.q1=user_accounts_sq.sQ_Id) As qq1, a1, q2,";
+   $sql.="(SELECT sQ FROM user_accounts_sq WHERE ";
+   $sql.="user_accounts_auth.q2=user_accounts_sq.sQ_Id) As qq2, a2, q3, ";
+   $sql.="(SELECT sQ FROM user_accounts_sq WHERE ";
+   $sql.="user_accounts_auth.q3=user_accounts_sq.sQ_Id) As qq3, a3 FROM ";
+   $sql.="user_accounts_auth WHERE mob_code='".$mob_code."' AND mobile='".$mobile."';";
    return $sql;
   }
   
   function query_view_userMobileIsExists($mobile){
-    return "SELECT * FROM ".$this->TABLE_USERACCOUNT_AUTHINFO." WHERE mobile='".$mobile."';";
+    return "SELECT * FROM user_accounts_auth WHERE mobile='".$mobile."';";
   }
   
   function query_view_listOfSurNames(){
-    return "SELECT DISTINCT surName FROM ".$this->TABLE_USERACCOUNT_AUTHINFO.";";
+    return "SELECT DISTINCT surName FROM user_accounts_auth;";
   }
   
   function query_add_userAccounts($mob_code, $mobile, $mob_val, $surName, $name, $gender, $acc_pwd, $q1, $a1, $q2, $a2, $q3, $a3, $acc_active){
-   $sql="INSERT INTO ".$this->TABLE_USERACCOUNT_AUTHINFO."(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3, acc_active) ";
+   $sql="INSERT INTO user_accounts_auth(mob_code, mobile, mob_val, surName, name, gender, acc_pwd, q1, a1, q2, a2, q3, a3, acc_active) ";
    $sql.="VALUES ('".$mob_code."','".$mobile."','".$mob_val."','".$surName;
    $sql.="','".$name."','".$gender."','".$acc_pwd."','".$q1."','".$a1."','".$q2."','".$a2."','".$q3."','".$a3."','".$acc_active."');";
    return $sql;
@@ -55,6 +53,18 @@ class UserAccountAuth {
 	if(strlen($acc_active)>0){ $sql.="acc_active='".$acc_active."',"; }
 	$sql=chop($sql,',');
 	$sql.=" WHERE account_Id='".$account_Id."';";
+	return $sql;
+  }
+  
+  function query_view_userAccountLogin($mob_code,$mobile,$acc_pwd){
+    $sql="SELECT account_Id, mob_code, mobile, surName, name, gender, q1, ";
+    $sql.="(SELECT sQ FROM user_accounts_sq WHERE ";
+    $sql.="user_accounts_auth.q1=user_accounts_sq.sQ_Id) As qq1, a1, q2,";
+    $sql.="(SELECT sQ FROM user_accounts_sq WHERE ";
+    $sql.="user_accounts_auth.q2=user_accounts_sq.sQ_Id) As qq2, a2, q3, ";
+    $sql.="(SELECT sQ FROM user_accounts_sq WHERE ";
+    $sql.="user_accounts_auth.q3=user_accounts_sq.sQ_Id) As qq3, a3 FROM ";
+    $sql.="user_accounts_auth WHERE mob_code='".$mob_code."' AND mobile='".$mobile."' AND acc_pwd='".$acc_pwd."';";
 	return $sql;
   }
 }

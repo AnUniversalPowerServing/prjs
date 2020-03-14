@@ -18,6 +18,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
 <script src="js/common/endpoints.auth.js"></script>
 <script src="js/common/messages.stat.js"></script>
+<script src="js/auth/user-accounts-retrieve-withSQ.js"></script>
 <script type="text/javascript">
 var PROJECT_URL='';
 var USR_LANG='english';
@@ -98,7 +99,7 @@ $(document).ready(function(){
  <?php include_once 'templates/auth/user-account-login.php'; ?>
  <?php include_once 'templates/auth/user-account-retreive-withOtp.php'; ?>
  <?php include_once 'templates/auth/user-account-retreive-withSQ.php'; ?>
- 
+
  <div id="auth-login-access-userAccountForm" align="right" class="form-group hide-block curpoint"
    onclick="javascript:showHide_auth_accountAccessForm(this.id);">
 	<b><u>Login to your Account</u></b>

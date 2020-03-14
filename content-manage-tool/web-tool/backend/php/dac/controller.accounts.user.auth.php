@@ -31,7 +31,7 @@ if(isset($_GET["action"])){
     $database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
     echo json_encode($database->getAColumnAsArray($query,'surName'));
  } 
- else if($_GET["action"]=='USER_AUTH_LOGIN') {
+ else if($_GET["action"]=='USER_AUTH_BYMOBILE') {
     $mob_code='+91';
 	$mobile=$_GET["mobile"];
     $userAccountAuth = new UserAccountAuth();
@@ -86,7 +86,7 @@ if(isset($_POST["action"])){
 	}
 	echo json_encode($wsStatus);
  }
-  if($_POST["action"]=='USER_AUTH_UPDATEACCOUNTINFO') {
+  else if($_POST["action"]=='USER_AUTH_UPDATEACCOUNTINFO') {
     $wsStatus = array();
 	if(isset($_POST["account_Id"])){
 	$account_Id = $_POST["account_Id"];
@@ -95,7 +95,7 @@ if(isset($_POST["action"])){
 	$surName=''; if(isset($_POST["surName"])){ $surName = $_POST["surName"]; }
 	$name=''; if(isset($_POST["name"])){ $name = $_POST["name"]; }
 	$gender=''; if(isset($_POST["gender"])){ $gender = $_POST["gender"]; }
-	$acc_pwd=''; if(isset($_POST["acc_pwd"])){ $acc_pwd = $_POST["acc_pwd"]; }
+	$acc_pwd=''; if(isset($_POST["acc_pwd"])){ $acc_pwd = md5($_POST["acc_pwd"]); }
 	$q1=''; if(isset($_POST["q1"])){ $q1 = $_POST["q1"]; }
 	$a1=''; if(isset($_POST["a1"])){ $a1 = $_POST["a1"]; }
 	$q2=''; if(isset($_POST["q2"])){ $q2 = $_POST["q2"]; }
@@ -114,5 +114,14 @@ if(isset($_POST["action"])){
 	}
 	echo json_encode($wsStatus);
   }
+   else if($_POST["action"]=='USER_AUTH_LOGIN') {
+    $mob_code='+91';
+	$mobile=$_POST["mobile"];
+	$acc_pwd=md5($_POST["acc_pwd"]);
+    $userAccountAuth = new UserAccountAuth();
+    $query = $userAccountAuth->query_view_userAccountLogin($mob_code,$mobile,$acc_pwd);
+	$database = new Database($DB_MLHBASIC_SERVERNAME,$DB_MLHBASIC_NAME,$DB_MLHBASIC_USER,$DB_MLHBASIC_PASSWORD);
+	echo $database->getJSONData($query);
+ }
 }
 ?>
