@@ -17,9 +17,23 @@ function submit_auth_login_userAccountForm_authenticate(){
     console.log(response);
 	if(response.length>0){
 		// Add them to a Session and Redirect Page
-		console.log(JSON.stringify(response[0]));
-		session.set(JSON.stringify(response[0]));
-		session.get(JSON.stringify(["account_Id", "mob_code", "mobile", "surName", "name", "gender", "q1"]));
+		session.set({"SESSION_CUSTOMER_ACCOUNTID":response[0].account_Id,
+							"SESSION_CUSTOMER_MOBCODE":response[0].mob_code,
+							"SESSION_CUSTOMER_MOBILE":response[0].mobile,
+							"SESSION_CUSTOMER_SURNAME":response[0].surName,
+							"SESSION_CUSTOMER_NAME":response[0].name,
+							"SESSION_CUSTOMER_GENDER":response[0].gender,
+							"SESSION_CUSTOMER_Q1ID":response[0].q1,
+							"SESSION_CUSTOMER_Q1":response[0].qq1,
+							"SESSION_CUSTOMER_Q2ID":response[0].q2,
+							"SESSION_CUSTOMER_Q2":response[0].qq2,
+							"SESSION_CUSTOMER_Q3ID":response[0].q3,
+							"SESSION_CUSTOMER_Q3":response[0].qq3,
+							"SESSION_CUSTOMER_A1":response[0].a1,
+							"SESSION_CUSTOMER_A2":response[0].a2,
+							"SESSION_CUSTOMER_A3":response[0].a3
+						  });
+		window.location.href='customer-dashboard.php';
 	} else {
 		VALIDATION_MESSAGE_ERROR='Your Account with Mobile Number "'+mobile+'" is not registered. ';
 		show_validate_msg('error',auth_login_userAccountForm_htmlElements.auth_login_userAccountForm_warnErrorMsg);
@@ -32,8 +46,11 @@ function submit_auth_login_userAccountForm_authenticate(){
  }
 }
 function reset_auth_login_userAccountForm_authenticate(){
+ document.getElementById(auth_login_userAccountForm_htmlElements.auth_login_userAccountForm_warnErrorMsg).innerHTML='';
  $('#'+auth_login_userAccountForm_htmlElements.auth_login_userAccountForm_mobile).val('');
  $('#'+auth_login_userAccountForm_htmlElements.auth_login_userAccountForm_password).val('');
+ bootstrap_formField_trigger('remove',auth_login_userAccountForm_htmlElements.auth_login_userAccountForm_mobile);
+ bootstrap_formField_trigger('remove',auth_login_userAccountForm_htmlElements.auth_login_userAccountForm_password);
 }
 </script>
 <div id="auth-login-userAccountForm" class="hide-block">
