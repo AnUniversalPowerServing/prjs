@@ -71,7 +71,7 @@
  <div id="auth-login-retrieveAccountWithoutInfoForm-changePasswordForm" class="hide-block">
  <!-- -->
    <div align="center" class="form-group" style="color:#fff5c4;">
-	 <h5><b>Change Mobile Number and Password to secure Account</b></h5>
+	 <h5><b>Change Mobile Number and Password to secure your Account</b></h5>
    </div><!--/.form-group -->
    <div id="auth-login-retrieveAccountWithoutInfoForm-changePassword-warnErrorMsg" class="form-group"></div><!--/.form-group -->
    <div class="form-group">

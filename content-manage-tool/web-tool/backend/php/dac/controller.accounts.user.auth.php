@@ -22,6 +22,7 @@ if(isset($_GET["action"])){
 	$wsStatus = array();
 	if(count($jsonData)>0){
 	  $wsStatus["user"]='EXISTS';
+	  $wsStatus["account_Id"]=$jsonData[0]->{'account_Id'};
 	} else { $wsStatus["user"]='NOT_EXISTS'; }
 	echo json_encode($wsStatus);
  } 
