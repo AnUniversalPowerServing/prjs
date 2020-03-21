@@ -16,6 +16,18 @@ public class UserRegisterWebElements {
 		return driver.findElement(By.cssSelector("span#"+elementId));
 	}
 	
+	public WebElement getInputWebElement(String elementId) {
+		return driver.findElement(By.xpath("//input[@id='"+elementId+"']"));
+	}
+	
+	public WebElement getSelectWebElement(String elementId) {
+		return driver.findElement(By.xpath("//select[@id='"+elementId+"']"));
+	}
+	
+	public WebElement getDropdownWebElement(String elementId) {
+		return driver.findElement(By.xpath("//div[@class='dropdown']/button[@id='"+elementId+"']"));
+	}
+	
 	public WebElement getBadgeHeadingWebElement(String elementId) {
 		return driver.findElement(By.xpath("//div[@id='"+elementId+"']/div/h5/b"));
 	}

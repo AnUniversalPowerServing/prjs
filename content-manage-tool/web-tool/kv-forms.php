@@ -66,6 +66,8 @@ function showHide_auth_accountAccessForm(id){
  }
  if(id===auth_loginForm_htmlElements.retrievePwdWithMobileBtn){
    showHide_auth_login_retrieveAccountWithoutInfoForm_mobileVerifyChangeBtn('verifyBtn');
+ } else if(id===auth_loginForm_htmlElements.retrievePwdWithMobileBtn){
+    reset_auth_login_retrieveAccountWithMobileForm();
  }
 }
 

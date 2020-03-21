@@ -41,7 +41,7 @@
 	   <div class="input-group-btn">
 		  <!-- -->
 		  <div class="dropdown">
-			<button class="btn btn-default dropdown-toggle"  style="border-radius:0px;"type="button" data-toggle="dropdown">+91
+			<button id="auth-reg-genInfo-mobilecode" class="btn btn-default dropdown-toggle"  style="border-radius:0px;"type="button" data-toggle="dropdown">+91
 			  <span class="caret"></span></button>
 			  <ul class="dropdown-menu">
 				<li><a href="#">+91</a></li>
@@ -87,7 +87,7 @@
      <input id="auth-reg-lock-confirmPassword" type="password" class="form-control" placeholder="Enter Confirm Password"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_setPassword();"><b>Next</b></button>
+     <button id="auth-reg-lock-moveNextForm" class="btn btn-default form-control" onclick="javascript:submit_auth_reg_setPassword();"><b>Next</b></button>
    </div><!--/.form-group -->
  <!-- -->
  </div><!--/.col-xs-12 -->
@@ -122,7 +122,7 @@
      <input id="auth-reg-securityQ-a3" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <button class="btn btn-default form-control" onclick="javascript:submit_auth_reg_securityQ();"><b>Create Account</b></button>
+     <button id="auth-reg-securityQ-createAccount" class="btn btn-default form-control" onclick="javascript:submit_auth_reg_securityQ();"><b>Create Account</b></button>
    </div><!--/.form-group -->
    <!-- -->
  </div><!--/.col-xs-12 -->

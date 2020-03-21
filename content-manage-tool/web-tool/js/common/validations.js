@@ -62,12 +62,15 @@ function validate_gender(auth_reg_gender){
 function validate_mobile(auth_reg_mobile){
   var mobile = $("#"+auth_reg_mobile).val();
   var status = false;
-  if(mobile.length>0){ 
+  if(mobile.length>0 && mobile.length===10){ 
     status = true;VALIDATION_MESSAGE_ERROR+='';
 	bootstrap_formField_trigger('success',auth_reg_mobile); 
+  } else if(mobile.length>0 && mobile.length<10){ 
+	bootstrap_formField_trigger('error',auth_reg_mobile);
+	VALIDATION_MESSAGE_ERROR+=' valid 10-digits Mobile Number,';
   } else { 
-    bootstrap_formField_trigger('error',auth_reg_mobile);
-	VALIDATION_MESSAGE_ERROR+=' Mobile Number,';
+    VALIDATION_MESSAGE_ERROR+=' Mobile Number,';
+    bootstrap_formField_trigger('error',auth_reg_mobile);	
   }
   return status;
 }

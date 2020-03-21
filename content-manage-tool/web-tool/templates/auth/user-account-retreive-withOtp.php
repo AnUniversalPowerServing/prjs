@@ -88,28 +88,26 @@ function submit_auth_login_retrieveAccountWithMobileForm_changeMobile(){
  * ==================================================
  *
  */
-  document.getElementById(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_warnErrorMsg).innerHTML='';
-  $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_mobile).val('');
-  document.getElementById(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_mobile).disabled=false;
-  showHide_auth_login_retrieveAccountWithMobileForm_mobileVerifyChangeBtn('verifyBtn');
-  showHide_auth_login_retrieveAccountWithMobileForm_verifyMobileForm('hide');
-  showHide_auth_login_retrieveAccountWithMobileForm_changePasswordForm('hide');
-  bootstrap_formField_trigger('remove',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_mobile);
+  reset_auth_login_retrieveAccountWithMobileForm();
 }
 function submit_auth_login_retrieveAccountWithMobileForm_validateOTPCode(){
+ VALIDATION_MESSAGE_ERROR='Missing ';
  var otpcode = $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_otpcode).val();
  var valid_otpcode = validate_otpcode(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_otpcode);
  if(valid_otpcode){
+	document.getElementById(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_warnErrorMsg).innerHTML='';
+	VALIDATION_MESSAGE_ERROR='Your Mobile Number is validated. Please change your Password to access your Account. ';
+    show_validate_msg('success',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_warnErrorMsg);
     bootstrap_formField_trigger('success',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_otpcode);
 	showHide_auth_login_retrieveAccountWithMobileForm_verifyMobileForm('hide');
-	showHide_auth_login_retrieveAccountWithMobileForm_changePasswordForm('show');
+	showHide_auth_login_retrieveAccountWithMobileForm_changePwdForm('show');
  } else {
-    
-	bootstrap_formField_trigger('remove',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_otpcode);
-	showHide_auth_login_retrieveAccountWithMobileForm_changePasswordForm('hide');
+    show_validate_msg('error',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_warnErrorMsg);
+	bootstrap_formField_trigger('error',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_otpcode);
+	showHide_auth_login_retrieveAccountWithMobileForm_changePwdForm('hide');
  }
 }
-function showHide_auth_login_retrieveAccountWithMobileForm_changePasswordForm(mode){
+function showHide_auth_login_retrieveAccountWithMobileForm_changePwdForm(mode){
  if(mode==='show'){
    if($('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm).hasClass('hide-block')){
      $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm).removeClass('hide-block');
@@ -120,8 +118,7 @@ function showHide_auth_login_retrieveAccountWithMobileForm_changePasswordForm(mo
    }
  }
 }
-
-function submit_auth_login_retrieveAccountWithMobileForm_changePasswordForm_savePwd(){
+function submit_auth_login_retrieveAccountWithMobileForm_changePwdForm_savePwd(){
  AUTH_LOGIN_RAWMFORM_USERACCOUNT_ID;
  var newPassword = $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_newPassword).val();
  var confirmPassword = $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_confirmpassword).val();
@@ -140,6 +137,24 @@ function submit_auth_login_retrieveAccountWithMobileForm_changePasswordForm_save
  } else {
     show_validate_msg('error',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_warnErrorMsg);
  }
+}
+function reset_auth_login_retrieveAccountWithMobileForm_changePwdForm(){
+ document.getElementById(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_warnErrorMsg).innerHTML='';
+ $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_newPassword).val('');
+ $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_confirmpassword).val('');
+ bootstrap_formField_trigger('remove',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_newPassword);
+ bootstrap_formField_trigger('remove',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_changePasswordForm_confirmpassword);
+ showHide_auth_login_retrieveAccountWithMobileForm_changePwdForm('hide');
+}
+function reset_auth_login_retrieveAccountWithMobileForm(){
+  document.getElementById(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_warnErrorMsg).innerHTML='';
+  $('#'+auth_login_rWMForm_htmlElements.auth_login_rAWMForm_mobile).val('');
+  document.getElementById(auth_login_rWMForm_htmlElements.auth_login_rAWMForm_mobile).disabled=false;
+  showHide_auth_login_retrieveAccountWithMobileForm_mobileVerifyChangeBtn('verifyBtn');
+  showHide_auth_login_retrieveAccountWithMobileForm_verifyMobileForm('hide');
+  showHide_auth_login_retrieveAccountWithMobileForm_changePwdForm('hide');
+  bootstrap_formField_trigger('remove',auth_login_rWMForm_htmlElements.auth_login_rAWMForm_mobile);
+  reset_auth_login_retrieveAccountWithMobileForm_changePwdForm();
 }
 </script>
 <div id="auth-login-retrievePwdWithMobileForm" class="hide-block">
@@ -202,7 +217,7 @@ function submit_auth_login_retrieveAccountWithMobileForm_changePasswordForm_save
  </div>
  <div class="form-group">
   <button class="btn btn-default form-control" 
-  onclick="javascript:submit_auth_login_retrieveAccountWithMobileForm_changePasswordForm_savePwd();">
+  onclick="javascript:submit_auth_login_retrieveAccountWithMobileForm_changePwdForm_savePwd();">
   <b>Update the Information</b></button>
  </div>
 </div><!--/. -->

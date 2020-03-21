@@ -1,1 +1,82 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><style>body{ font-size:11px; }.table-responsive>.table>thead{font-weight:bold;background-color:purple;color:#fff;border-bottom:0px;}.table-responsive>.table>tbody{font-weight:bold;}.table-responsive>.table{border:1px solid purple;}</style></head><body><div class="table-responsive"><table class="table"><thead><tr><th><b>#</b></th><th><b>Test Case</b></th><th><b>Test Description</b></th><th><b>Test Steps</b></th></tr></thead><tbody><tr><td>1</td><td>Only First Badge (General Information Badge) should be Allowed</td><td>User should not be able to select other Badge Forms(Password Badge and SecurityQ Badge)</td><td><div class="table-responsive"><table class="table"><thead><tr><th><b>#</b></th><th><b>Test Step</b></th><th><b>Description</b></th><th><b>Expected</b></th><th><b>Test-Data</b></th><th><b>Status</b></th><th><b>Comment</b></th></tr></thead><tbody><tr><td>1</td><td>Select General Information Badge and check the Badge Title</td><td>Click on General Information Badge</td><td>{tag=expectations, attributes={}, child-tags=[{tag=response, attributes={expected=yes}, child-tags=[{tag=msg, attributes={}, child-tags=[], textcontent=Provide Basic Information to create Account}]}]}</td><td>{}</td><td>PASSED</td><td></td></tr><tr><td>2</td><td>Select Password Badge and check the Badge Title</td><td>Click on Password Badge should not change title and form</td><td>{tag=expectations, attributes={}, child-tags=[{tag=response, attributes={expected=yes}, child-tags=[{tag=msg, attributes={}, child-tags=[], textcontent=Provide Basic Information to create Account}]}]}</td><td>{}</td><td>PASSED</td><td></td></tr><tr><td>3</td><td>Select SecurityQ Badge and check the Badge Title</td><td>Click on Password Badge should not change title and form</td><td>{}</td><td>{}</td><td>PASSED</td><td></td></tr></tbody></table></div></td></tr></tbody></table></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Authentciation Test</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"></script>
+<style>
+body{ font-size:12px; }
+table { width:100%; }
+td { padding:10px; }
+</style>
+</head>
+<body>
+<div class="row"><div class="col-sm-12"><h3  align="center"><b>Create Account - General Information</b></h3></div>
+</div>
+<div class="row"><div class="col-sm-4"><table>
+<h5><b>On PageLoad: </b></h5>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Badge Title</td><td>Provide Basic Information to create Account</td><td><span class="label label-success">PASSED</span></td></tr>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Form Fields Available</td><td><div>Surname (Shown and Expected)</div>
+<div>Name (Shown and Expected)</div>
+<div>Gender (Shown and Expected)</div>
+<div>Mobile (Shown and Expected)</div>
+<div>Mobile-code (Shown and Expected)</div>
+<div>MobileVerifyButton (Shown and Expected)</div>
+</td><td><span class="label label-success">PASSED</span></td></tr>
+</table>
+<table>
+<h5><b>On Badge#1 Click: </b></h5>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Badge Title</td><td>Provide Basic Information to create Account</td><td><span class="label label-success">PASSED</span></td></tr>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Form Fields Available</td><td><div>Surname (Shown and Expected)</div>
+<div>Name (Shown and Expected)</div>
+<div>Gender (Shown and Expected)</div>
+<div>Mobile (Shown and Expected)</div>
+<div>Mobile-code (Shown and Expected)</div>
+<div>MobileVerifyButton (Shown and Expected)</div>
+</td><td><span class="label label-success">PASSED</span></td></tr>
+</table>
+<table>
+<h5><b>On Badge#2 Click: </b></h5>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Badge Title</td><td>Provide Basic Information to create Account</td><td><span class="label label-success">PASSED</span></td></tr>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Form Fields Available</td><td><div>Surname (Shown and Expected)</div>
+<div>Name (Shown and Expected)</div>
+<div>Gender (Shown and Expected)</div>
+<div>Mobile (Shown and Expected)</div>
+<div>Mobile-code (Shown and Expected)</div>
+<div>MobileVerifyButton (Shown and Expected)</div>
+</td><td><span class="label label-success">PASSED</span></td></tr>
+</table>
+<table>
+<h5><b>On Badge#3 Click: </b></h5>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Badge Title</td><td>Provide Basic Information to create Account</td><td><span class="label label-success">PASSED</span></td></tr>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Form Fields Available</td><td><div>Surname (Shown and Expected)</div>
+<div>Name (Shown and Expected)</div>
+<div>Gender (Shown and Expected)</div>
+<div>Mobile (Shown and Expected)</div>
+<div>Mobile-code (Shown and Expected)</div>
+<div>MobileVerifyButton (Shown and Expected)</div>
+</td><td><span class="label label-success">PASSED</span></td></tr>
+</table>
+</div>
+<div class="col-sm-4"><h5><b>General Info - Form Submit (Without Filling Form):</b></h5>
+<table>
+<tr style="background-color:#e3ffe3;border:1px solid #ccc;">
+<td>Error Message</td><td>Error! Please provide Surname, Name, Gender, Mobile Number (Shown and Expected)</td><td><span class="label label-success">PASSED</span></td></tr>
+</table>
+</div>
+<div class="col-sm-4"></div>
+</div>
+</body>
+</html>

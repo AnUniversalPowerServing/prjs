@@ -1,3 +1,11 @@
+var AUTH_LOGIN_RAWOIFORM_USERACCOUNT_ID;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA1;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA2;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3;
+var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA3;
+var AUTH_LOGIN_RAWOIFORM_VERIFIEDMOBILE = false;
 var auth_login_rAWoIForm_htmlElements = { 
 	 auth_login_rAWoIForm_warnErrorMsg:'auth-login-retrieveAccountWithoutInfoForm-warnErrorMsg',
 	 auth_login_rAWoIForm_mobile:'auth-login-retrieveAccountWithoutInfoForm-mobile',
@@ -67,13 +75,6 @@ function showHide_auth_login_retrieveAccountWithoutInfoForm_sQcP(id){
    }
  }
 }
-var AUTH_LOGIN_RAWOIFORM_USERACCOUNT_ID;
-var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ1;
-var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA1;
-var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ2;
-var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA2;
-var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYQ3;
-var AUTH_LOGIN_RAWOIFORM_SECURITYQFORM_SECURITYA3;
 function ui_auth_login_retrieveAccountWithoutInfoForm_userInfo(response){
  console.log("response: "+JSON.stringify(response));
   AUTH_LOGIN_RAWOIFORM_USERACCOUNT_ID=response[0].account_Id;
@@ -208,7 +209,6 @@ function reset_auth_login_retrieveAccountWithoutInfoForm_changePwdForm(){
  showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm('hide');
  showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_mobileVerifyChangeBtn('verifyBtn');
 }
-
 /* ============================================================================================== */
 function showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_mobileVerifyChangeBtn(view){
  if(view=='verifyBtn'){
@@ -290,7 +290,6 @@ function submit_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_changeMo
  showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_otpForm('hide');
  showHide_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_mobileVerifyChangeBtn('verifyBtn');
 }
-var AUTH_LOGIN_RAWOIFORM_VERIFIEDMOBILE = false;
 function submit_auth_login_retrieveAccountWithoutInfoForm_changePwdForm_validateOTPCode(){
   VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
   var otpcode = $("#"+auth_login_rAWoIForm_htmlElements.auth_login_rAWoIForm_changePassword_otpcode).val();
