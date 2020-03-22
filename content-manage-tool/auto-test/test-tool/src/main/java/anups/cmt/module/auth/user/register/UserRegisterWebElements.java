@@ -38,4 +38,7 @@ public class UserRegisterWebElements {
 	public WebElement getButtonWebElement(String elementId) {
 		return driver.findElement(By.cssSelector("button#"+elementId));
 	}
+	public WebElement getSuccessOrErrorWebElement(String elementId, String type) {
+		return driver.findElement(By.xpath("//"+type+"[@id='"+elementId+"']/parent::*//span"));
+	}
 }

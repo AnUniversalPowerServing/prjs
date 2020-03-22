@@ -23,7 +23,7 @@ public class AutomationBase extends AutomationSettings {
 	}
 	
 	public void quit() throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		driver.quit();
 	}
 	

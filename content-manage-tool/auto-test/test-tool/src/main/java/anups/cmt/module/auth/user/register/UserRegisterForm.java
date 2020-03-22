@@ -17,6 +17,13 @@ public interface UserRegisterForm {
   /* GENINFO: */
   public static final String FORM_GENINFO_ALERT_WARNERRORMSG="auth-reg-genInfo-warnErrorMsg"; 
   public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM="Error! Please provide Surname, Name, Gender, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHOUTSURNAME="Error! Please provide Name, Gender, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHOUTNAME="Error! Please provide Surname, Gender, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHOUTGENDER="Error! Please provide Surname, Name, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHOUTMOBILE="Error! Please provide Surname, Name, Gender";
+  public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHREGISTERMOBILE="Error! You already Registered. Please login to your Account";
+  public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMEANDNAME="Error! Please provide Gender, Mobile Number";
+  
   
   public static final String FORM_GENINFO_INPUT_SURNAME="auth-reg-genInfo-surName";
   public static final String FORM_GENINFO_INPUT_NAME="auth-reg-genInfo-name";

@@ -35,14 +35,14 @@ public class GeneralInfoModuleTest extends UserRegisterFormUtils {
 	
 	public void testCase01() throws InterruptedException, AWTException {
 		automationReportContent+=Bootstrap.buildContainerFluidRow(1, new String[] { Bootstrap.buildH3Heading("Create Account - General Information") });
-		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { testOnPageLoad()+testBadge1(), checkEmptyGenInfoForm() });
+		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { testOnPageLoad()+testBadge1(), 
+				checkEmptyGenInfoForm()+checkGenInfoFormWithSurName()+checkGenInfoFormWithName()+
+				checkGenInfoFormWithGender()+checkGenInfoFormWithNewMobile()+checkGenInfoFormWithRegisterMobile()+
+				checkGenInfoFormWithSurNameAndName() });
 	}
 	
 	public void testCase02() {
 		
 	}
 	
-	public static void main(String args[]) throws InterruptedException, AWTException {
-	  new GeneralInfoModuleTest();
-	}
 }

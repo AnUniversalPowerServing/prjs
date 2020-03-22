@@ -25,6 +25,14 @@ public class Bootstrap {
 	return sb.toString();
   }
   
+  public static String getSuccessIcon() {
+	 return "<span class=\"glyphicon glyphicon-ok\" style=\"color:green;\"></span>";
+  }
+  
+  public static String getErrorIcon() {
+		 return "<span class=\"glyphicon glyphicon-remove\" style=\"color:red;\"></span>";
+	  }
+  
   public static String buildH3Heading(String heading) {
 	StringBuilder sb = new StringBuilder();
 	sb.append("<h3  align=\"center\"><b>").append(heading).append("</b></h3>");
@@ -85,7 +93,9 @@ public class Bootstrap {
   
   public static String buildTableRow(String[] row, Boolean isPassed) {
 	StringBuilder sb = new StringBuilder();
-	if(isPassed) {
+	if(isPassed == null) {
+	  sb.append("<tr style=\"background-color:#fdffe5;border:1px solid #ccc;\">").append("\n");
+	} else if(isPassed) {
 	  sb.append("<tr style=\"background-color:#e3ffe3;border:1px solid #ccc;\">").append("\n");
 	} else {
 		sb.append("<tr style=\"background-color:#ffeeed;border:1px solid #ccc;\">").append("\n");
