@@ -25,6 +25,13 @@ public class Bootstrap {
 	return sb.toString();
   }
   
+  public static String getPoints(String[] points) {
+	 StringBuilder sb = new StringBuilder();
+	 sb.append("<ul>");
+	 for(int index=0;index<points.length;index++) { sb.append("<li>").append(points[index]).append("</li>"); }
+	 sb.append("</ul>");
+	 return sb.toString();
+  }
   public static String getSuccessIcon() {
 	 return "<span class=\"glyphicon glyphicon-ok\" style=\"color:green;\"></span>";
   }
@@ -33,9 +40,9 @@ public class Bootstrap {
 		 return "<span class=\"glyphicon glyphicon-remove\" style=\"color:red;\"></span>";
 	  }
   
-  public static String buildH3Heading(String heading) {
+  public static String buildH4Heading(String heading) {
 	StringBuilder sb = new StringBuilder();
-	sb.append("<h3  align=\"center\"><b>").append(heading).append("</b></h3>");
+	sb.append("<h4  align=\"center\"><b>").append(heading).append("</b></h4>");
 	return sb.toString();
   }
   
@@ -44,6 +51,12 @@ public class Bootstrap {
     sb.append("<h5><b>").append(heading).append("</b></h5>").append("\n");
     return sb.toString();
   }
+  
+  public static String buildHDiv(String content) {
+	    StringBuilder sb = new StringBuilder();
+	    sb.append("<div style=\"margin-top:5px;margin-bottom:5px;\"><b>").append(content).append("</b></div>").append("\n");
+	    return sb.toString();
+}
   
   public static String buildBold(String content) {
 	StringBuilder sb = new StringBuilder();  
@@ -62,7 +75,7 @@ public class Bootstrap {
   public static String buildContainerFluidRow(int cols, String[] col) {
 	int div = 12/cols;
 	StringBuilder sb = new StringBuilder();
-	sb.append("<div class=\"row\">");
+	sb.append("<div class=\"row\" style=\"padding-left:5px;\">");
 	for(int index=0;index<cols;index++) {
       if(index<col.length) {
 	      sb.append("<div class=\"col-sm-").append(div).append("\">").append(col[index]).append("</div>").append("\n");

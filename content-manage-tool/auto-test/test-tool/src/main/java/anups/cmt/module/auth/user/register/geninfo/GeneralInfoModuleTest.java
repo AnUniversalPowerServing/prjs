@@ -17,7 +17,7 @@ import anups.cmt.core.utils.Xml;
 import anups.cmt.module.auth.user.register.UserRegisterForm;
 import anups.cmt.module.auth.user.register.UserRegisterFormUtils;
 
-public class GeneralInfoModuleTest extends UserRegisterFormUtils {
+public class GeneralInfoModuleTest extends GeneralInfoModuleUtils {
 
 	
 	private AutomationReport automationReport;
@@ -34,13 +34,18 @@ public class GeneralInfoModuleTest extends UserRegisterFormUtils {
 	}
 	
 	public void testCase01() throws InterruptedException, AWTException {
-		automationReportContent+=Bootstrap.buildContainerFluidRow(1, new String[] { Bootstrap.buildH3Heading("Create Account - General Information") });
-		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { testOnPageLoad()+testBadge1(), 
+		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { Bootstrap.buildH4Heading("Create Account - General Information") });
+		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { testOnPageLoad()+testBadge1()+
 				checkEmptyGenInfoForm()+checkGenInfoFormWithSurName()+checkGenInfoFormWithName()+
 				checkGenInfoFormWithGender()+checkGenInfoFormWithNewMobile()+checkGenInfoFormWithRegisterMobile()+
-				checkGenInfoFormWithSurNameAndName() });
+				checkGenInfoFormWithSurNameAndName()+checkGenInfoFormWithNameAndGender()+
+				checkGenInfoFormWithGenderAndMobile()+checkGenInfoFormWithSurNameAndGender()+
+				checkGenInfoFormWithSurNameAndMobile()+checkGenInfoFormWithNameAndMobile()+checkGenInfoFormWithSurNameNameAndGender()+
+				checkGenInfoFormWithNameGenderAndMobile()+checkGenInfoFormWithSurNameGenderAndMobile()+
+				checkGenInfoFormWithSurNameNameAndMobile()+checkGenInfoFormWithAllFields() });
+		// automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { checkGenInfoFormWithAllFields() });
 	}
-	
+	// +checkGenInfoFormWithEmptyOTPCode()
 	public void testCase02() {
 		
 	}

@@ -78,8 +78,13 @@ function validate_otpcode(auth_reg_otpcode){
   var otpcode = $("#"+auth_reg_otpcode).val();
   var status = false;
   if(otpcode.length>0){ 
-     status = true;VALIDATION_MESSAGE_ERROR+='';
-	 bootstrap_formField_trigger('success',auth_reg_otpcode); 
+     if(otpcode==='12345'){
+       status = true;VALIDATION_MESSAGE_ERROR+='';
+	   bootstrap_formField_trigger('success',auth_reg_otpcode);
+	 } else {
+	    status = false;VALIDATION_MESSAGE_ERROR='Please provide Valid OTP Code that sent to your Mobile Number. ';
+	    bootstrap_formField_trigger('error',auth_reg_otpcode);
+	 }
   } else { 
      bootstrap_formField_trigger('error',auth_reg_otpcode);
 	 VALIDATION_MESSAGE_ERROR+=' OTP Code,';

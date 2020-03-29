@@ -33,8 +33,18 @@ public class UserRegisterWebElements {
 	}
 	
 	public WebElement getWarningAlert(String elementId) {
-		return driver.findElement(By.xpath("//div[@id='"+elementId+"']/div"));
+		By by = By.xpath("//div[@id='"+elementId+"']/div");
+		try {
+			return driver.findElement(by);
+		} catch(Exception e) {
+			return null;
+		}
 	}
+	
+	public WebElement getDivButtonWebElement(String elementId) {
+		return driver.findElement(By.xpath("//div[@id='"+elementId+"']/button"));
+	}
+	
 	public WebElement getButtonWebElement(String elementId) {
 		return driver.findElement(By.cssSelector("button#"+elementId));
 	}

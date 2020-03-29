@@ -15,11 +15,5 @@ import anups.cmt.module.auth.user.register.geninfo.GeneralInfoModuleTest;
 public class QuickStart {
     public static void main( String[] args) throws InterruptedException, AWTException{
     	new GeneralInfoModuleTest();
-    	/*
-    	 TestScenarios testScenarios = new Xml().getTestCase("00001");
-    	 Gson gson = new Gson();
-    	 System.out.println(gson.toJson(testScenarios));
-    	 */
-    	 
     }
 }

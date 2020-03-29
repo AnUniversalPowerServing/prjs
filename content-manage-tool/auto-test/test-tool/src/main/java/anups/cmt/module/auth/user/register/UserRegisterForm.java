@@ -2,6 +2,15 @@ package anups.cmt.module.auth.user.register;
 
 public interface UserRegisterForm {
 	
+  public static final Boolean BOLD_NO = false;
+  public static final Boolean BOLD_YES = true;
+  
+  public static final String STATUS_SUCCESS = "success";
+  public static final String STATUS_ERROR = "error";
+  
+  public static final String STATUS_SHOWNASEXPECTED= "(Shown as Expected)";
+  public static final String STATUS_NOTSHOWNASEXPECTED= "(Not Shown as Expected)";
+  
   public static final String BADGE_GENINFO="badge-auth-reg-genInfo";
   public static final String BADGE_SETPWD="badge-auth-reg-setPassword";
   public static final String BADGE_SECURITYQ="badge-auth-reg-securityQ";
@@ -23,7 +32,28 @@ public interface UserRegisterForm {
   public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHOUTMOBILE="Error! Please provide Surname, Name, Gender";
   public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHREGISTERMOBILE="Error! You already Registered. Please login to your Account";
   public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMEANDNAME="Error! Please provide Gender, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_WITHNAMEANDGENDER="Error! Please provide Surname, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_WITHGENDERANDMOBILE="Error! Please provide Surname, Name";
+  public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMEANDGENDER="Error! Please provide Name, Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMEANDMOBILE="Error! Please provide Name, Gender";
+  public static final String FORM_GENINFO_ALERTMSG_WITHNAMEANDMOBILE="Error! Please provide Surname, Gender";
+  public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMENAMEANDGENDER="Error! Please provide Mobile Number";
+  public static final String FORM_GENINFO_ALERTMSG_WITHNAMEGENDERANDMOBILE="Error! Please provide Surname";
+  public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMEGENDERANDMOBILE="Error! Please provide Name";
+  public static final String FORM_GENINFO_ALERTMSG_WITHSURNAMENAMEANDMOBILE="Error! Please provide Gender";
+  public static final String FORM_GENINFO_ALERTMSG_ALLFIELDS="";
+  public static final String FORM_GENINFO_ALERTMSG_EMPTYFORM_WITHOUTOTPCODE = "Error! Please provide OTP Code";
+  public static final String FORM_GENINFO_ALERTMSG_PROVIDEVALIDOTPCODE="Error! Please provide Valid OTP Code that sent to your Mobile Number.";
+  public static final String FORM_GENINFO_ALERTMSG_VAIDATEDOTPCODE="Success! Your OTP Code got validated. Please move into Next Process.";
   
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_SURNAME = "Surname";
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_NAME = "Name";
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_GENDER = "Gender";
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_MOBCODE = "MobileCode";
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_MOBILE = "Mobile";
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_OTPCODE = "OTPCode";
+  
+  public static final String GENERALINFOMODULE_FIELDS_LABEL_MOBILE_NOT2SHOW = "Mobile_NotToShow";
   
   public static final String FORM_GENINFO_INPUT_SURNAME="auth-reg-genInfo-surName";
   public static final String FORM_GENINFO_INPUT_NAME="auth-reg-genInfo-name";

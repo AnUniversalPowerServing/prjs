@@ -106,6 +106,7 @@ function showHide_auth_reg_genInfoNext(mode){
 }
 function submit_auth_reg_changeMobile(){
  ALLOW_UPTO_INDEX=1;
+ document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
  document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=false;
  $("#"+auth_reg_htmlElements.auth_reg_mobile).val('');
  showHide_auth_reg_otpForm('hide');
@@ -141,10 +142,12 @@ function submit_auth_reg_validateOTPCode(){
   var otpcode = $("#"+auth_reg_htmlElements.auth_reg_otpcode).val();
   var valid_otpcode = validate_otpcode(auth_reg_htmlElements.auth_reg_otpcode);
   if(valid_otpcode){
+	VALIDATION_MESSAGE_ERROR='Your OTP Code got validated. Please move into <b>Next</b> Process. ';
+	show_validate_msg('success',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
     document.getElementById(auth_reg_htmlElements.auth_reg_otpcode).disabled=true;
 	document.getElementById(auth_reg_htmlElements.validateOTPBtn).disabled=true;
-	document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
 	showHide_auth_reg_genInfoNext('show');
+	
   } else {
      show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
   }
