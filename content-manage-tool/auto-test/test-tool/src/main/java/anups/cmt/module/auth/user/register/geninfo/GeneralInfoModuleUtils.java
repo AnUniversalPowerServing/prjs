@@ -8,17 +8,20 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import anups.cmt.automation.app.AutomationFactorySettings;
 import anups.cmt.automation.report.Bootstrap;
 import anups.cmt.module.auth.user.register.UserRegisterForm;
 import anups.cmt.module.auth.user.register.UserRegisterFormUtils;
+import anups.cmt.module.auth.user.register.UserRegisterTest;
 import anups.cmt.module.auth.user.register.UserRegisterTestData;
 
 public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
-	
+
+ AutomationFactorySettings automationFactorySettings;
+ 
  public GeneralInfoModuleUtils() {
-   super();
+	automationFactorySettings = new AutomationFactorySettings(UserRegisterTest.getWebDriver());
  }
- 	
  
  public String genInfoForm_basic_validateIcons(List<String> fields) {
 	Boolean isSuccessErrorIconsPassed= true;
@@ -109,8 +112,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
   genInfoForm_reset_gender();
   genInfoForm_reset_mobile();
  }
-	
- 
+
  private void genInfoForm_reset_surName() {
    WebElement genInfo_surName_webElement = userRegisterWebElements.getInputWebElement(UserRegisterForm.FORM_GENINFO_INPUT_SURNAME);
    genInfo_surName_webElement.sendKeys(Keys.chord(Keys.CONTROL, "a"));
@@ -192,23 +194,31 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 	 }
  
  public String checkEmptyGenInfoForm() throws InterruptedException, AWTException {
+	 
    StringBuilder sb = new StringBuilder();
-			
+	
+   String surName = UserRegisterTestData.EMPTY_SURNAME;
+   String name = UserRegisterTestData.EMPTY_NAME;
+   String gender = UserRegisterTestData.EMPTY_GENDER;
+   String mobileCode = "+91";
+   String mobile = UserRegisterTestData.EMPTY_MOBILE;
+   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
 			   
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
 	   
    if(FORM_GENINFO_ALERTMSG_EMPTYFORM.equalsIgnoreCase(alertResponse)) {
 	 isErrorMessagePassed = true;
-	 sb.append(Bootstrap.buildTableRow(new String[] {"Error Message",alertResponse+" (Shown and Expected)", testCaseStatus(isErrorMessagePassed) }, isErrorMessagePassed));
+	 sb.append(Bootstrap.buildTableRow(new String[] {STATUS_ERRORMESSAGE,alertResponse+STATUS_SHOWNASEXPECTED, testCaseStatus(isErrorMessagePassed) }, isErrorMessagePassed));
 	 sb.append(genInfoForm_basic_validateIcons(Arrays.asList(new String[] {}))); 
   } else {
-	 sb.append(Bootstrap.buildTableRow(new String[] {"Error Message",alertResponse+" (Not Shown as Expected)", testCaseStatus(isErrorMessagePassed) }, isErrorMessagePassed));
+	 sb.append(Bootstrap.buildTableRow(new String[] {STATUS_ERRORMESSAGE,alertResponse+STATUS_NOTSHOWNASEXPECTED, testCaseStatus(isErrorMessagePassed) }, isErrorMessagePassed));
   }
 			   
   return  Bootstrap.buildH5Heading("General Info - Form Submit (Without Filling Form):")+
+		  Bootstrap.buildTable(Bootstrap.buildTableRow(new String[] { Bootstrap.buildBold("Test-data"), genInfoForm_testData_basic(surName, name, gender, mobileCode, mobile) }, null))+
 		  Bootstrap.buildTable(sb.toString());
  }
 
@@ -225,7 +235,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_surName(surName);
 		   	   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
    
@@ -255,7 +265,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_name(name);
 		   	   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
 		   
@@ -285,7 +295,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_gender(gender);
 		   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
 		   
@@ -315,7 +325,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile);
 		   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -346,7 +356,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile);
 		   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -378,7 +388,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 	genInfoForm_add_name(name);
 		   
 	WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-	super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+	automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
 	String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
 	Boolean isErrorMessagePassed= false;
 		   
@@ -409,7 +419,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 	genInfoForm_add_gender(gender); 
 	
 	WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-	super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+	automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
 	String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
 	Boolean isErrorMessagePassed= false;
 		   
@@ -440,7 +450,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile);
 		
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -472,7 +482,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_gender(gender); 
 		
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
 			   
@@ -503,7 +513,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile); 
 			
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -535,7 +545,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile); 
 				
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -568,7 +578,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_gender(gender); 
 					
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -601,7 +611,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile); 
    
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -634,7 +644,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile); 
 	   
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
    Boolean isErrorMessagePassed= false;
@@ -667,7 +677,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
   genInfoForm_add_mobile(mobile); 
 						
   WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-  super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+  automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
   Thread.sleep(3000);
   String alertResponse = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg").getText().substring(1).trim();
   Boolean isErrorMessagePassed= false;
@@ -701,7 +711,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfoForm_add_mobile(mobile); 
 
    WebElement genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-   super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+   automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
    Thread.sleep(3000);
    WebElement warningAlert = userRegisterWebElements.getWarningAlert("auth-reg-genInfo-warnErrorMsg");
    
@@ -729,7 +739,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 		genInfoForm_add_otpcode(otpcode); 
 
 		WebElement genInfo_mobileOTPValidateBtn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEOTPVALIDATE);
-		super.singleClickButton(genInfo_mobileOTPValidateBtn_webElement);
+		automationFactorySettings.singleClickButton(genInfo_mobileOTPValidateBtn_webElement);
 		Thread.sleep(3000);
 		
 		// Error Message
@@ -758,7 +768,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 	    sb.append(Bootstrap.buildHDiv("c) With Change Verify Button"));
 	   
 	    WebElement genInfo_mobileChangeBtn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILECHANGE);
-		super.singleClickButton(genInfo_mobileChangeBtn_webElement);
+		automationFactorySettings.singleClickButton(genInfo_mobileChangeBtn_webElement);
 		Thread.sleep(6000);
 		
 		// TestData
@@ -792,7 +802,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 		
 		genInfoForm_add_mobile(mobile); 
 		genInfo_mobileVerifyBrn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEVERIFY);
-		super.singleClickButton(genInfo_mobileVerifyBrn_webElement);
+		automationFactorySettings.singleClickButton(genInfo_mobileVerifyBrn_webElement);
 		Thread.sleep(3000);
 		
 		// Test Data
@@ -828,7 +838,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 		genInfoForm_add_otpcode(otpcode); 
 		
 		genInfo_mobileOTPValidateBtn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEOTPVALIDATE);
-		super.singleClickButton(genInfo_mobileOTPValidateBtn_webElement);
+		automationFactorySettings.singleClickButton(genInfo_mobileOTPValidateBtn_webElement);
 		Thread.sleep(3000);
 		
 		// Test Data
@@ -862,7 +872,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 		genInfoForm_add_otpcode(otpcode); 
 		
 		genInfo_mobileOTPValidateBtn_webElement = userRegisterWebElements.getButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_MOBILEOTPVALIDATE);
-		super.singleClickButton(genInfo_mobileOTPValidateBtn_webElement);
+		automationFactorySettings.singleClickButton(genInfo_mobileOTPValidateBtn_webElement);
 		Thread.sleep(3000);
 		
 		// Test Data
@@ -892,7 +902,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 		/* Test Next Button */
 		sb.append(Bootstrap.buildHDiv("g) Test Next Button "));
 		WebElement genInfo_nextBtn_webElement = userRegisterWebElements.getDivButtonWebElement(UserRegisterForm.FORM_GENINFO_BUTTON_FORMMOVENEXT);
-		super.singleClickButton(genInfo_nextBtn_webElement);
+		automationFactorySettings.singleClickButton(genInfo_nextBtn_webElement);
 		Thread.sleep(3000);
 		
 		// UI Testing

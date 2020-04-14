@@ -8,8 +8,11 @@ public interface UserRegisterForm {
   public static final String STATUS_SUCCESS = "success";
   public static final String STATUS_ERROR = "error";
   
-  public static final String STATUS_SHOWNASEXPECTED= "(Shown as Expected)";
-  public static final String STATUS_NOTSHOWNASEXPECTED= "(Not Shown as Expected)";
+  public static final String SPACE = " ";
+  
+  public static final String STATUS_ERRORMESSAGE="Error Message";
+  public static final String STATUS_SHOWNASEXPECTED= " (Shown as Expected)";
+  public static final String STATUS_NOTSHOWNASEXPECTED= " (Not Shown as Expected)";
   
   public static final String BADGE_GENINFO="badge-auth-reg-genInfo";
   public static final String BADGE_SETPWD="badge-auth-reg-setPassword";

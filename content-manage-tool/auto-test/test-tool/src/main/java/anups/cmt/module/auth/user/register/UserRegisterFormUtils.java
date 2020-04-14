@@ -13,22 +13,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import anups.cmt.automation.app.AutomationBase;
+import anups.cmt.automation.app.AutomationFactorySettings;
 import anups.cmt.automation.report.Bootstrap;
 
-public class UserRegisterFormUtils extends AutomationBase implements UserRegisterForm {
+public class UserRegisterFormUtils implements UserRegisterForm {
  
 	WebDriver driver;
 	
 	protected UserRegisterWebElements userRegisterWebElements;
 	
+	AutomationFactorySettings automationFactorySettings;
 	String[] BADGE_FORMELEMENTS_GENINFO = {"Surname","Name","Gender","Mobile","Mobile-code","MobileVerifyButton"};
 	String[] BADGE_FORMELEMENTS_SETPWD = {"Password","ConfirmPassword","Next to Security Questions"};
 	String[] BADGE_FORMELEMENTS_SECURITYQ = {"SecurityQuestion#1","Answer1","SecurityQuestion#2","Answer2","SecurityQuestion#3","Answer3","Create Account Button"};
 	
 	public UserRegisterFormUtils() {
-		super("http://localhost/prjs/content-manage-tool/web-tool/kv-forms.php");
-		driver = super.getDriver();
-		userRegisterWebElements = new UserRegisterWebElements(driver);
+		userRegisterWebElements = UserRegisterTest.getUserRegisterWebElements();
+		automationFactorySettings = new AutomationFactorySettings(UserRegisterTest.getWebDriver());
 	}
 	
 	private String checkBadgeFormFields(int badge) {
@@ -125,15 +126,15 @@ public class UserRegisterFormUtils extends AutomationBase implements UserRegiste
 		WebElement setPassword_badge_WebElement = userRegisterWebElements.getBadgeWebElement(UserRegisterForm.BADGE_SETPWD);
 		WebElement securityQ_badge_WebElement = userRegisterWebElements.getBadgeWebElement(UserRegisterForm.BADGE_SECURITYQ);
 		StringBuilder sb = new StringBuilder();
-		super.singleClickButton(genInfoDiv_badge_WebElement);
+		automationFactorySettings.singleClickButton(genInfoDiv_badge_WebElement);
 		
 		sb.append(loadBadge("On Badge#1 Click: ",1));
 		
-		super.singleClickButton(setPassword_badge_WebElement);
+		automationFactorySettings.singleClickButton(setPassword_badge_WebElement);
 
 		sb.append(loadBadge("On Badge#2 Click: ",1));
 		
-		super.singleClickButton(securityQ_badge_WebElement);
+		automationFactorySettings.singleClickButton(securityQ_badge_WebElement);
 
 		sb.append(loadBadge("On Badge#3 Click: ",1));
 	

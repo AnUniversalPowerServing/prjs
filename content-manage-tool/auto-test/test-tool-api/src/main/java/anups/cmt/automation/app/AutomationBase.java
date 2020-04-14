@@ -27,19 +27,5 @@ public class AutomationBase extends AutomationSettings {
 		driver.quit();
 	}
 	
-	public void doubleClickButton(WebElement webElementId) {
-		Actions actions = new Actions(driver);
-		actions.doubleClick(webElementId).perform();
-	}
 	
-	public void singleClickButton(WebElement webElementId) {
-		Actions actions = new Actions(driver);
-		actions.click(webElementId).perform();
-	}
-	
-	public void rightClickButton(String webElementId) {
-		Actions actions = new Actions(driver);
-		WebElement elementLocator = driver.findElement(By.id(webElementId));
-		actions.contextClick(elementLocator).perform();
-	}
 }
