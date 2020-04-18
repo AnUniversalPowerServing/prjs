@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import anups.cmt.automation.app.AutomationFactorySettings;
 import anups.cmt.automation.report.Bootstrap;
+import anups.cmt.module.auth.user.database.UserAccountDatabase;
 import anups.cmt.module.auth.user.register.UserRegisterForm;
 import anups.cmt.module.auth.user.register.UserRegisterFormUtils;
 import anups.cmt.module.auth.user.register.UserRegisterTest;
@@ -204,7 +205,7 @@ public class SqModuleFactory extends UserRegisterFormUtils {
 	public String checkSQLoadingFromDatabase() throws InterruptedException {
 		Thread.sleep(2000);
 		StringBuilder sb = new StringBuilder();
-		SqModuleDatabase sqModuleDatabase = new SqModuleDatabase();
+		UserAccountDatabase sqModuleDatabase = new UserAccountDatabase();
 		ArrayList<String> databaseSQ = sqModuleDatabase.getListOfSQfromDatabse();
 		@SuppressWarnings("unchecked")
 		ArrayList<String> databaseSQ1 = (ArrayList<String>) databaseSQ.clone();

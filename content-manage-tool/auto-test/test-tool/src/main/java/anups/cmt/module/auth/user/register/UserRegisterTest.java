@@ -16,9 +16,9 @@ import anups.cmt.automation.report.Bootstrap;
 import anups.cmt.core.pojos.TestScenarios;
 import anups.cmt.core.pojos.TestSteps;
 import anups.cmt.core.utils.Xml;
+import anups.cmt.module.auth.user.database.UserAccountDatabase;
 import anups.cmt.module.auth.user.register.geninfo.GeneralInfoModuleUtils;
 import anups.cmt.module.auth.user.register.setpwd.SetPwdModuleFactory;
-import anups.cmt.module.auth.user.register.sq.SqModuleDatabase;
 import anups.cmt.module.auth.user.register.sq.SqModuleFactory;
 
 public class UserRegisterTest extends AutomationBase {
@@ -52,7 +52,7 @@ public class UserRegisterTest extends AutomationBase {
 		userRegisterWebElements = new UserRegisterWebElements(driver);
 		
 		/* Delete TestData in Database Initially ::: Start */
-		new SqModuleDatabase().deleteDataStoresinDatabase();
+		new UserAccountDatabase().deleteDataStoresinDatabase();
 		/* Delete TestData in Database Initially ::: End */
 		
 		generalInfoModuleUtils = new GeneralInfoModuleUtils();

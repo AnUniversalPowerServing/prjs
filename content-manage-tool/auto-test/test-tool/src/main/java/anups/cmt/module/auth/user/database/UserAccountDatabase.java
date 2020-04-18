@@ -1,4 +1,4 @@
-package anups.cmt.module.auth.user.register.sq;
+package anups.cmt.module.auth.user.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import anups.cmt.module.auth.user.register.UserRegisterTestData;
 
-public class SqModuleDatabase {
+public class UserAccountDatabase {
 	public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	public static final String DB_URL = "jdbc:mysql://localhost/kv";
 	public static final String USER = "root";
