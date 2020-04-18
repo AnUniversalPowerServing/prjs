@@ -3,6 +3,7 @@ package anups.cmt.module.auth.user.register;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class UserRegisterWebElements {
 
@@ -18,6 +19,7 @@ public class UserRegisterWebElements {
 	
 	public WebElement getInputWebElement(String elementId) {
 		return driver.findElement(By.xpath("//input[@id='"+elementId+"']"));
+		
 	}
 	
 	public WebElement getSelectWebElement(String elementId) {

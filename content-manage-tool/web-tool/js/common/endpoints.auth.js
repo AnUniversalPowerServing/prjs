@@ -1,6 +1,11 @@
 var AUTH_REG_ENDPOINT='backend/php/dac/controller.accounts.user.auth.php';
 
 class AuthEndpoints {
+  userAccounts_viewInfo_securityQ(respFunc){
+    js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_SECURITYQ' },function(response){
+	 console.log(response);respFunc(response);
+	});
+  }
   userAccounts_autocomplete_surNames(respFunc){
    js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_SURNAMES' },
    function(response){ console.log(response);respFunc(response); });

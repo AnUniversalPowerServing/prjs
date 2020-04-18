@@ -32,6 +32,14 @@ public class UserRegisterFormUtils implements UserRegisterForm {
 		automationFactorySettings = new AutomationFactorySettings(UserRegisterTest.getWebDriver());
 	}
 	
+	protected String testCaseStatus(Boolean status) {
+	  if(status) {
+		 return Bootstrap.buildLabel("PASSED", "success");
+	  } else {
+		 return Bootstrap.buildLabel("FAILED", "danger");
+	  }
+	}
+	
 	private String checkBadgeFormFields(int badge) {
 		Boolean rowStatus = true;
 		String status = Bootstrap.buildLabel("PASSED","success");

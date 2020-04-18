@@ -71,17 +71,33 @@ public interface UserRegisterForm {
   
   /* SETPWD: */
   public static final String FORM_SETPWD_ALERT_WARNERRORMSG="auth-reg-lock-warnErrorMsg";
-  public static final String FORM_SETPWD_ALERTMSG_EMPTYFORM="Error! Please provide Surname, Name, Gender, Mobile Number";
   public static final String FORM_SETPWD_ALERTMSG_MISSINGPWD="Error! Your Password should be atleast 8-charaters";
   public static final String FORM_SETPWD_ALERTMSG_PWDCONFIRMPWDNOMATCH="Error! Password and Confirm Password doesn't Match";
+  public static final String FORM_SETPWD_ALERTMSG_ALLFIELDS="";
   
   public static final String FORM_SETPWD_INPUT_PASSWORD="auth-reg-lock-password";
   public static final String FORM_SETPWD_INPUT_CONFIRMMPASSWORD="auth-reg-lock-confirmPassword";
   public static final String FORM_SETPWD_BUTTON_FORMMOVENEXT="auth-reg-lock-moveNextForm";
 
+  public static final String SETPWDMODULE_FIELDS_LABEL_PASSWORD = "Password";
+  public static final String SETPWDMODULE_FIELDS_LABEL_CONFIRMPASSWORD = "Confirm Password";
   /* SECURITYQ: */
   public static final String FORM_SECURITYQ_ALERT_WARNERRORMSG="auth-reg-sQ-warnErrorMsg";
   public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM="Error! Please provide Security Question #1, Answer for Security Question #1, Security Question #2, Answer for Security Question #2, Security Question #3, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1="Error! Please provide Answer for Security Question #1, Security Question #2, Answer for Security Question #2, Security Question #3, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ2="Error! Please provide Security Question #1, Answer for Security Question #1, Answer for Security Question #2, Security Question #3, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ3="Error! Please provide Security Question #1, Answer for Security Question #1, Security Question #2, Answer for Security Question #2, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2="Error! Please provide Answer for Security Question #1, Answer for Security Question #2, Security Question #3, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ2SQ3="Error! Please provide Security Question #1, Answer for Security Question #1, Answer for Security Question #2, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ3="Error! Please provide Answer for Security Question #1, Security Question #2, Answer for Security Question #2, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3="Error! Please provide Answer for Security Question #1, Answer for Security Question #2, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3A1="Error! Please provide Answer for Security Question #2, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3A2="Error! Please provide Answer for Security Question #1, Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3A3="Error! Please provide Answer for Security Question #1, Answer for Security Question #2";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3A1A2="Error! Please provide Answer for Security Question #3";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3A1A3="Error! Please provide Answer for Security Question #2";
+  public static final String FORM_SECURITYQ_ALERTMSG_EMPTYFORM_WITHSQ1SQ2SQ3A2A3="Error! Please provide Answer for Security Question #1";
+  public static final String FORM_REGISTER_ALERTMSG_ALLFIELDS="Success! Your Account has been created. Please login into your Account";
   
   public static final String FORM_SECURITYQ_INPUT_SQ1="auth-reg-securityQ-sQ1";
   public static final String FORM_SECURITYQ_INPUT_A1="auth-reg-securityQ-a1";
@@ -90,5 +106,17 @@ public interface UserRegisterForm {
   public static final String FORM_SECURITYQ_INPUT_SQ3="auth-reg-securityQ-sQ3";
   public static final String FORM_SECURITYQ_INPUT_A3="auth-reg-securityQ-a3";
   public static final String FORM_SECURITYQ_BUTTON_CREATEACCOUNT="auth-reg-securityQ-createAccount";
+  
+  public static final String FORM_SECURITYQ_INPUT_A1_DEFAULT="Choose your Security Question#1";
+  public static final String FORM_SECURITYQ_INPUT_A2_DEFAULT="Choose your Security Question#2";
+  public static final String FORM_SECURITYQ_INPUT_A3_DEFAULT="Choose your Security Question#3";
+  
+  public static final String SECURITYQMODULE_FIELDS_LABEL_SECURITYQUESTION_1 = "Security Question#1";
+  public static final String SECURITYQMODULE_FIELDS_LABEL_SECURITYQUESTION_2 = "Security Question#2";
+  public static final String SECURITYQMODULE_FIELDS_LABEL_SECURITYQUESTION_3 = "Security Question#3";
+  public static final String SECURITYQMODULE_FIELDS_LABEL_SECURITYANSWER_1 = "Security Answer#1";
+  public static final String SECURITYQMODULE_FIELDS_LABEL_SECURITYANSWER_2 = "Security Answer#2";
+  public static final String SECURITYQMODULE_FIELDS_LABEL_SECURITYANSWER_3 = "Security Answer#3";
+  
   
 }

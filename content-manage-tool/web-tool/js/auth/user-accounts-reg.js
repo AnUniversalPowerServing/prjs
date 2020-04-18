@@ -268,7 +268,7 @@ function submit_auth_reg_securityQ(){
 }
 function load_auth_reg_securityQ(){
   SECURITYQUESTION1='';SECURITYQUESTION2='';SECURITYQUESTION3='';
-  js_ajax('GET',AUTH_REG_ENDPOINT,{ action:'USER_AUTH_SECURITYQ' },function(securityQuestions){
+  authEndpoints.userAccounts_viewInfo_securityQ(function(securityQuestions){ 
     SECURITYQUESTIONS = securityQuestions;
 	load_auth_reg_securityQ1();
 	load_auth_reg_securityQ2();
@@ -277,7 +277,7 @@ function load_auth_reg_securityQ(){
 }
 function load_auth_reg_securityQ1(){
  var content='<option value="">Choose your Security Question#1</option>';
- for(var index in SECURITYQUESTIONS){
+ for(var index=0;index<10;index++){
   var sQ_Id = SECURITYQUESTIONS[index].sQ_Id;
   var sQ = SECURITYQUESTIONS[index].sQ;
   var exclude = false;
@@ -293,7 +293,7 @@ function update_auth_reg_securityQ1(){
 }
 function load_auth_reg_securityQ2(){
  var content='<option value="">Choose your Security Question#2</option>';
- for(var index in SECURITYQUESTIONS){
+ for(var index=10;index<20;index++){
   var sQ_Id = SECURITYQUESTIONS[index].sQ_Id;
   var sQ = SECURITYQUESTIONS[index].sQ;
   var exclude = false;
@@ -309,7 +309,7 @@ function update_auth_reg_securityQ2(){
 }
 function load_auth_reg_securityQ3(){
  var content='<option value="">Choose your Security Question#3</option>';
- for(var index in SECURITYQUESTIONS){
+ for(var index=20;index<SECURITYQUESTIONS.length;index++){
   var sQ_Id = SECURITYQUESTIONS[index].sQ_Id;
   var sQ = SECURITYQUESTIONS[index].sQ;
   var exclude = false;

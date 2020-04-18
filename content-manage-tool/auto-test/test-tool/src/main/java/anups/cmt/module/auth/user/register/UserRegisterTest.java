@@ -18,6 +18,8 @@ import anups.cmt.core.pojos.TestSteps;
 import anups.cmt.core.utils.Xml;
 import anups.cmt.module.auth.user.register.geninfo.GeneralInfoModuleUtils;
 import anups.cmt.module.auth.user.register.setpwd.SetPwdModuleFactory;
+import anups.cmt.module.auth.user.register.sq.SqModuleDatabase;
+import anups.cmt.module.auth.user.register.sq.SqModuleFactory;
 
 public class UserRegisterTest extends AutomationBase {
 
@@ -33,6 +35,8 @@ public class UserRegisterTest extends AutomationBase {
 	
 	private SetPwdModuleFactory setPwdModuleFactory;
 	
+	private SqModuleFactory sqModuleFactory;
+	
 	public static WebDriver getWebDriver() {
 		return driver;
 	}
@@ -44,10 +48,16 @@ public class UserRegisterTest extends AutomationBase {
 	public UserRegisterTest() throws InterruptedException, AWTException {
 		super("http://localhost/prjs/content-manage-tool/web-tool/kv-forms.php");
 		driver = super.getDriver();
+		
 		userRegisterWebElements = new UserRegisterWebElements(driver);
+		
+		/* Delete TestData in Database Initially ::: Start */
+		new SqModuleDatabase().deleteDataStoresinDatabase();
+		/* Delete TestData in Database Initially ::: End */
 		
 		generalInfoModuleUtils = new GeneralInfoModuleUtils();
 		setPwdModuleFactory = new SetPwdModuleFactory();
+		sqModuleFactory = new SqModuleFactory();
 		
 	    automationReport =  new AutomationReport("authentication-report");
 	    automationReportContent="";
@@ -60,8 +70,9 @@ public class UserRegisterTest extends AutomationBase {
 	public void module01() throws InterruptedException, AWTException {
 		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { 
 				Bootstrap.buildH4Heading("Create Account - General Information"),
-				Bootstrap.buildH4Heading("Create Account - Set Password") 
-		});
+				Bootstrap.buildH4Heading("Create Account - Set Password"),
+				Bootstrap.buildH4Heading("Create Account - Set Security Questions") 
+		}, null, null);
 		automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { 
 				generalInfoModuleUtils.testOnPageLoad()+
 				generalInfoModuleUtils.testBadge1()+
@@ -82,8 +93,34 @@ public class UserRegisterTest extends AutomationBase {
 				generalInfoModuleUtils.checkGenInfoFormWithSurNameGenderAndMobile()+
 				generalInfoModuleUtils.checkGenInfoFormWithSurNameNameAndMobile()+
 				generalInfoModuleUtils.checkGenInfoFormWithAllFields(),
-				setPwdModuleFactory.checkEmptySetPwdForm() 
-		});
+				
+				setPwdModuleFactory.checkEmptySetPwdForm()+
+				setPwdModuleFactory.checkSetPwdFormWithPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithConfirmPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithInvalidPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithInvalidConfirmPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithInvalidPasswordAndInvalidConfirmPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithValidPasswordAndInvalidConfirmPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithInvalidPasswordAndValidConfirmPassword()+
+				setPwdModuleFactory.checkSetPwdFormWithValidPasswordAndValidConfirmPassword(),
+				
+				sqModuleFactory.checkSQLoadingFromDatabase()+
+				sqModuleFactory.checkEmptySetSQForm()+
+				sqModuleFactory.checkSetSQFormWithSQ1()+
+				sqModuleFactory.checkSetSQFormWithSQ2()+
+				sqModuleFactory.checkSetSQFormWithSQ3()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2()+
+				sqModuleFactory.checkSetSQFormWithSQ2SQ3()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ3()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3A1()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3A2()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3A3()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3A1A2()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3A2A3()+
+				sqModuleFactory.checkSetSQFormWithSQ1SQ2SQ3A1A3()+
+				sqModuleFactory.checkSetSQFormWithAllFields()
+		},null,null);
 		// automationReportContent+=Bootstrap.buildContainerFluidRow(3, new String[] { checkGenInfoFormWithAllFields() });
 	}
 	// +checkGenInfoFormWithEmptyOTPCode()

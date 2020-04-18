@@ -48,7 +48,7 @@ public class Bootstrap {
   
   public static String buildH5Heading(String heading) {
     StringBuilder sb = new StringBuilder();
-    sb.append("<h5><b>").append(heading).append("</b></h5>").append("\n");
+    sb.append("<h5 style=\"line-height:22px;\"><b>").append(heading).append("</b></h5>").append("\n");
     return sb.toString();
   }
   
@@ -72,10 +72,16 @@ public class Bootstrap {
 	return sb.toString();
   }
   
-  public static String buildContainerFluidRow(int cols, String[] col) {
+  public static String buildContainerFluidRow(int cols, String[] col, Boolean rowBorder, Boolean isPassed) {
 	int div = 12/cols;
 	StringBuilder sb = new StringBuilder();
-	sb.append("<div class=\"row\" style=\"padding-left:5px;\">");
+	sb.append("<div class=\"row\" style=\"padding-left:5px;padding-top:10px;padding-bottom:10px;");
+	if(rowBorder!=null && rowBorder) { sb.append("border:1px solid #ccc;"); }
+	if(isPassed == null && (rowBorder==null)) { sb.append("background-color:#fff;"); }
+	else if(isPassed == null && (rowBorder && rowBorder!=null)) { sb.append("background-color:#fdffe5;"); }
+    else if(isPassed) { sb.append("background-color:#e3ffe3;"); }
+    else { sb.append("background-color:#ffeeed;"); }
+	sb.append("\">");
 	for(int index=0;index<cols;index++) {
       if(index<col.length) {
 	      sb.append("<div class=\"col-sm-").append(div).append("\">").append(col[index]).append("</div>").append("\n");
@@ -152,7 +158,7 @@ public class Bootstrap {
 	String label = Bootstrap.buildLabel("12", "danger");
 	String[] listGroupItem = {"Hello "+label};
 	String listGroup = Bootstrap.buildListGroup(listGroupItem);
-	String rows = Bootstrap.buildContainerFluidRow(3, new String[] {listGroup});
+	String rows = Bootstrap.buildContainerFluidRow(3, new String[] {listGroup}, null, null);
 	String htmlContent = Bootstrap.buildContainerFluid(new String[] {rows});
 	String html = buildHTMLContent("TestPage",htmlContent);
 	System.out.println(html);

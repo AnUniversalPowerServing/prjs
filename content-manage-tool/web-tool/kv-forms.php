@@ -70,7 +70,6 @@ function showHide_auth_accountAccessForm(id){
     reset_auth_login_retrieveAccountWithMobileForm();
  }
 }
-
 function reset_auth_accountAccessForm_userAccountForm(){ 
 
 }
@@ -82,7 +81,6 @@ function reset_auth_accountAccessForm_retrievePwdWithMobileForm(){
 $(document).ready(function(){
  trigger_userAccounts_auth();
  trigger_userAccounts_auth_login_rAWoIForm();
- // showHide_auth_retrieveAccountWithoutInfoForm('auth-login-retrieveAccountWithoutInfoForm-securityQ');
 });
 </script>
 </head>

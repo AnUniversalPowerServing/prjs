@@ -118,14 +118,6 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    genInfo_surName_webElement.sendKeys(Keys.chord(Keys.CONTROL, "a"));
    genInfo_surName_webElement.sendKeys(Keys.BACK_SPACE);
  }
-	
- private String testCaseStatus(Boolean status) {
-	if(status) {
-		return Bootstrap.buildLabel("PASSED", "success");
-	} else {
-		return Bootstrap.buildLabel("FAILED", "danger");
-	}
- }
  
  private void genInfoForm_add_surName(String surName) {
    WebElement genInfo_surName_webElement = userRegisterWebElements.getInputWebElement(UserRegisterForm.FORM_GENINFO_INPUT_SURNAME);
@@ -191,7 +183,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 	   StringBuilder testData = new StringBuilder();
 			testData.append(Bootstrap.buildSimpleDiv(Bootstrap.buildBold("OTPCode: ")+otpcode, false));
 	   return testData.toString();
-	 }
+ }
  
  public String checkEmptyGenInfoForm() throws InterruptedException, AWTException {
 	 
@@ -225,7 +217,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurName() throws InterruptedException, AWTException {
    StringBuilder sb = new StringBuilder(); 
 		   
-   String surName = UserRegisterTestData.DATA_SURNAME;
+   String surName = UserRegisterTestData.DATA_VALID_SURNAME;
    String name = UserRegisterTestData.EMPTY_NAME;
    String gender = UserRegisterTestData.EMPTY_GENDER;
    String mobileCode = "+91";
@@ -256,7 +248,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    StringBuilder sb = new StringBuilder(); 
 		   
    String surName = UserRegisterTestData.EMPTY_SURNAME;
-   String name = UserRegisterTestData.DATA_NAME;
+   String name = UserRegisterTestData.DATA_VALID_NAME;
    String gender = UserRegisterTestData.EMPTY_GENDER;
    String mobileCode = "+91";
    String mobile = UserRegisterTestData.EMPTY_MOBILE;
@@ -287,7 +279,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 		   
    String surName = UserRegisterTestData.EMPTY_SURNAME;
    String name = UserRegisterTestData.EMPTY_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_MALE;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
    String mobileCode = "+91";
    String mobile = UserRegisterTestData.EMPTY_MOBILE;
 		   
@@ -319,7 +311,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    String name = UserRegisterTestData.EMPTY_NAME;
    String gender = UserRegisterTestData.EMPTY_GENDER;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 		   
    genInfoForm_reset_allFields();
    genInfoForm_add_mobile(mobile);
@@ -350,7 +342,7 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    String name = UserRegisterTestData.EMPTY_NAME;
    String gender = UserRegisterTestData.EMPTY_GENDER;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_EXIST;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_EXIST;
 		   
    genInfoForm_reset_allFields();
    genInfoForm_add_mobile(mobile);
@@ -377,8 +369,8 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurNameAndName() throws InterruptedException, AWTException {
 	StringBuilder sb = new StringBuilder(); 
 		   
-	String surName = UserRegisterTestData.DATA_SURNAME;
-	String name = UserRegisterTestData.DATA_NAME;
+	String surName = UserRegisterTestData.DATA_VALID_SURNAME;
+	String name = UserRegisterTestData.DATA_VALID_NAME;
 	String gender = UserRegisterTestData.EMPTY_GENDER;
 	String mobileCode = "+91";
 	String mobile = UserRegisterTestData.EMPTY_MOBILE;
@@ -409,8 +401,8 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 	StringBuilder sb = new StringBuilder(); 
 		   
 	String surName = UserRegisterTestData.EMPTY_SURNAME;
-	String name = UserRegisterTestData.DATA_NAME;
-	String gender = UserRegisterTestData.DATA_GENDER_MALE;
+	String name = UserRegisterTestData.DATA_VALID_NAME;
+	String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
 	String mobileCode = "+91";
 	String mobile = UserRegisterTestData.EMPTY_MOBILE;
 		   
@@ -441,9 +433,9 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
 			   
    String surName = UserRegisterTestData.EMPTY_SURNAME;
    String name = UserRegisterTestData.EMPTY_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_FEMALE;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_FEMALE;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 			   
    genInfoForm_reset_allFields();
    genInfoForm_add_gender(gender); 
@@ -471,9 +463,9 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurNameAndGender() throws InterruptedException, AWTException {
    StringBuilder sb = new StringBuilder(); 
 			   
-   String surName = UserRegisterTestData.DATA_SURNAME;
+   String surName = UserRegisterTestData.DATA_VALID_SURNAME;
    String name = UserRegisterTestData.EMPTY_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_MALE;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
    String mobileCode = "+91";
    String mobile = UserRegisterTestData.EMPTY_MOBILE;
 			   
@@ -502,11 +494,11 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurNameAndMobile() throws InterruptedException, AWTException {
    StringBuilder sb = new StringBuilder(); 
 				   
-   String surName = UserRegisterTestData.DATA_SURNAME;
+   String surName = UserRegisterTestData.DATA_VALID_SURNAME;
    String name = UserRegisterTestData.EMPTY_NAME;
    String gender = UserRegisterTestData.EMPTY_GENDER;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 				   
    genInfoForm_reset_allFields();
    genInfoForm_add_surName(surName);
@@ -535,10 +527,10 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    StringBuilder sb = new StringBuilder(); 
 					   
    String surName = UserRegisterTestData.EMPTY_SURNAME;
-   String name = UserRegisterTestData.DATA_NAME;
+   String name = UserRegisterTestData.DATA_VALID_NAME;
    String gender = UserRegisterTestData.EMPTY_GENDER;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 					   
    genInfoForm_reset_allFields();
    genInfoForm_add_name(name);
@@ -566,9 +558,9 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurNameNameAndGender() throws InterruptedException, AWTException {
    StringBuilder sb = new StringBuilder(); 
 						   
-   String surName = UserRegisterTestData.DATA_SURNAME;
-   String name = UserRegisterTestData.DATA_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_MALE;
+   String surName = UserRegisterTestData.DATA_VALID_SURNAME;
+   String name = UserRegisterTestData.DATA_VALID_NAME;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
    String mobileCode = "+91";
    String mobile = UserRegisterTestData.EMPTY_MOBILE;
 						   
@@ -600,10 +592,10 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
    StringBuilder sb = new StringBuilder(); 
 							   
    String surName = UserRegisterTestData.EMPTY_SURNAME;
-   String name = UserRegisterTestData.DATA_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_MALE;
+   String name = UserRegisterTestData.DATA_VALID_NAME;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 							   
    genInfoForm_reset_allFields();
    genInfoForm_add_name(name);
@@ -632,11 +624,11 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurNameGenderAndMobile() throws InterruptedException, AWTException {
    StringBuilder sb = new StringBuilder(); 
 								   
-   String surName = UserRegisterTestData.DATA_SURNAME;
+   String surName = UserRegisterTestData.DATA_VALID_SURNAME;
    String name = UserRegisterTestData.EMPTY_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_MALE;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 								   
    genInfoForm_reset_allFields();
    genInfoForm_add_surName(surName);
@@ -665,11 +657,11 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithSurNameNameAndMobile() throws InterruptedException, AWTException {
   StringBuilder sb = new StringBuilder(); 
 							   
-  String surName = UserRegisterTestData.DATA_SURNAME;
-  String name = UserRegisterTestData.DATA_NAME;
+  String surName = UserRegisterTestData.DATA_VALID_SURNAME;
+  String name = UserRegisterTestData.DATA_VALID_NAME;
   String gender = UserRegisterTestData.EMPTY_GENDER;
   String mobileCode = "+91";
-  String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+  String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 							   
   genInfoForm_reset_allFields();
   genInfoForm_add_surName(surName);
@@ -698,11 +690,11 @@ public class GeneralInfoModuleUtils extends UserRegisterFormUtils {
  public String checkGenInfoFormWithAllFields() throws InterruptedException, AWTException {
    StringBuilder sb = new StringBuilder(); 
 								   
-   String surName = UserRegisterTestData.DATA_SURNAME;
-   String name = UserRegisterTestData.DATA_NAME;
-   String gender = UserRegisterTestData.DATA_GENDER_MALE;
+   String surName = UserRegisterTestData.DATA_VALID_SURNAME;
+   String name = UserRegisterTestData.DATA_VALID_NAME;
+   String gender = UserRegisterTestData.DATA_VALID_GENDER_MALE;
    String mobileCode = "+91";
-   String mobile = UserRegisterTestData.DATA_MOBILE_NEW;
+   String mobile = UserRegisterTestData.DATA_VALID_MOBILE_NEW;
 								   
    genInfoForm_reset_allFields();
    genInfoForm_add_surName(surName);
