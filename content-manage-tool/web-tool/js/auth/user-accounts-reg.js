@@ -64,9 +64,9 @@ function sel_auth_badges(sel_Id){
  * FUNCTION DESCRIPTION:
  * =======================================================================================
  * This Function is used to Badge and its Content-Form based on "sel_Id" that supplies.
- * sel_Id -> badge_htmlElements.badge_menu[0] (loads General Info Module Form)
- *        -> badge_htmlElements.badge_menu[1] (loads Set Password Module Form)
- *        -> badge_htmlElements.badge_menu[2] (loads Set Security Questions Module Form)
+ * IF sel_Id -> badge_htmlElements.badge_menu[0] (loads General Info Module Form)
+ *           -> badge_htmlElements.badge_menu[1] (loads Set Password Module Form)
+ *           -> badge_htmlElements.badge_menu[2] (loads Set Security Questions Module Form)
  */
   bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
 }
@@ -77,10 +77,17 @@ function sel_auth_badges(sel_Id){
  * This form consists of following fields:
  * a) SurName b) Name c) Gender d) MobileCode e) Mobile f) Verify and Change Button
  * g) OTPCode h) Validate OTP Code Button i) Next Button (To proceed to Set Password Module Form)
+ * ----------------------------------
  * Functions on this Module:
+ * ----------------------------------
  * a) autocomplete_surNames() - AutoComplete list of existsing SurNames
  * b) showHide_auth_reg_mobileVerifyChangeBtn(view) - Toggling between VerifyButton and Change Button
- * c) 
+ * c) reset_auth_reg_otpForm() - To Reset OTPCode Form Fields
+ * d) showHide_auth_reg_otpForm(mode) - Toggles to Show/hide OTP Code Form
+ * e) showHide_auth_reg_genInfoNext(mode) - Toggles to Show/hide Next Button (Proceed to move to
+ *                                          Set Password Module Form)
+ * f) submit_auth_reg_changeMobile() - Triggered When Change Button is clicked
+ * g)
  */
 
 function autocomplete_surNames(){
@@ -91,11 +98,18 @@ function autocomplete_surNames(){
  * AutoComplete from user_accounts_auth table
  */ 
  authEndpoints.userAccounts_autocomplete_surNames(function(response){ 
-	$("#"+auth_reg_surName).autocomplete({ source:response }); 
+	$("#"+auth_reg_htmlElements.auth_reg_surName).autocomplete({ source:response }); 
  });
 }
 
 function showHide_auth_reg_mobileVerifyChangeBtn(view){
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This function is used to Toggle Verify and Change Button.
+ * IF view -> verifyBtn (Shows Verify Button and hides Change Button)
+ *         -> changeBtn (Shows Change Button and hides Verify Button)
+ */
  if(view=='verifyBtn'){
   if($('#'+auth_reg_htmlElements.verifyMobileBtn).hasClass('hide-block')){
    $('#'+auth_reg_htmlElements.verifyMobileBtn).removeClass('hide-block');
@@ -114,6 +128,18 @@ function showHide_auth_reg_mobileVerifyChangeBtn(view){
 }
 
 function reset_auth_reg_otpForm(){
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ *  OTP Code Form consists of 
+ *   a) OTP Code Input Field   b) Validate OTP Button.
+ *  This Function is used to reset OTP Code Form with following tasks:
+ *  a) OTP Code Input Field -> Value Empty and Editable
+ *  b) Validate OTP Button  -> Clickable
+ *  c) Remove - Success / Error validation Icons on these Fields
+ * This Function is triggered from:
+ *  a) showHide_auth_reg_otpForm(mode)
+ */
  $("#"+auth_reg_htmlElements.auth_reg_otpcode).val('');
  document.getElementById(auth_reg_htmlElements.auth_reg_otpcode).disabled=false;
  document.getElementById(auth_reg_htmlElements.validateOTPBtn).disabled=false;
@@ -121,23 +147,50 @@ function reset_auth_reg_otpForm(){
 }
 
 function showHide_auth_reg_otpForm(mode){
-  showHide_auth_reg_genInfoNext('hide');
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This Function is used to toggle OTP Code Form in showing and hiding in the View.
+ * When this Function is triggered, hides Next Button
+ * IF mode -> show ( Does: a) Shows OTP Code Form
+ *                         b) Hides Verify Button and Shows Change Button
+ *                         c) Mobile Number Input Field -> Non-Editable 
+ *                         d) Resets OTP Code Form )
+ *         -> hide (Does: a) Hides OTP Code Form
+ *                        b) Shows Verify Button and Hides Change Button
+ *                        c) Remove - Success / Error validation Icons on Mobile Code Dropdown, 
+ *                           Mobile Number Input and Verify Button Fields
+ *                        d) Mobile Number Input Field -> Value Empty and Editable
+ */
+  showHide_auth_reg_genInfoNext('hide'); // Hides Next Button
   if(mode=='show'){
+    // Code to Show OTP Code Form
     if($('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block')){
        $('#'+auth_reg_htmlElements.verifyMobileForm).removeClass('hide-block');
     }
-    showHide_auth_reg_mobileVerifyChangeBtn('changeBtn');
-	document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=true;
-	reset_auth_reg_otpForm(); 
+    showHide_auth_reg_mobileVerifyChangeBtn('changeBtn'); // Hides Verify Button and Shows Change Button
+	  document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=true; // Non-Editable 
+	  reset_auth_reg_otpForm();  // Reset OTP Code Form
   } else if(mode=='hide'){
+     // Code to Hide OTP Code Form
      if(!$('#'+auth_reg_htmlElements.verifyMobileForm).hasClass('hide-block')){
        $('#'+auth_reg_htmlElements.verifyMobileForm).addClass('hide-block');
      }
-	 showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn');
-	 bootstrap_formField_trigger('remove',auth_reg_htmlElements.auth_reg_mobile);
+	   showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn'); // Shows Verify Button and Hides Change Button
+     bootstrap_formField_trigger('remove',auth_reg_htmlElements.auth_reg_mobile); // Remove - Success / Error validation Icons
+     document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=false; // Editable 
+     $("#"+auth_reg_htmlElements.auth_reg_mobile).val(''); // Value Empty
   }
 }
+
 function showHide_auth_reg_genInfoNext(mode){
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This Function is used to toggle Next Button (Procced to Set Password Module Form).
+ * IF mode -> show ( Displays Next Button )
+ *         -> Hide ( Hides Next Button )
+ */
     if($('#'+auth_reg_htmlElements.genInfoMoveNextForm).hasClass('hide-block') && mode=='show'){
        $('#'+auth_reg_htmlElements.genInfoMoveNextForm).removeClass('hide-block');
     }
@@ -145,13 +198,21 @@ function showHide_auth_reg_genInfoNext(mode){
        $('#'+auth_reg_htmlElements.genInfoMoveNextForm).addClass('hide-block');
     }
 }
+
 function submit_auth_reg_changeMobile(){
- ALLOW_UPTO_INDEX=1;
- document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
- document.getElementById(auth_reg_htmlElements.auth_reg_mobile).disabled=false;
- $("#"+auth_reg_htmlElements.auth_reg_mobile).val('');
- showHide_auth_reg_otpForm('hide');
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This Function is triggered When Change Button is clicked.
+ * DOES: a) Set Badge#1
+ *       b) Alert Message is set to Empty
+ *       c) Hides Change Button, shows Verify Button and Hides OTP Code Form. 
+ */
+ ALLOW_UPTO_INDEX=1; // Set Badge#1
+ document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML=''; // Alert Message is set to Empty
+ showHide_auth_reg_otpForm('hide'); // Hides Change Button, shows Verify Button and Hides OTP Code Form
 }
+
 function submit_auth_reg_verifyMobile(){
  VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
  var valid_surName = validate_surName(auth_reg_htmlElements.auth_reg_surName);
