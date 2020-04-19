@@ -1,3 +1,10 @@
+/* ===============================================================================================
+ * user-account-reg.js
+ * ===============================================================================================
+ * User register Form consists of 3 Modules:
+ * a) General Info Module Form  b) Set Password Module Form  c) Set Security Question Module Form
+ * 
+ */
 var AUTH_REG_SURNAME;
 var AUTH_REG_NAME;
 var AUTH_REG_GENDER;
@@ -15,7 +22,7 @@ var SECURITYQUESTION1;
 var SECURITYQUESTION2;
 var SECURITYQUESTION3;
 
-var ALLOW_UPTO_INDEX=1;
+var ALLOW_UPTO_INDEX=1; // This is used to represent Badge Index
 var badge_htmlElements = { badge_menu:["badge-auth-reg-genInfo","badge-auth-reg-setPassword","badge-auth-reg-securityQ"],
 						   badge_info:{ "badge-auth-reg-genInfo":{ "contents":["auth-reg-genInfo"],"functions":function(){ } },
 										"badge-auth-reg-setPassword":{ "contents":["auth-reg-setPassword"],"functions":function(){ } },
@@ -39,23 +46,55 @@ var auth_reg_htmlElements = { auth_reg_surName:'auth-reg-genInfo-surName', auth_
 							};
 						
 function trigger_userAccounts_auth(){
- sel_auth_badges(badge_htmlElements.badge_menu[0]);
+/* ===============================================================================
+ * FUNCTION DESCRIPTION:
+ * ===============================================================================
+ *  This Function is triggered on Document gets Ready. In this function, we loads
+ *  a) Select Badge Function to select Badge#1 and Display General Module Info Form.
+ *  b) Displays Verify Button in the General Module Info Form.
+ *  c) SurName AutoComplete Function
+ */
+ sel_auth_badges(badge_htmlElements.badge_menu[0]); // This is used to load General Info Module Form
  showHide_auth_reg_mobileVerifyChangeBtn('verifyBtn');
  autocomplete_surNames();
 }
 
+function sel_auth_badges(sel_Id){
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This Function is used to Badge and its Content-Form based on "sel_Id" that supplies.
+ * sel_Id -> badge_htmlElements.badge_menu[0] (loads General Info Module Form)
+ *        -> badge_htmlElements.badge_menu[1] (loads Set Password Module Form)
+ *        -> badge_htmlElements.badge_menu[2] (loads Set Security Questions Module Form)
+ */
+  bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
+}
+
+/* ===============================================================================================
+ * GENERAL INFO MODULE FORM:
+ * ===============================================================================================
+ * This form consists of following fields:
+ * a) SurName b) Name c) Gender d) MobileCode e) Mobile f) Verify and Change Button
+ * g) OTPCode h) Validate OTP Code Button i) Next Button (To proceed to Set Password Module Form)
+ * Functions on this Module:
+ * a) autocomplete_surNames() - AutoComplete list of existsing SurNames
+ * b) showHide_auth_reg_mobileVerifyChangeBtn(view) - Toggling between VerifyButton and Change Button
+ * c) 
+ */
+
 function autocomplete_surNames(){
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This Function is used loads list of SurNames of Users who already Register as an 
+ * AutoComplete from user_accounts_auth table
+ */ 
  authEndpoints.userAccounts_autocomplete_surNames(function(response){ 
-	$("#auth-reg-genInfo-surName").autocomplete({ source:response }); 
+	$("#"+auth_reg_surName).autocomplete({ source:response }); 
  });
 }
 
-function sel_auth_badges(sel_Id){
- bootstrap_menu_trigger(badge_htmlElements.badge_info,'badges', sel_Id,ALLOW_UPTO_INDEX);
-}
-/*********************************************************************************************************************/
-/*********************************************************************************************************************/
-/*********************************************************************************************************************/
 function showHide_auth_reg_mobileVerifyChangeBtn(view){
  if(view=='verifyBtn'){
   if($('#'+auth_reg_htmlElements.verifyMobileBtn).hasClass('hide-block')){
@@ -73,12 +112,14 @@ function showHide_auth_reg_mobileVerifyChangeBtn(view){
   }
  }
 }
+
 function reset_auth_reg_otpForm(){
  $("#"+auth_reg_htmlElements.auth_reg_otpcode).val('');
  document.getElementById(auth_reg_htmlElements.auth_reg_otpcode).disabled=false;
  document.getElementById(auth_reg_htmlElements.validateOTPBtn).disabled=false;
  bootstrap_formField_trigger('remove',auth_reg_htmlElements.auth_reg_otpcode);
 }
+
 function showHide_auth_reg_otpForm(mode){
   showHide_auth_reg_genInfoNext('hide');
   if(mode=='show'){

@@ -39,17 +39,32 @@ body { background-color:purple;color:#fff; }
 .hide-block { display:none; }
 /* Page Related CSS ::: End */
 </style>
-
+<!--
+  ================================================================================================
+  Overview of User Authentication Page:
+  ================================================================================================
+  This page consists of 4 User Authentication forms:
+  a) User Register Form (Static on Screen)
+  b) User Login Form (Dynamic on Screen)        
+  c) Reset Password using Mobile Number (Dynamic on Screen)
+  d) Reset Mobile Number and Password using Security Questions (Dynamic on Screen)
+   
+ -->
 <script type="text/javascript">
 var auth_loginForm_htmlElements = {
   userAccountForm:'auth-login-userAccountForm',
-  userAccountBtn:'auth-login-access-userAccountForm',
+  userAccountBtn:'auth-login-access-userAccountForm', // link that triggers userAccountForm
   retrievePwdWithMobileForm:'auth-login-retrievePwdWithMobileForm',
-  retrievePwdWithMobileBtn:'auth-login-access-retrievePwdWithMobileForm',
+  retrievePwdWithMobileBtn:'auth-login-access-retrievePwdWithMobileForm',  // link that triggers retrievePwdWithMobileForm
   retrieveAccountWithoutInfoForm:'auth-login-retrieveAccountWithoutInfoForm',
-  retrieveAccountWithoutInfoBtn:'auth-login-access-retrieveAccountWithoutInfoForm'
+  retrieveAccountWithoutInfoBtn:'auth-login-access-retrieveAccountWithoutInfoForm' // link that triggers retrieveAccountWithoutInfoForm
 };
 function showHide_auth_accountAccessForm(id){
+/* ========================================================================
+ * Function Description:
+ * ========================================================================
+ *  This Function is used to show/hide User Authentication Form
+ */
  var arry_Id=[auth_loginForm_htmlElements.userAccountForm,auth_loginForm_htmlElements.retrievePwdWithMobileForm,
 			  auth_loginForm_htmlElements.retrieveAccountWithoutInfoForm];
  var arry_btn_Id=[auth_loginForm_htmlElements.userAccountBtn,auth_loginForm_htmlElements.retrievePwdWithMobileBtn,
@@ -77,10 +92,10 @@ function reset_auth_accountAccessForm_retrievePwdWithMobileForm(){
 
 }
 
-
+/** On Document gets Ready : Following gets loaded */
 $(document).ready(function(){
- trigger_userAccounts_auth();
- trigger_userAccounts_auth_login_rAWoIForm();
+ trigger_userAccounts_auth(); //  This Function is in user-accounts-reg.js
+ trigger_userAccounts_auth_login_rAWoIForm(); // This Function is in user-accounts-retrieve-withSQ.js
 });
 </script>
 </head>
