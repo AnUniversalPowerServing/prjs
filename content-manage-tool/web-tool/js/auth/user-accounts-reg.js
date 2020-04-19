@@ -87,7 +87,7 @@ function sel_auth_badges(sel_Id){
  * e) showHide_auth_reg_genInfoNext(mode) - Toggles to Show/hide Next Button (Proceed to move to
  *                                          Set Password Module Form)
  * f) submit_auth_reg_changeMobile() - Triggered When Change Button is clicked
- * g)
+ * g) submit_auth_reg_verifyMobile() - Triggered When Verify Button is clicked
  */
 
 function autocomplete_surNames(){
@@ -214,6 +214,15 @@ function submit_auth_reg_changeMobile(){
 }
 
 function submit_auth_reg_verifyMobile(){
+/* =======================================================================================
+ * FUNCTION DESCRIPTION:
+ * =======================================================================================
+ * This Function is triggered When Verify Button is clicked.
+ * DOES: a) Validates Mobile Number
+ *          IF Mobile -> EXISTS (Displays Alert Message - User already Registered )
+ *                    -> NOT_EXISTS && Has valid Surname, Name, Gender (Displays OTP Code Form)
+ *          ELSE -> ( Displays Alert Message - With Reason )
+ */
  VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
  var valid_surName = validate_surName(auth_reg_htmlElements.auth_reg_surName);
  var valid_name = validate_name(auth_reg_htmlElements.auth_reg_name);
@@ -224,13 +233,13 @@ function submit_auth_reg_verifyMobile(){
    authEndpoints.userAccounts_verify_mobileNumber(mobile,function(response){
       console.log(JSON.stringify(response));
 	  if(response.user==='NOT_EXISTS' && valid_surName && valid_name && valid_gender){
-	    document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML='';
-        showHide_auth_reg_otpForm('show');
-	    bootstrap_formField_trigger('success',auth_reg_htmlElements.auth_reg_mobile);
+	    document.getElementById(auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg).innerHTML=''; // Alert Message is set to Empty
+      showHide_auth_reg_otpForm('show'); // Displays OTP Code Form
+	    bootstrap_formField_trigger('success',auth_reg_htmlElements.auth_reg_mobile); // Add Success validation Icon
 	  } else if(response.user==='EXISTS'){
 	    VALIDATION_MESSAGE_ERROR='You already Registered. Please login to your Account ';
 	    show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
-		bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile);
+		  bootstrap_formField_trigger('error',auth_reg_htmlElements.auth_reg_mobile);
 	  } else {
 		 show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
 	  }
@@ -239,6 +248,7 @@ function submit_auth_reg_verifyMobile(){
     show_validate_msg('error',auth_reg_htmlElements.auth_reg_genInfo_warnErrorMsg);
  }
 }
+
 function submit_auth_reg_validateOTPCode(){
   VALIDATION_MESSAGE_ERROR='Please provide '; // It's declared in validation.js
   var otpcode = $("#"+auth_reg_htmlElements.auth_reg_otpcode).val();
