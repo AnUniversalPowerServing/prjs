@@ -98,7 +98,7 @@
    </div><!--/.form-group -->
    <div id="auth-reg-sQ-warnErrorMsg" class="form-group"></div><!--/.form-group -->
    <div class="form-group">
-     <select id="auth-reg-securityQ-sQ1" class="form-control" onchange="javascript:update_auth_reg_securityQ1();">
+     <select id="auth-reg-securityQ-sQ1" class="form-control">
        <option value="">Security Question # 1</option>
      </select>
    </div><!--/.form-group -->
@@ -106,7 +106,7 @@
      <input id="auth-reg-securityQ-a1" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-     <select id="auth-reg-securityQ-sQ2" class="form-control" onchange="javascript:update_auth_reg_securityQ2();">
+     <select id="auth-reg-securityQ-sQ2" class="form-control">
        <option value="">Security Question # 2</option>
      </select>
    </div><!--/.form-group -->
@@ -114,7 +114,7 @@
 	 <input id="auth-reg-securityQ-a2" class="form-control" placeholder="Enter Answer"/>
    </div><!--/.form-group -->
    <div class="form-group">
-	 <select id="auth-reg-securityQ-sQ3" class="form-control" onchange="javascript:update_auth_reg_securityQ3();">
+	 <select id="auth-reg-securityQ-sQ3" class="form-control">
 	   <option value="">Security Question # 3</option>
 	 </select>
    </div><!--/.form-group -->
